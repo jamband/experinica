@@ -1,6 +1,8 @@
 # Experinica
 
-Experinica is my private playground for [React Location](https://react-location.tanstack.com/). This repository is the client-side rendering (CSR) version of [jamband/tapes](https://github.com/jamband/tapes).
+Experinica is my private playground for [React Location](https://react-location.tanstack.com/).
+
+This repository is the client-side rendering (CSR) edition of [jamband/tapes](https://github.com/jamband/tapes).
 
 ## Tools
 
@@ -8,7 +10,7 @@ Experinica is my private playground for [React Location](https://react-location.
 - Routing: [React Location](https://react-location.tanstack.com/)
 - State management: [Jotai](https://jotai.org/)
 - Building: [Vite](https://vitejs.dev/)
-- Test: [Vitest](https://vitest.dev/)
+- Testing: [Vitest](https://vitest.dev/)
 
 ## Related repositories
 
