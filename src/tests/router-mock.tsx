@@ -1,6 +1,5 @@
 import {
   createMemoryHistory,
-  Outlet,
   ReactLocation,
   Router,
 } from "@tanstack/react-location";
@@ -23,6 +22,5 @@ export const RouterMock: React.VFC<Props> = (props) => (
     routes={[]}
   >
     {props.children}
-    <Outlet />
   </Router>
 );
