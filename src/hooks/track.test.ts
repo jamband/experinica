@@ -2,10 +2,7 @@ import { act, renderHook } from "@testing-library/react-hooks";
 import { expect, test } from "vitest";
 import { useTrack, type TrackValue } from "./track";
 
-/**
- * When I use Jotai, automatic cleanup() doesn't work,
- * so I'm running cleanup() manually.
- */
+// when using Jotai, automatic cleanup() doesn't work.
 
 const initialValue: TrackValue = {
   title: "",
