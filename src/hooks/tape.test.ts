@@ -1,24 +1,42 @@
 import { act, renderHook } from "@testing-library/react-hooks";
 import { expect, test } from "vitest";
-import { useTape } from "./tape";
+import { useTape, type TapeValue } from "./tape";
 
-test("tape", () => {
+/**
+ * When I use Jotai, automatic cleanup() doesn't work,
+ * so I'm running cleanup() manually.
+ */
+
+const initialValue: TapeValue = {
+  title: "",
+};
+
+test("tape", async () => {
   const { result } = renderHook(() => useTape());
-  expect(result.current.tape).toEqual({ title: "" });
+  expect(result.current.tape).toEqual(initialValue);
+
+  act(() => result.current.resetTape()); // cleanup
 });
 
-test("setTape", () => {
+test("setTape", async () => {
   const { result } = renderHook(() => useTape());
+  expect(result.current.tape).toEqual({ title: "" });
 
   act(() => result.current.setTape({ title: "foo" }));
   expect(result.current.tape).toEqual({ title: "foo" });
+
+  act(() => result.current.resetTape()); // cleanup
 });
 
-test("resetTape", () => {
+test("resetTape", async () => {
   const { result } = renderHook(() => useTape());
+  expect(result.current.tape).toEqual({ title: "" });
+
   act(() => result.current.setTape({ title: "foo" }));
   expect(result.current.tape).toEqual({ title: "foo" });
 
   act(() => result.current.resetTape());
   expect(result.current.tape).toEqual({ title: "" });
+
+  act(() => result.current.resetTape()); // cleanup
 });

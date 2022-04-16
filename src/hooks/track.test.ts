@@ -1,21 +1,30 @@
 import { act, renderHook } from "@testing-library/react-hooks";
 import { expect, test } from "vitest";
-import { useTrack } from "./track";
+import { useTrack, type TrackValue } from "./track";
+
+/**
+ * When I use Jotai, automatic cleanup() doesn't work,
+ * so I'm running cleanup() manually.
+ */
+
+const initialValue: TrackValue = {
+  title: "",
+  provider: "",
+  provider_key: "",
+  path: "",
+  embed_aspect_ratio: "",
+};
 
 test("track", () => {
   const { result } = renderHook(() => useTrack());
+  expect(result.current.track).toEqual(initialValue);
 
-  expect(result.current.track).toEqual({
-    title: "",
-    provider: "",
-    provider_key: "",
-    path: "",
-    embed_aspect_ratio: "",
-  });
+  act(() => result.current.resetTrack()); // cleanup
 });
 
 test("setTrack", () => {
   const { result } = renderHook(() => useTrack());
+  expect(result.current.track).toEqual(initialValue);
 
   act(() =>
     result.current.setTrack({
@@ -34,10 +43,13 @@ test("setTrack", () => {
     path: "path1",
     embed_aspect_ratio: "1/1",
   });
+
+  act(() => result.current.resetTrack()); // cleanup
 });
 
 test("resetTrack", () => {
   const { result } = renderHook(() => useTrack());
+  expect(result.current.track).toEqual(initialValue);
 
   act(() =>
     result.current.setTrack({
@@ -58,12 +70,7 @@ test("resetTrack", () => {
   });
 
   act(() => result.current.resetTrack());
+  expect(result.current.track).toEqual(initialValue);
 
-  expect(result.current.track).toEqual({
-    title: "",
-    provider: "",
-    provider_key: "",
-    path: "",
-    embed_aspect_ratio: "",
-  });
+  act(() => result.current.resetTrack()); // cleanup
 });
