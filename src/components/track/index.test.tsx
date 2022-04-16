@@ -16,7 +16,7 @@ beforeEach(() => {
   vi.resetAllMocks();
 });
 
-test("when empty track.path", () => {
+test("when don't have the data for track", () => {
   useTrackMock.mockReturnValue({ track: { path: "" } });
 
   const { container } = render(
@@ -29,7 +29,7 @@ test("when empty track.path", () => {
   expect(container).toBeEmptyDOMElement();
 });
 
-test("foo", () => {
+test("when does not match the /:track route", () => {
   useTrackMock.mockReturnValue({ track: { path: "/foo" } });
 
   const { container } = render(
@@ -43,7 +43,7 @@ test("foo", () => {
   expect(container.firstChild).toHaveAttribute("class", "hidden");
 });
 
-test("bar", () => {
+test("when matches the /:track route", () => {
   useTrackMock.mockReturnValue({ track: { path: "/foo" } });
 
   const { container } = render(
