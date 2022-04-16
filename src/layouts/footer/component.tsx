@@ -1,5 +1,6 @@
 import { ExternalLink } from "../../components/external-link";
 import { Link } from "../../components/link";
+import { APP_NAME } from "../../constants/app";
 import { IconX } from "../../icons/x";
 import type { _Props } from "./types";
 
@@ -36,7 +37,7 @@ export const Component: React.VFC<_Props> = (props) => (
             Contact
           </Link>
           <ExternalLink
-            href="https://github.com/jamband/moon"
+            href={`https://github.com/jamband/${APP_NAME.toLowerCase()}`}
             className="rounded px-5 py-2 text-gray-400 no-underline active:bg-gray-600 active:text-gray-100"
           >
             GitHub

@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { expect, test } from "vitest";
 import { Footer } from ".";
+import { APP_NAME } from "../../constants/app";
 import { RouterMock } from "../../tests/router-mock";
 
 test("", () => {
@@ -15,6 +16,9 @@ test("", () => {
   expect(links[0]).toHaveTextContent("About");
   expect(links[1]).toHaveAttribute("href", "/contact");
   expect(links[1]).toHaveTextContent("Contact");
-  expect(links[2]).toHaveAttribute("href", "https://github.com/jamband/moon");
+  expect(links[2]).toHaveAttribute(
+    "href",
+    `https://github.com/jamband/${APP_NAME.toLowerCase()}`
+  );
   expect(links[2]).toHaveTextContent("GitHub");
 });
