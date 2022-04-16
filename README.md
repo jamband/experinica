@@ -1,6 +1,6 @@
 # Experinica
 
-Experinica is my private playground for [React Location](https://react-location.tanstack.com/).
+[Experinica](https://experinica.pages.dev/) is my private playground for [React Location](https://react-location.tanstack.com/).
 
 This repository is the client-side rendering (CSR) edition of [jamband/tapes](https://github.com/jamband/tapes).
 
