@@ -18,5 +18,5 @@ export default function Track() {
     setTrack(track!.track);
   }, [setTape, setTrack, track]);
 
-  return <Page title={track?.tapeTitle || ""}>{}</Page>;
+  return <Page title={`${track?.tapeTitle} ･ ${track?.track.title}`}>{}</Page>;
 }
