@@ -1,13 +1,13 @@
+import { ReactLocation, Router } from "@tanstack/react-location";
 import { render, screen } from "@testing-library/react";
 import { expect, test } from "vitest";
 import { Link } from ".";
-import { RouterMock } from "../../tests/router-mock";
 
 test("to: /", () => {
   render(
-    <RouterMock initialEntries={["/"]}>
+    <Router location={new ReactLocation()} routes={[]}>
       <Link to="/">Home</Link>);
-    </RouterMock>
+    </Router>
   );
   const link = screen.getByRole("link", { name: "Home" });
   expect(link).toBeInTheDocument();
@@ -16,9 +16,9 @@ test("to: /", () => {
 
 test("to: /foo", () => {
   render(
-    <RouterMock initialEntries={["/"]}>
+    <Router location={new ReactLocation()} routes={[]}>
       <Link to="/foo">Foo</Link>);
-    </RouterMock>
+    </Router>
   );
   const link = screen.getByRole("link", { name: "Foo" });
   expect(link).toBeInTheDocument();

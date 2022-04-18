@@ -1,16 +1,26 @@
-import { Outlet } from "@tanstack/react-location";
+import {
+  createMemoryHistory,
+  ReactLocation,
+  Router,
+} from "@tanstack/react-location";
 import { render } from "@testing-library/react";
+import type { MemoryHistoryOptions } from "history";
 import type { SpyInstanceFn } from "vitest";
 import { beforeEach, expect, test, vi } from "vitest";
 import { Track } from ".";
 import { useTrack } from "../../hooks/track";
-import { RouterMock } from "../../tests/router-mock";
 
 vi.mock("../../hooks/track", () => ({
   useTrack: vi.fn(),
 }));
 
 const useTrackMock = useTrack as SpyInstanceFn;
+
+const location = (historyOptions: MemoryHistoryOptions) => {
+  return new ReactLocation({
+    history: createMemoryHistory(historyOptions),
+  });
+};
 
 beforeEach(() => {
   vi.resetAllMocks();
@@ -20,10 +30,9 @@ test("when don't have the data for track", () => {
   useTrackMock.mockReturnValue({ track: { path: "" } });
 
   const { container } = render(
-    <RouterMock initialEntries={["/"]}>
+    <Router location={location({ initialEntries: ["/"] })} routes={[]}>
       <Track />
-      <Outlet />
-    </RouterMock>
+    </Router>
   );
 
   expect(container).toBeEmptyDOMElement();
@@ -33,10 +42,9 @@ test("when does not match the /:track route", () => {
   useTrackMock.mockReturnValue({ track: { path: "/foo" } });
 
   const { container } = render(
-    <RouterMock initialEntries={["/"]}>
+    <Router location={location({ initialEntries: ["/"] })} routes={[]}>
       <Track />
-      <Outlet />
-    </RouterMock>
+    </Router>
   );
 
   // eslint-disable-next-line testing-library/no-node-access
@@ -47,10 +55,9 @@ test("when matches the /:track route", () => {
   useTrackMock.mockReturnValue({ track: { path: "/foo" } });
 
   const { container } = render(
-    <RouterMock initialEntries={["/foo"]}>
+    <Router location={location({ initialEntries: ["/foo"] })} routes={[]}>
       <Track />
-      <Outlet />
-    </RouterMock>
+    </Router>
   );
 
   // eslint-disable-next-line testing-library/no-node-access

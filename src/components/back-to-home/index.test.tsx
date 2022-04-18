@@ -1,13 +1,13 @@
+import { ReactLocation, Router } from "@tanstack/react-location";
 import { render, screen } from "@testing-library/react";
 import { expect, test } from "vitest";
 import { BackToHome } from ".";
-import { RouterMock } from "../../tests/router-mock";
 
 test("", () => {
   render(
-    <RouterMock initialEntries={["/"]}>
+    <Router location={new ReactLocation()} routes={[]}>
       <BackToHome />
-    </RouterMock>
+    </Router>
   );
   const link = screen.getByRole("link", { name: "← Back to Home" });
   expect(link).toBeInTheDocument();
