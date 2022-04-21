@@ -6,7 +6,7 @@ import { Link } from ".";
 test("to: /", () => {
   render(
     <Router location={new ReactLocation()} routes={[]}>
-      <Link to="/">Home</Link>);
+      <Link to="/">Home</Link>
     </Router>
   );
   const link = screen.getByRole("link", { name: "Home" });
@@ -17,7 +17,7 @@ test("to: /", () => {
 test("to: /foo", () => {
   render(
     <Router location={new ReactLocation()} routes={[]}>
-      <Link to="/foo">Foo</Link>);
+      <Link to="/foo">Foo</Link>
     </Router>
   );
   const link = screen.getByRole("link", { name: "Foo" });
