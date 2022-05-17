@@ -10,7 +10,7 @@ export const Component: React.VFC<_Props> = (props) => (
         className="m-1 inline-block rounded px-4 py-2 no-underline active:bg-gray-600"
       >
         <span
-          className={`text-sm font-semibold text-gray-400 ${
+          className={`text-xs font-semibold text-gray-400 ${
             props.isTrackRoute ? "!text-gray-100 duration-1000" : ""
           }`}
         >
