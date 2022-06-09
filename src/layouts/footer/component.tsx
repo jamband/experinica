@@ -14,8 +14,12 @@ export const Component: React.FC<_Props> = (props) => (
         >
           {props.track.title}
         </Link>
-        <button type="button" className="mr-2 p-2" onClick={props.resetTrack}>
-          <IconX className="h-5 w-5 align-[-0.275em] text-gray-500" />
+        <button
+          type="button"
+          className="mr-2 rounded p-2 active:bg-gray-600 active:text-yellow-500"
+          onClick={props.resetTrack}
+        >
+          <IconX className="h-5 w-5 align-[-0.275em]" />
         </button>
       </div>
     ) : (
