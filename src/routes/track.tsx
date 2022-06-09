@@ -14,8 +14,8 @@ export default function Track() {
   const { setTrack } = useTrack();
 
   useEffect(() => {
-    setTape({ title: track!.tapeTitle });
-    setTrack(track!.track);
+    if (track) setTape({ title: track.tapeTitle });
+    if (track) setTrack(track.track);
   }, [setTape, setTrack, track]);
 
   return <Page title={`${track?.tapeTitle} ･ ${track?.track.title}`}>{}</Page>;

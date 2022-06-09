@@ -1,6 +1,6 @@
 import { Outlet, ReactLocation, Router } from "@tanstack/react-location";
 import { StrictMode } from "react";
-import { render } from "react-dom";
+import { createRoot } from "react-dom/client";
 import "regenerator-runtime";
 import { Track } from "./components/track";
 import { Footer } from "./layouts/footer";
@@ -11,7 +11,10 @@ import NotFound from "./routes/not-found";
 import "./styles/app.css";
 import type { LocationGenerics } from "./types/location";
 
-render(
+const container = document.getElementById("app");
+if (container === null) throw new Error("Root element does not exists.");
+
+createRoot(container).render(
   <StrictMode>
     <Router
       location={new ReactLocation<LocationGenerics>()}
@@ -29,6 +32,5 @@ render(
         <Footer />
       </div>
     </Router>
-  </StrictMode>,
-  document.getElementById("root")
+  </StrictMode>
 );
