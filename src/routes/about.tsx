@@ -15,18 +15,18 @@ export default function About() {
             {APP_NAME} is my private playground for{" "}
             <ExternalLink
               href="https://react-location.tanstack.com"
-              className="inline-flex items-center text-yellow-500"
+              className="text-yellow-500"
             >
               React Location
-              <IconExternalLink className="h-4 w-4" />
+              <IconExternalLink className="h-4 w-4 align-[-0.125em]" />
             </ExternalLink>
             . This website is an open source project. See{" "}
             <ExternalLink
               href={`https://github.com/jamband/${APP_NAME.toLowerCase()}`}
-              className="text-primary inline-flex items-center text-yellow-500"
+              className="text-yellow-500"
             >
               GitHub: jamband/{APP_NAME.toLowerCase()}
-              <IconExternalLink className="h-4 w-4" />
+              <IconExternalLink className="h-4 w-4 align-[-0.125em]" />
             </ExternalLink>{" "}
             for details.
           </p>

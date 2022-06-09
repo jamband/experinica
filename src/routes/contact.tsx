@@ -15,18 +15,18 @@ export default function Contact() {
             Please to the message via{" "}
             <ExternalLink
               href="https://twitter.com/livejam_db"
-              className="inline-flex items-center text-yellow-500"
+              className="text-yellow-500"
             >
               Twitter
-              <IconExternalLink className="h-4 w-4" />
+              <IconExternalLink className="h-4 w-4 align-[-0.125em]" />
             </ExternalLink>{" "}
             or{" "}
             <ExternalLink
               href={`https://github.com/jamband/${APP_NAME.toLowerCase()}/issues`}
-              className="inline-flex items-center text-yellow-500"
+              className="text-yellow-500"
             >
               GitHub
-              <IconExternalLink className="h-4 w-4" />
+              <IconExternalLink className="h-4 w-4 align-[-0.125em]" />
             </ExternalLink>{" "}
             issues. Thank you.
           </p>
