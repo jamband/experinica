@@ -1,6 +1,6 @@
 import { Icon, type _Props } from "./icon";
 
-export const IconPause: React.VFC<_Props> = (props) => (
+export const IconPause: React.FC<_Props> = (props) => (
   <Icon {...props}>
     <path
       fillRule="evenodd"

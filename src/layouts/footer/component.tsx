@@ -4,7 +4,7 @@ import { APP_NAME } from "../../constants/app";
 import { IconX } from "../../icons/x";
 import type { _Props } from "./types";
 
-export const Component: React.VFC<_Props> = (props) => (
+export const Component: React.FC<_Props> = (props) => (
   <footer className="fixed bottom-0 w-full bg-gray-700">
     {props.track.path && !props.isTrackRoute ? (
       <div className="flex items-center justify-center py-2 md:container md:mx-auto">

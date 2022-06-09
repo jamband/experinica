@@ -2,7 +2,7 @@ import { Link } from "../../components/link";
 import { APP_NAME } from "../../constants/app";
 import type { _Props } from "./types";
 
-export const Component: React.VFC<_Props> = (props) => (
+export const Component: React.FC<_Props> = (props) => (
   <header className="fixed z-10 w-full bg-gray-700 text-center font-mono">
     <nav aria-label="Header navigation" className="my-1">
       <Link

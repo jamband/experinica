@@ -1,4 +1,4 @@
-export const Component: React.VFC = () => (
+export const Component: React.FC = () => (
   <div className="flex h-70vh items-center justify-center">
     <svg
       className="h-7 w-7 animate-spin text-yellow-500"

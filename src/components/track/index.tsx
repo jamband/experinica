@@ -3,7 +3,7 @@ import { useTape } from "../../hooks/tape";
 import { useTrack } from "../../hooks/track";
 import { Component } from "./component";
 
-export const Track: React.VFC = () => {
+export const Track: React.FC = () => {
   const { tape } = useTape();
   const { track } = useTrack();
   const { current } = useLocation();
