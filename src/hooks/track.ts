@@ -1,5 +1,5 @@
-import { useAtomValue } from "jotai";
-import { atomWithReset, useResetAtom, useUpdateAtom } from "jotai/utils";
+import { useAtomValue, useSetAtom } from "jotai";
+import { atomWithReset, useResetAtom } from "jotai/utils";
 import type { Track } from "../types/track";
 
 export type TrackValue = Pick<
@@ -18,7 +18,7 @@ const anAtom = atomWithReset<TrackValue>({
 export const useTrack = () => {
   return {
     track: useAtomValue(anAtom),
-    setTrack: useUpdateAtom(anAtom),
+    setTrack: useSetAtom(anAtom),
     resetTrack: useResetAtom(anAtom),
   } as const;
 };
