@@ -5,7 +5,7 @@ import {
 } from "@tanstack/react-location";
 import { render } from "@testing-library/react";
 import type { MemoryHistoryOptions } from "history";
-import type { SpyInstanceFn } from "vitest";
+import type { Mock } from "vitest";
 import { beforeEach, expect, test, vi } from "vitest";
 import { Track } from ".";
 import { useTrack } from "../../hooks/track";
@@ -14,7 +14,7 @@ vi.mock("../../hooks/track", () => ({
   useTrack: vi.fn(),
 }));
 
-const useTrackMock = useTrack as SpyInstanceFn;
+const useTrackMock = useTrack as Mock;
 
 const location = (historyOptions: MemoryHistoryOptions) => {
   return new ReactLocation({
