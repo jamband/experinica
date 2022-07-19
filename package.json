@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "vite --open",
     "build": "tsc && vite build",
-    "preview": "vite preview --port 3000 --open",
+    "preview": "vite preview --open",
     "lint": "eslint .",
     "format": "prettier --check .",
     "test": "vitest",
