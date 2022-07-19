@@ -8,7 +8,7 @@ const api = {
   suffix: "__data.json",
 };
 
-export const homeLoaderFn = () =>
+export const home = () =>
   routeCache.createLoader(
     async () => {
       const res = await fetch(`${api.url}/${api.suffix}`);
@@ -22,7 +22,7 @@ export const homeLoaderFn = () =>
     }
   );
 
-export const tapesLoaderFn = () =>
+export const tapes = () =>
   routeCache.createLoader(
     async ({ params }) => {
       const res = await fetch(`${api.url}/${params.year}/${api.suffix}`);
@@ -36,7 +36,7 @@ export const tapesLoaderFn = () =>
     }
   );
 
-export const tapeLoaderFn = () =>
+export const tape = () =>
   routeCache.createLoader(
     async ({ params }) => {
       const res = await fetch(
@@ -52,7 +52,7 @@ export const tapeLoaderFn = () =>
     }
   );
 
-export const trackLoaderFn = () =>
+export const track = () =>
   routeCache.createLoader(
     async ({ params }) => {
       const res = await fetch(

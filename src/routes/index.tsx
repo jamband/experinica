@@ -1,10 +1,5 @@
 import type { Route } from "@tanstack/react-location";
-import {
-  homeLoaderFn,
-  tapeLoaderFn,
-  tapesLoaderFn,
-  trackLoaderFn,
-} from "../loaders";
+import * as loaders from "../loaders";
 import type { LocationGenerics } from "../types/location";
 import About from "./about";
 import Contact from "./contact";
@@ -18,7 +13,7 @@ const routes: Array<Route<LocationGenerics>> = [
   {
     path: "/",
     element: <Home />,
-    loader: homeLoaderFn(),
+    loader: loaders.home(),
   },
   {
     path: "about",
@@ -34,7 +29,7 @@ const routes: Array<Route<LocationGenerics>> = [
       {
         path: "/",
         element: <Tapes />,
-        loader: tapesLoaderFn(),
+        loader: loaders.tapes(),
       },
       {
         path: ":month",
@@ -45,7 +40,7 @@ const routes: Array<Route<LocationGenerics>> = [
               {
                 path: "/",
                 element: <Tape />,
-                loader: tapeLoaderFn(),
+                loader: loaders.tape(),
               },
               {
                 path: ":track",
@@ -53,7 +48,7 @@ const routes: Array<Route<LocationGenerics>> = [
                   {
                     path: "/",
                     element: <Track />,
-                    loader: trackLoaderFn(),
+                    loader: loaders.track(),
                   },
                 ],
               },
