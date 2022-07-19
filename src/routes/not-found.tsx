@@ -5,7 +5,7 @@ import { Page } from "../layouts/page";
 export default function NotFound() {
   return (
     <Page title="Not Found">
-      <div className="flex h-70vh items-center justify-center">
+      <div className="flex h-[70vh] items-center justify-center">
         <div className="text-center">
           <h1>Not Found</h1>
           <p className="mb-10">This page does not exist.</p>
