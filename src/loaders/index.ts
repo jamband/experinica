@@ -11,10 +11,11 @@ const api = {
 export const home = () =>
   routeCache.createLoader(
     async () => {
-      const res = await fetch(`${api.url}/${api.suffix}`);
-      const { years } = await res.json();
+      const response = await fetch(`${api.url}/${api.suffix}`);
+      const { nodes } = await response.json();
+
       return {
-        years,
+        years: nodes[1].data.years,
       };
     },
     {
@@ -25,10 +26,11 @@ export const home = () =>
 export const tapes = () =>
   routeCache.createLoader(
     async ({ params }) => {
-      const res = await fetch(`${api.url}/${params.year}/${api.suffix}`);
-      const { tapes } = await res.json();
+      const response = await fetch(`${api.url}/${params.year}/${api.suffix}`);
+      const { nodes } = await response.json();
+
       return {
-        tapes,
+        tapes: nodes[1].data.tapes,
       };
     },
     {
@@ -39,12 +41,13 @@ export const tapes = () =>
 export const tape = () =>
   routeCache.createLoader(
     async ({ params }) => {
-      const res = await fetch(
+      const response = await fetch(
         `${api.url}/${params.year}/${params.month}/${params.tape}/${api.suffix}`
       );
-      const tape = await res.json();
+      const { nodes } = await response.json();
+
       return {
-        tape,
+        tape: nodes[1].data,
       };
     },
     {
@@ -55,12 +58,13 @@ export const tape = () =>
 export const track = () =>
   routeCache.createLoader(
     async ({ params }) => {
-      const res = await fetch(
+      const response = await fetch(
         `${api.url}/${params.year}/${params.month}/${params.tape}/${params.track}/${api.suffix}`
       );
-      const track = await res.json();
+      const { nodes } = await response.json();
+
       return {
-        track,
+        track: nodes[1].data,
       };
     },
     {
