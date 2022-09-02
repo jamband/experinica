@@ -8,14 +8,19 @@ const api = {
   suffix: "__data.js",
 };
 
+const getData = async (response: Response) => {
+  const window = {} as any; // eslint-disable-line
+  new Function("window", await response.text())(window);
+  return window.__sveltekit_data.nodes[1].data;
+};
+
 export const home = () =>
   routeCache.createLoader(
     async () => {
-      const response = await fetch(`${api.url}/${api.suffix}`);
-      const { nodes } = eval(await response.text());
+      const yearsResponse = await fetch(`${api.url}/${api.suffix}`);
 
       return {
-        years: nodes[1].data.years,
+        years: (await getData(yearsResponse)).years,
       };
     },
     {
@@ -26,11 +31,12 @@ export const home = () =>
 export const tapes = () =>
   routeCache.createLoader(
     async ({ params }) => {
-      const response = await fetch(`${api.url}/${params.year}/${api.suffix}`);
-      const { nodes } = eval(await response.text());
+      const tapesResponse = await fetch(
+        `${api.url}/${params.year}/${api.suffix}`
+      );
 
       return {
-        tapes: nodes[1].data.tapes,
+        tapes: (await getData(tapesResponse)).tapes,
       };
     },
     {
@@ -41,13 +47,12 @@ export const tapes = () =>
 export const tape = () =>
   routeCache.createLoader(
     async ({ params }) => {
-      const response = await fetch(
+      const tapeResponse = await fetch(
         `${api.url}/${params.year}/${params.month}/${params.tape}/${api.suffix}`
       );
-      const { nodes } = eval(await response.text());
 
       return {
-        tape: nodes[1].data,
+        tape: await getData(tapeResponse),
       };
     },
     {
@@ -58,13 +63,12 @@ export const tape = () =>
 export const track = () =>
   routeCache.createLoader(
     async ({ params }) => {
-      const response = await fetch(
+      const trackResponse = await fetch(
         `${api.url}/${params.year}/${params.month}/${params.tape}/${params.track}/${api.suffix}`
       );
-      const { nodes } = eval(await response.text());
 
       return {
-        track: nodes[1].data,
+        track: await getData(trackResponse),
       };
     },
     {
