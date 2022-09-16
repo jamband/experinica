@@ -1,6 +1,6 @@
+import { Link } from "~/components/link";
+import { SectionDivider } from "~/components/section-divider";
 import { aspectRatio } from "~/styles/dynamic";
-import { Link } from "../link";
-import { SectionDivider } from "../section-divider";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (

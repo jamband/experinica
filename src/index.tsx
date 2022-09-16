@@ -2,7 +2,7 @@ import { Outlet, ReactLocation, Router } from "@tanstack/react-location";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "regenerator-runtime";
-import { Track } from "./components/track";
+import { Track } from "./layouts/track";
 import { Footer } from "./layouts/footer";
 import { Header } from "./layouts/header";
 import { Loading } from "./layouts/loading";
