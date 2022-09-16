@@ -4,10 +4,10 @@ import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
   <header className="fixed z-10 w-full bg-gray-700 text-center font-mono">
-    <nav aria-label="Header navigation" className="my-1">
+    <nav aria-label="Header navigation" className="my-2">
       <Link
         to="/"
-        className="m-1 inline-block rounded px-4 py-2 no-underline active:bg-gray-600"
+        className="m-1 inline-block rounded px-4 py-1 no-underline hover:bg-gray-600 active:bg-gray-600"
       >
         <span
           className={`text-xs font-semibold text-gray-400 ${

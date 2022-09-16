@@ -24,7 +24,7 @@ export default function Tapes() {
           <li key={tape.id} className="mb-3">
             <Link
               to={tape.path}
-              className="text-2xl font-semibold text-gray-100"
+              className="text-2xl font-semibold text-gray-100 hover:text-yellow-500"
             >
               {tape.title} →
             </Link>

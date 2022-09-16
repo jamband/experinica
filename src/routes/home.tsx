@@ -19,7 +19,7 @@ export default function Home() {
           <Link
             key={year}
             to={year}
-            className="rounded bg-gray-700 px-4 py-1 font-mono text-sm text-gray-300 no-underline"
+            className="rounded bg-gray-700 px-4 py-1 font-mono text-sm text-gray-300 no-underline hover:text-yellow-500"
           >
             <span className="text-xs text-gray-500">#</span>
             {year}

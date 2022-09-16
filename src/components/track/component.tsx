@@ -24,7 +24,10 @@ export const Component: React.FC<_Props> = (props) => (
         via {props.track.provider}
       </div>
       <SectionDivider className="mb-10" />
-      <Link to={props.tapePath} className="px-4 py-3 text-gray-300">
+      <Link
+        to={props.tapePath}
+        className="px-4 py-3 text-gray-300 hover:text-yellow-500"
+      >
         ← {props.tapeTitle}
       </Link>
     </div>

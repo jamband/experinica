@@ -55,7 +55,7 @@ export default function Tape() {
       <div className="text-center">
         <Link
           to={`/${params.year}`}
-          className="px-4 py-3 text-gray-300"
+          className="px-4 py-3 text-gray-300 hover:text-yellow-500"
           onClick={scrollToTop}
         >
           ← Monthly Favorite Tracks of {params.year}
