@@ -1,4 +1,4 @@
-import type { TrackValue } from "../../hooks/track";
+import type { TrackValue } from "~/hooks/track";
 
 export type _Props = {
   isTrackRoute: boolean;

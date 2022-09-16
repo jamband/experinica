@@ -1,7 +1,7 @@
-import { ExternalLink } from "../../components/external-link";
-import { Link } from "../../components/link";
-import { APP_NAME } from "../../constants/app";
-import { IconX } from "../../icons/x";
+import { ExternalLink } from "~/components/external-link";
+import { Link } from "~/components/link";
+import { APP_NAME } from "~/constants/app";
+import { IconX } from "~/icons/x";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (

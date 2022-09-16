@@ -1,6 +1,6 @@
 import { useAtomValue, useSetAtom } from "jotai";
 import { atomWithReset, useResetAtom } from "jotai/utils";
-import type { Track } from "../types/track";
+import type { Track } from "~/types/track";
 
 export type TrackValue = Pick<
   Track,

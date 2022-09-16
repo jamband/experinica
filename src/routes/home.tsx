@@ -1,9 +1,9 @@
 import { useMatch } from "@tanstack/react-location";
-import { Link } from "../components/link";
-import { SectionDivider } from "../components/section-divider";
-import { TapeHeader } from "../components/tape-header";
-import { Page } from "../layouts/page";
-import type { LocationGenerics } from "../types/location";
+import { Link } from "~/components/link";
+import { SectionDivider } from "~/components/section-divider";
+import { TapeHeader } from "~/components/tape-header";
+import { Page } from "~/layouts/page";
+import type { LocationGenerics } from "~/types/location";
 
 export default function Home() {
   const {

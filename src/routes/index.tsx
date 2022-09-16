@@ -1,6 +1,6 @@
 import type { Route } from "@tanstack/react-location";
+import type { LocationGenerics } from "~/types/location";
 import * as loaders from "../loaders";
-import type { LocationGenerics } from "../types/location";
 import About from "./about";
 import Contact from "./contact";
 import Home from "./home";

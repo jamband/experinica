@@ -1,5 +1,5 @@
-import { Link } from "../../components/link";
-import { APP_NAME } from "../../constants/app";
+import { Link } from "~/components/link";
+import { APP_NAME } from "~/constants/app";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (

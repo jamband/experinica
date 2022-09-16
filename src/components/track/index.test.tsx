@@ -7,10 +7,10 @@ import { render } from "@testing-library/react";
 import type { MemoryHistoryOptions } from "history";
 import type { Mock } from "vitest";
 import { beforeEach, expect, test, vi } from "vitest";
+import { useTrack } from "~/hooks/track";
 import { Track } from ".";
-import { useTrack } from "../../hooks/track";
 
-vi.mock("../../hooks/track", () => ({
+vi.mock("~/hooks/track", () => ({
   useTrack: vi.fn(),
 }));
 

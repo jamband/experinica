@@ -1,4 +1,4 @@
-import { aspectRatio } from "../../styles/dynamic";
+import { aspectRatio } from "~/styles/dynamic";
 import { Link } from "../link";
 import { SectionDivider } from "../section-divider";
 import type { _Props } from "./types";

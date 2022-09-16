@@ -1,14 +1,14 @@
 import { useMatch } from "@tanstack/react-location";
-import { Link } from "../components/link";
-import { SectionDivider } from "../components/section-divider";
-import { TapeHeader } from "../components/tape-header";
-import { useTrack } from "../hooks/track";
-import { IconPause } from "../icons/pause";
-import { IconPlay } from "../icons/play";
-import { Page } from "../layouts/page";
-import { aspectRatio } from "../styles/dynamic";
-import type { LocationGenerics } from "../types/location";
-import { scrollToTop } from "../utils/scroll";
+import { Link } from "~/components/link";
+import { SectionDivider } from "~/components/section-divider";
+import { TapeHeader } from "~/components/tape-header";
+import { useTrack } from "~/hooks/track";
+import { IconPause } from "~/icons/pause";
+import { IconPlay } from "~/icons/play";
+import { Page } from "~/layouts/page";
+import { aspectRatio } from "~/styles/dynamic";
+import type { LocationGenerics } from "~/types/location";
+import { scrollToTop } from "~/utils/scroll";
 
 export default function Tape() {
   const {

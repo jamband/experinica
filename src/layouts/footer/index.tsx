@@ -1,5 +1,5 @@
 import { useLocation } from "@tanstack/react-location";
-import { useTrack } from "../../hooks/track";
+import { useTrack } from "~/hooks/track";
 import { Component } from "./component";
 
 export const Footer: React.FC = () => {

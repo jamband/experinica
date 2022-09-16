@@ -1,6 +1,6 @@
-import { Link } from "../components/link";
-import { SectionDivider } from "../components/section-divider";
-import { Page } from "../layouts/page";
+import { Link } from "~/components/link";
+import { SectionDivider } from "~/components/section-divider";
+import { Page } from "~/layouts/page";
 
 export default function NotFound() {
   return (

@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { expect, test } from "vitest";
+import { APP_NAME } from "~/constants/app";
 import { Page } from ".";
-import { APP_NAME } from "../../constants/app";
 
 test("title: ''", () => {
   render(

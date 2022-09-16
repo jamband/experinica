@@ -1,5 +1,5 @@
 import { ReactLocationSimpleCache } from "@tanstack/react-location-simple-cache";
-import type { LocationGenerics } from "../types/location";
+import type { LocationGenerics } from "~/types/location";
 
 const routeCache = new ReactLocationSimpleCache<LocationGenerics>();
 

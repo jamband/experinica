@@ -4,6 +4,7 @@
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
+    "baseUrl": ".",
     "skipLibCheck": true,
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
@@ -15,6 +16,7 @@
     "importsNotUsedAsValues": "error",
     "isolatedModules": true,
     "noEmit": true,
+    "paths": { "~/*": ["src/*"] },
     "jsx": "react-jsx"
   },
   "include": ["src"]

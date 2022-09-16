@@ -1,8 +1,8 @@
 import { ReactLocation, Router } from "@tanstack/react-location";
 import { render, screen } from "@testing-library/react";
 import { expect, test } from "vitest";
+import { APP_NAME } from "~/constants/app";
 import { Header } from ".";
-import { APP_NAME } from "../../constants/app";
 
 test("", () => {
   render(

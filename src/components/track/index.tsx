@@ -1,6 +1,6 @@
 import { useLocation } from "@tanstack/react-location";
-import { useTape } from "../../hooks/tape";
-import { useTrack } from "../../hooks/track";
+import { useTape } from "~/hooks/tape";
+import { useTrack } from "~/hooks/track";
 import { Component } from "./component";
 
 export const Track: React.FC = () => {
