@@ -9,6 +9,10 @@ const api = {
 };
 
 const getData = async (response: Response) => {
+  if (!response.ok) {
+    throw Error(`${response.status}`);
+  }
+
   const window = {} as any; // eslint-disable-line
   new Function("window", await response.text())(window);
   return window.__sveltekit_data.nodes[1].data;
@@ -17,10 +21,10 @@ const getData = async (response: Response) => {
 export const home = () =>
   routeCache.createLoader(
     async () => {
-      const yearsResponse = await fetch(`${api.url}/${api.suffix}`);
+      const years = await fetch(`${api.url}/${api.suffix}`);
 
       return {
-        years: (await getData(yearsResponse)).years,
+        years: (await getData(years)).years,
       };
     },
     {
@@ -31,12 +35,10 @@ export const home = () =>
 export const tapes = () =>
   routeCache.createLoader(
     async ({ params }) => {
-      const tapesResponse = await fetch(
-        `${api.url}/${params.year}/${api.suffix}`
-      );
+      const tapes = await fetch(`${api.url}/${params.year}/${api.suffix}`);
 
       return {
-        tapes: (await getData(tapesResponse)).tapes,
+        tapes: (await getData(tapes)).tapes,
       };
     },
     {
@@ -47,12 +49,12 @@ export const tapes = () =>
 export const tape = () =>
   routeCache.createLoader(
     async ({ params }) => {
-      const tapeResponse = await fetch(
+      const tape = await fetch(
         `${api.url}/${params.year}/${params.month}/${params.tape}/${api.suffix}`
       );
 
       return {
-        tape: await getData(tapeResponse),
+        tape: await getData(tape),
       };
     },
     {
@@ -63,12 +65,12 @@ export const tape = () =>
 export const track = () =>
   routeCache.createLoader(
     async ({ params }) => {
-      const trackResponse = await fetch(
+      const track = await fetch(
         `${api.url}/${params.year}/${params.month}/${params.tape}/${params.track}/${api.suffix}`
       );
 
       return {
-        track: await getData(trackResponse),
+        track: await getData(track),
       };
     },
     {
