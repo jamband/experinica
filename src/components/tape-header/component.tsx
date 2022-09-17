@@ -4,7 +4,7 @@ import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
   <header className={props.className}>
-    <h1 className="mb-0 text-center">{props.title}</h1>
+    <h1 className="text-center md:mb-0">{props.title}</h1>
     <p className="text-center text-sm">
       selected from{" "}
       <ExternalLink

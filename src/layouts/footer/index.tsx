@@ -6,9 +6,15 @@ export const Footer: React.FC = () => {
   const { track, resetTrack } = useTrack();
   const { current } = useLocation();
 
+  const showTrackTitle =
+    track.path !== "" &&
+    current.pathname !== track.path &&
+    current.pathname !== "/about" &&
+    current.pathname !== "/contact";
+
   return (
     <Component
-      isTrackRoute={track.path === current.pathname}
+      showTrackTitle={showTrackTitle}
       track={track}
       resetTrack={resetTrack}
     />

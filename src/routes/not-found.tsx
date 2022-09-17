@@ -10,7 +10,7 @@ export default function NotFound() {
           <h1>Not Found</h1>
           <p className="mb-10">This page does not exist.</p>
           <SectionDivider className="mb-10" />
-          <Link to="/" className="text-gray-300">
+          <Link to="/" className="text-gray-300 hover:text-yellow-500">
             Go Digging →
           </Link>
         </div>

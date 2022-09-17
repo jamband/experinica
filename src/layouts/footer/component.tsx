@@ -6,11 +6,11 @@ import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
   <footer className="fixed bottom-0 w-full bg-gray-700">
-    {props.track.path && !props.isTrackRoute ? (
+    {props.showTrackTitle ? (
       <div className="my-3 flex items-center justify-center md:container md:mx-auto">
         <Link
           to={props.track.path}
-          className="ml-4 mr-1 overflow-hidden text-ellipsis whitespace-nowrap py-1 text-sm font-semibold text-gray-100 no-underline hover:text-yellow-500"
+          className="ml-4 mr-1 overflow-hidden text-ellipsis whitespace-nowrap py-1 text-sm font-semibold text-gray-100 no-underline"
         >
           {props.track.title}
         </Link>
