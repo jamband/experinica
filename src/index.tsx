@@ -23,14 +23,12 @@ createRoot(container).render(
       defaultErrorElement={<NotFound />}
       defaultPendingMs={0}
     >
-      <div className="flex min-h-screen flex-col">
-        <Header />
-        <main className="container mx-auto flex-grow pb-32 pt-28">
-          <Track />
-          <Outlet />
-        </main>
-        <Footer />
-      </div>
+      <Header />
+      <main className="container mx-auto pb-32 pt-28">
+        <Track />
+        <Outlet />
+      </main>
+      <Footer />
     </Router>
   </StrictMode>
 );
