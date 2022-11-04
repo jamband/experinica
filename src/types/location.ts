@@ -4,8 +4,13 @@ import type { Track } from "./track";
 
 export type LocationGenerics = MakeGenerics<{
   LoaderData: {
-    years: Array<`${number}`>;
-    tapes: Tapes;
+    years: {
+      years: Array<`${number}`>;
+    };
+    tapes: {
+      title: string;
+      tapes: Tapes;
+    };
     tape: {
       title: string;
       tape: Tape;

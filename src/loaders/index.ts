@@ -5,17 +5,21 @@ const routeCache = new ReactLocationSimpleCache<LocationGenerics>();
 
 const api = {
   url: "https://jamband.github.io/tapes",
-  suffix: "__data.js",
+  suffix: "__data.json",
 };
 
-const getData = async (response: Response) => {
-  if (!response.ok) {
-    throw Error(`${response.status}`);
+const extractProps = (
+  base: Array<number>,
+  next?: any /* eslint-disable-line */
+) => {
+  const props: any = []; // eslint-disable-line
+  for (const [key, index] of Object.entries<number>(next || base[5])) {
+    props[key] =
+      typeof base[index] === "object"
+        ? extractProps(base, base[index])
+        : base[index];
   }
-
-  const window = {} as any; // eslint-disable-line
-  new Function("window", await response.text())(window);
-  return window.__sveltekit_data.nodes[1].data;
+  return props;
 };
 
 export const home = () =>
@@ -24,7 +28,7 @@ export const home = () =>
       const years = await fetch(`${api.url}/${api.suffix}`);
 
       return {
-        years: (await getData(years)).years,
+        years: extractProps(await years.json()),
       };
     },
     {
@@ -38,7 +42,7 @@ export const tapes = () =>
       const tapes = await fetch(`${api.url}/${params.year}/${api.suffix}`);
 
       return {
-        tapes: (await getData(tapes)).tapes,
+        tapes: extractProps(await tapes.json()),
       };
     },
     {
@@ -54,7 +58,7 @@ export const tape = () =>
       );
 
       return {
-        tape: await getData(tape),
+        tape: extractProps(await tape.json()),
       };
     },
     {
@@ -70,7 +74,7 @@ export const track = () =>
       );
 
       return {
-        track: await getData(track),
+        track: extractProps(await track.json()),
       };
     },
     {

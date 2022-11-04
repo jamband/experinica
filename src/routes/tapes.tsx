@@ -13,14 +13,14 @@ export default function Tapes() {
   } = useMatch<LocationGenerics>();
 
   return (
-    <Page title={`Tapes of ${params.year}`}>
+    <Page title={tapes?.title || ""}>
       <TapeHeader
         title={`Monthly Favorite Tracks of ${params.year}`}
         className="mb-10"
       />
       <SectionDivider className="mb-10" />
       <ul>
-        {tapes?.map((tape) => (
+        {tapes?.tapes.map((tape) => (
           <li key={tape.id} className="mb-3">
             <Link
               to={tape.path}

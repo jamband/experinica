@@ -15,7 +15,7 @@ export default function Home() {
       <TapeHeader title="Monthly Favorite Tracks" className="mb-10" />
       <SectionDivider className="mb-10" />
       <section className="flex items-center justify-center gap-5">
-        {years?.map((year) => (
+        {years?.years.map((year) => (
           <Link
             key={year}
             to={year}
