@@ -14,10 +14,10 @@ export default function About() {
           <p className="mb-10">
             {APP_NAME} is my private playground for{" "}
             <ExternalLink
-              href="https://react-location.tanstack.com"
+              href="https://tanstack.com/router"
               className="text-yellow-500"
             >
-              React Location
+              TanStack Router
               <IconExternalLink className="h-4 w-4 align-[-0.125em]" />
             </ExternalLink>
             . This website is an open source project. See{" "}
