@@ -1,5 +1,3 @@
-import { useMatch } from "@tanstack/react-location";
-import { Link } from "~/components/link";
 import { SectionDivider } from "~/components/section-divider";
 import { TapeHeader } from "~/components/tape-header";
 import { useTrack } from "~/hooks/track";
@@ -7,15 +5,14 @@ import { IconPause } from "~/icons/pause";
 import { IconPlay } from "~/icons/play";
 import { Page } from "~/layouts/page";
 import { aspectRatio } from "~/styles/dynamic";
-import type { LocationGenerics } from "~/types/location";
 import { scrollToTop } from "~/utils/scroll";
+import { router } from ".";
 
 export default function Tape() {
   const {
     params,
-    data: { tape },
-  } = useMatch<LocationGenerics>();
-
+    loaderData: { tape },
+  } = router.useMatch("/:year/:month/:tape");
   const { track } = useTrack();
 
   return (
@@ -24,9 +21,9 @@ export default function Tape() {
       <SectionDivider className="mb-10" />
       <div className="mb-10 grid grid-cols-1 gap-6 md:grid-cols-2">
         {tape?.tape.items.map((item) => (
-          <Link
+          <router.Link
             key={item.slug}
-            to={item.slug}
+            to={`/${params.year}/${params.month}/${params.tape}/${item.slug}`}
             className="relative mb-1 text-gray-200 shadow active:text-gray-100"
           >
             <img
@@ -48,18 +45,18 @@ export default function Tape() {
               <h4 className="truncate leading-tight">{item.title}</h4>
               <div className="truncate text-xxs">{tape?.title}</div>
             </div>
-          </Link>
+          </router.Link>
         ))}
       </div>
       <SectionDivider className="mb-10" />
       <div className="text-center">
-        <Link
+        <router.Link
           to={`/${params.year}`}
           className="px-4 py-3 text-gray-300 hover:text-yellow-500"
           onClick={scrollToTop}
         >
           ← Monthly Favorite Tracks of {params.year}
-        </Link>
+        </router.Link>
       </div>
     </Page>
   );

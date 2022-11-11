@@ -1,13 +1,21 @@
-import { ReactLocation, Router } from "@tanstack/react-location";
+import {
+  createReactRouter,
+  createRouteConfig,
+  RouterProvider,
+} from "@tanstack/react-router";
 import { render, screen } from "@testing-library/react";
 import { expect, test } from "vitest";
 import { BackToHome } from ".";
 
 test("", () => {
+  const router = createReactRouter({
+    routeConfig: createRouteConfig(),
+  });
+
   render(
-    <Router location={new ReactLocation()} routes={[]}>
+    <RouterProvider router={router}>
       <BackToHome />
-    </Router>
+    </RouterProvider>
   );
   const link = screen.getByRole("link", { name: "← Back to Home" });
   expect(link).toBeInTheDocument();

@@ -1,14 +1,13 @@
-import { useMatch } from "@tanstack/react-location";
 import { useEffect } from "react";
 import { useTape } from "~/hooks/tape";
 import { useTrack } from "~/hooks/track";
 import { Page } from "~/layouts/page";
-import type { LocationGenerics } from "~/types/location";
+import { router } from ".";
 
 export default function Track() {
   const {
-    data: { track },
-  } = useMatch<LocationGenerics>();
+    loaderData: { track },
+  } = router.useMatch("/:year/:month/:tape/:track");
 
   const { setTape } = useTape();
   const { setTrack } = useTrack();

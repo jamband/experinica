@@ -1,16 +1,14 @@
-import { useMatch } from "@tanstack/react-location";
 import { BackToHome } from "~/components/back-to-home";
-import { Link } from "~/components/link";
 import { SectionDivider } from "~/components/section-divider";
 import { TapeHeader } from "~/components/tape-header";
 import { Page } from "~/layouts/page";
-import type { LocationGenerics } from "~/types/location";
+import { router } from ".";
 
 export default function Tapes() {
   const {
     params,
-    data: { tapes },
-  } = useMatch<LocationGenerics>();
+    loaderData: { tapes },
+  } = router.useMatch("/:year");
 
   return (
     <Page title={tapes?.title || ""}>
@@ -22,12 +20,12 @@ export default function Tapes() {
       <ul>
         {tapes?.tapes.map((tape) => (
           <li key={tape.id} className="mb-3">
-            <Link
+            <router.Link
               to={tape.path}
               className="text-2xl font-semibold text-gray-100 hover:text-yellow-500"
             >
               {tape.title} →
-            </Link>
+            </router.Link>
             <div className="text-xs">{tape.date}</div>
           </li>
         ))}

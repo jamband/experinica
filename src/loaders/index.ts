@@ -1,8 +1,3 @@
-import { ReactLocationSimpleCache } from "@tanstack/react-location-simple-cache";
-import type { LocationGenerics } from "~/types/location";
-
-const routeCache = new ReactLocationSimpleCache<LocationGenerics>();
-
 const api = {
   url: "https://jamband.github.io/tapes",
   suffix: "__data.json",
@@ -22,62 +17,35 @@ const extractProps = (
   return props;
 };
 
-export const home = () =>
-  routeCache.createLoader(
-    async () => {
-      const years = await fetch(`${api.url}/${api.suffix}`);
+export const home = async () => {
+  const years = await fetch(`${api.url}/${api.suffix}`);
+  return {
+    years: extractProps(await years.json()),
+  };
+};
 
-      return {
-        years: extractProps(await years.json()),
-      };
-    },
-    {
-      policy: "cache-first",
-    }
+export const tapes = async ({ params }) => {
+  const tapes = await fetch(`${api.url}/${params.year}/${api.suffix}`);
+  return {
+    tapes: extractProps(await tapes.json()),
+  };
+};
+
+export const tape = async ({ params }) => {
+  const tape = await fetch(
+    `${api.url}/${params.year}/${params.month}/${params.tape}/${api.suffix}`
+  );
+  return {
+    tape: extractProps(await tape.json()),
+  };
+};
+
+export const track = async ({ params }) => {
+  const track = await fetch(
+    `${api.url}/${params.year}/${params.month}/${params.tape}/${params.track}/${api.suffix}`
   );
 
-export const tapes = () =>
-  routeCache.createLoader(
-    async ({ params }) => {
-      const tapes = await fetch(`${api.url}/${params.year}/${api.suffix}`);
-
-      return {
-        tapes: extractProps(await tapes.json()),
-      };
-    },
-    {
-      policy: "cache-first",
-    }
-  );
-
-export const tape = () =>
-  routeCache.createLoader(
-    async ({ params }) => {
-      const tape = await fetch(
-        `${api.url}/${params.year}/${params.month}/${params.tape}/${api.suffix}`
-      );
-
-      return {
-        tape: extractProps(await tape.json()),
-      };
-    },
-    {
-      policy: "cache-first",
-    }
-  );
-
-export const track = () =>
-  routeCache.createLoader(
-    async ({ params }) => {
-      const track = await fetch(
-        `${api.url}/${params.year}/${params.month}/${params.tape}/${params.track}/${api.suffix}`
-      );
-
-      return {
-        track: extractProps(await track.json()),
-      };
-    },
-    {
-      policy: "cache-first",
-    }
-  );
+  return {
+    track: extractProps(await track.json()),
+  };
+};

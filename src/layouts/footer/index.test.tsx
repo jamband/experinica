@@ -1,14 +1,22 @@
-import { ReactLocation, Router } from "@tanstack/react-location";
+import {
+  createReactRouter,
+  createRouteConfig,
+  RouterProvider,
+} from "@tanstack/react-router";
 import { render, screen } from "@testing-library/react";
 import { expect, test } from "vitest";
 import { APP_NAME } from "~/constants/app";
 import { Footer } from ".";
 
 test("", () => {
+  const router = createReactRouter({
+    routeConfig: createRouteConfig(),
+  });
+
   render(
-    <Router location={new ReactLocation()} routes={[]}>
+    <RouterProvider router={router}>
       <Footer />
-    </Router>
+    </RouterProvider>
   );
   const links = screen.getAllByRole("link");
   expect(links.length).toBe(3);

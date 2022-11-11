@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "vite --open",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview --open",
     "lint": "eslint .",
     "format": "prettier --check .",
@@ -11,8 +11,7 @@
     "clean": "node scripts/clean.mjs"
   },
   "devDependencies": {
-    "@tanstack/react-location": "^3.7.4",
-    "@tanstack/react-location-simple-cache": "^3.4.4",
+    "@tanstack/react-router": "^0.0.1-beta.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@types/react": "^18.0.24",

@@ -1,16 +1,16 @@
-import { useLocation } from "@tanstack/react-location";
 import { useTrack } from "~/hooks/track";
+import { router } from "~/routes";
 import { Component } from "./component";
 
 export const Footer: React.FC = () => {
   const { track, resetTrack } = useTrack();
-  const { current } = useLocation();
+  const { location } = router.useState();
 
   const showTrackTitle =
     track.path !== "" &&
-    current.pathname !== track.path &&
-    current.pathname !== "/about" &&
-    current.pathname !== "/contact";
+    location.pathname !== track.path &&
+    location.pathname !== "/about" &&
+    location.pathname !== "/contact";
 
   return (
     <Component

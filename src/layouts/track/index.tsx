@@ -1,13 +1,13 @@
-import { useLocation } from "@tanstack/react-location";
 import { APP_PRIMARY_COLOR } from "~/constants/app";
 import { useTape } from "~/hooks/tape";
 import { useTrack } from "~/hooks/track";
+import { router } from "~/routes";
 import { Component } from "./component";
 
 export const Track: React.FC = () => {
   const { tape } = useTape();
   const { track } = useTrack();
-  const { current } = useLocation();
+  const { location } = router.useState();
 
   if (!track.path) return null;
 
@@ -29,7 +29,7 @@ export const Track: React.FC = () => {
 
   return (
     <Component
-      isTrackRoute={track.path === current.pathname}
+      isTrackRoute={track.path === location.pathname}
       track={track}
       src={src}
       tapeTitle={tape.title}

@@ -1,8 +1,14 @@
-import { Link } from "~/components/link";
+import { createRouteConfig } from "@tanstack/react-router";
 import { SectionDivider } from "~/components/section-divider";
 import { Page } from "~/layouts/page";
+import { router } from ".";
 
-export default function NotFound() {
+export const notFoundRoute = createRouteConfig().createRoute({
+  path: "*",
+  element: <NotFound />,
+});
+
+function NotFound() {
   return (
     <Page title="Not Found">
       <div className="flex h-[70vh] items-center justify-center">
@@ -10,9 +16,9 @@ export default function NotFound() {
           <h1>Not Found</h1>
           <p className="mb-10">This page does not exist.</p>
           <SectionDivider className="mb-10" />
-          <Link to="/" className="text-gray-300 hover:text-yellow-500">
+          <router.Link to="/" className="text-gray-300 hover:text-yellow-500">
             Go Digging →
-          </Link>
+          </router.Link>
         </div>
       </div>
     </Page>
