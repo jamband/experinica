@@ -1,14 +1,8 @@
-import { createRouteConfig } from "@tanstack/react-router";
 import { SectionDivider } from "~/components/section-divider";
 import { Page } from "~/layouts/page";
 import { router } from ".";
 
-export const notFoundRoute = createRouteConfig().createRoute({
-  path: "*",
-  element: <NotFound />,
-});
-
-function NotFound() {
+export default function NotFound() {
   return (
     <Page title="Not Found">
       <div className="flex h-[70vh] items-center justify-center">
