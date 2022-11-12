@@ -1,4 +1,4 @@
-import { rmSync } from "fs";
+import { rm } from "node:fs/promises";
 
-rmSync("dist", { recursive: true, force: true });
-rmSync("node_modules", { recursive: true, force: true });
+await rm("dist", { recursive: true, force: true });
+await rm("node_modules", { recursive: true, force: true });

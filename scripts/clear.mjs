@@ -1,3 +1,3 @@
-import { rmSync } from "fs";
+import { rm } from "node:fs/promises";
 
-rmSync("dist", { recursive: true, force: true });
+await rm("dist", { recursive: true, force: true });
