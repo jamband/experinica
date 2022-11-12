@@ -7,6 +7,7 @@ import { Header } from "./layouts/header";
 import { Loading } from "./layouts/loading";
 import { Track } from "./layouts/track";
 import { router } from "./routes";
+import Catch from "./routes/catch";
 import "./styles/app.css";
 
 const container = document.getElementById("app");
@@ -18,6 +19,7 @@ createRoot(container).render(
       router={router}
       defaultPendingElement={<Loading />}
       defaultPendingMs={0}
+      defaultCatchElement={<Catch />}
     >
       <Header />
       <main className="container mx-auto pb-32 pt-28">
