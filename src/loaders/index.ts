@@ -3,16 +3,15 @@ const api = {
   suffix: "__data.json",
 };
 
-const extractProps = (
-  base: Array<number>,
-  next?: any /* eslint-disable-line */
-) => {
+const extractProps = (base: any, next?: any /* eslint-disable-line */) => {
+  const data = base["nodes"][1]["data"];
   const props: any = []; // eslint-disable-line
-  for (const [key, index] of Object.entries<number>(next || base[5])) {
+
+  for (const [key, index] of Object.entries<number>(next || data[0])) {
     props[key] =
-      typeof base[index] === "object"
-        ? extractProps(base, base[index])
-        : base[index];
+      typeof data[index] === "object"
+        ? extractProps(base, data[index])
+        : data[index];
   }
   return props;
 };
