@@ -396,19 +396,19 @@
   resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.24.51.tgz#645f33fe4e02defe26f2f5c0410e1c094eac7f5f"
   integrity sha512-1P1OROm/rdubP5aFDSZQILU0vrLCJ4fvHt6EoqHEM+2D/G5MK3bIaymUKLit8Js9gbns5UyJnkP/TZROLw4tUA==
 
-"@tanstack/react-router@^0.0.1-beta.5":
-  version "0.0.1-beta.5"
-  resolved "https://registry.yarnpkg.com/@tanstack/react-router/-/react-router-0.0.1-beta.5.tgz#8fd7d5170bb1c0aeac82f9742de18c534428f17c"
-  integrity sha512-qcvLUrflrQKTdkCN0u/QdXfPi0FLOEYX+zdlXphwnAYLpk9LtKKUcPX9LLKZc21K0bvX9fFEZHMWXA2lVRSn2w==
+"@tanstack/react-router@^0.0.1-beta.9":
+  version "0.0.1-beta.9"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-router/-/react-router-0.0.1-beta.9.tgz#69305157f4d5bd13439dbe8910ba3217176203f9"
+  integrity sha512-d8EiP1TtI5V1wi1u35TQv7Cf8Pte9zy9l9YDPd1cMIbKe1vBTCnlzuldZZJ1FDosyluEKSH4CXo5MGqKI5lilg==
   dependencies:
     "@babel/runtime" "^7.16.7"
-    "@tanstack/router-core" "0.0.1-beta.5"
+    "@tanstack/router-core" "0.0.1-beta.9"
     use-sync-external-store "^1.2.0"
 
-"@tanstack/router-core@0.0.1-beta.5":
-  version "0.0.1-beta.5"
-  resolved "https://registry.yarnpkg.com/@tanstack/router-core/-/router-core-0.0.1-beta.5.tgz#79ad266e0eb249eaaec523251ddd24027f4560d6"
-  integrity sha512-YoWPu+Dc3xgLJHf7FouXeXzq2kP42aLZ+QKHncZBcAw4wlGaHzA50Ux2JvDm5B4Wcynm2a3hTjzX+bskQ9nbiw==
+"@tanstack/router-core@0.0.1-beta.9":
+  version "0.0.1-beta.9"
+  resolved "https://registry.yarnpkg.com/@tanstack/router-core/-/router-core-0.0.1-beta.9.tgz#a420b182e906f7796deb8c0dc8634187f1e05d7b"
+  integrity sha512-GX1doLkl+8hP8e56eAzOFbQgvHK4v/FzJr/o59YL2bbnhbmQGbqHfJBocxdaoPhvZ3BW/wjEfklmQq8nDdKoxw==
   dependencies:
     "@babel/runtime" "^7.16.7"
     history "^5.2.0"
@@ -1813,10 +1813,10 @@ grapheme-splitter@^1.0.4:
   resolved "https://registry.yarnpkg.com/grapheme-splitter/-/grapheme-splitter-1.0.4.tgz#9cf3a665c6247479896834af35cf1dbb4400767e"
   integrity sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==
 
-happy-dom@^7.6.7:
-  version "7.6.7"
-  resolved "https://registry.yarnpkg.com/happy-dom/-/happy-dom-7.6.7.tgz#cce90413ae33f42a2a7e704b928de1b84efeebf1"
-  integrity sha512-9pOslsClyF5JX9ZM3dzRhLjTHqc4dha7v+ZB94u4PHMVTdLplXAnh5e5WXtPUU1n0J4tDUavslJqitqt/1W45g==
+happy-dom@^7.7.0:
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/happy-dom/-/happy-dom-7.7.0.tgz#60de93fda57a4d563d6b37a777abfc6a9592182b"
+  integrity sha512-U10JXl5qSaHswXT5kyE7lvSDoyK48GyPGpe74qI9KT29frt1AlS+jnwy77RUJIknx+4b52DK1NllXTgHH8k20w==
   dependencies:
     css.escape "^1.5.1"
     he "^1.2.0"
@@ -3007,10 +3007,10 @@ sync-rpc@^1.2.1:
   dependencies:
     get-port "^3.1.0"
 
-tailwindcss@^3.2.3:
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.2.3.tgz#c5ee3cb95dae7a80592d43a460d277915c7b2938"
-  integrity sha512-Xt9D4PK4zuuQCEB8bwK9JUCKmTgUwyac/6b0/42Vqhgl6YJkep+Wf5wq+5uXYfmrupdAD0YY2NY1hyZp1HjRrg==
+tailwindcss@^3.2.4:
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.2.4.tgz#afe3477e7a19f3ceafb48e4b083e292ce0dc0250"
+  integrity sha512-AhwtHCKMtR71JgeYDaswmZXhPcW9iuI9Sp2LvZPo9upDZ7231ZJ7eA9RaURbhpXGVlrjX4cFNlB4ieTetEb7hQ==
   dependencies:
     arg "^5.0.2"
     chokidar "^3.5.3"
