@@ -8,10 +8,13 @@ import { Track } from "./layouts/track";
 import { router } from "./routes";
 import "./styles/app.css";
 
-const container = document.getElementById("app");
-if (container === null) throw new Error("Root element does not exists.");
+const rootElement = document.getElementById("app");
 
-createRoot(container).render(
+if (rootElement === null) {
+  throw new Error("Root element does not exists.");
+}
+
+createRoot(rootElement).render(
   <StrictMode>
     <RouterProvider router={router}>
       <Header />
