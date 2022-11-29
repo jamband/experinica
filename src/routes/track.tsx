@@ -1,15 +1,28 @@
 import { createRouteConfig } from "@tanstack/react-router";
 import { useEffect } from "react";
+import { API_URL, API_URL_SUFFIX } from "~/constants/api";
 import { useTape } from "~/hooks/tape";
 import { useTrack } from "~/hooks/track";
 import { Page } from "~/layouts/page";
-import { track } from "~/loaders";
+import { extractProps } from "~/utils/api";
 import { router } from ".";
 
 export const trackRoute = createRouteConfig().createRoute({
   path: "/$year/$month/$tape/$track",
   component: Track,
-  loader: track,
+  loader: async ({ params }) => {
+    const track = await fetch(
+      `${API_URL}/${params.year}/${params.month}/${params.tape}/${params.track}/${API_URL_SUFFIX}`
+    );
+
+    if (!track.ok) {
+      throw new Error("Failed to fetch");
+    }
+
+    return {
+      track: extractProps(await track.json()),
+    };
+  },
 });
 
 export default function Track() {

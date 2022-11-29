@@ -1,19 +1,31 @@
 import { createRouteConfig } from "@tanstack/react-router";
 import { SectionDivider } from "~/components/section-divider";
 import { TapeHeader } from "~/components/tape-header";
+import { API_URL, API_URL_SUFFIX } from "~/constants/api";
 import { useTrack } from "~/hooks/track";
 import { IconPause } from "~/icons/pause";
 import { IconPlay } from "~/icons/play";
 import { Page } from "~/layouts/page";
-import { tape } from "~/loaders";
 import { aspectRatio } from "~/styles/dynamic";
+import { extractProps } from "~/utils/api";
 import { scrollToTop } from "~/utils/scroll";
 import { router } from ".";
 
 export const tapeRoute = createRouteConfig().createRoute({
   path: "/$year/$month/$tape",
   component: Tape,
-  loader: tape,
+  loader: async ({ params }) => {
+    const tape = await fetch(
+      `${API_URL}/${params.year}/${params.month}/${params.tape}/${API_URL_SUFFIX}`
+    );
+
+    if (!tape.ok) {
+      throw new Error("Failed to fetch");
+    }
+    return {
+      tape: extractProps(await tape.json()),
+    };
+  },
 });
 
 export default function Tape() {

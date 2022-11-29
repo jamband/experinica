@@ -2,14 +2,25 @@ import { createRouteConfig } from "@tanstack/react-router";
 import { BackToHome } from "~/components/back-to-home";
 import { SectionDivider } from "~/components/section-divider";
 import { TapeHeader } from "~/components/tape-header";
+import { API_URL, API_URL_SUFFIX } from "~/constants/api";
 import { Page } from "~/layouts/page";
-import { tapes } from "~/loaders";
+import { extractProps } from "~/utils/api";
 import { router } from ".";
 
 export const tapesRoute = createRouteConfig().createRoute({
   path: "/$year",
   component: Tapes,
-  loader: tapes,
+  loader: async ({ params }) => {
+    const tapes = await fetch(`${API_URL}/${params.year}/${API_URL_SUFFIX}`);
+
+    if (!tapes.ok) {
+      throw new Error("Failed to fetch");
+    }
+
+    return {
+      tapes: extractProps(await tapes.json()),
+    };
+  },
 });
 
 export default function Tapes() {

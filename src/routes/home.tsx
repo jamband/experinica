@@ -1,14 +1,25 @@
 import { createRouteConfig } from "@tanstack/react-router";
 import { SectionDivider } from "~/components/section-divider";
 import { TapeHeader } from "~/components/tape-header";
+import { API_URL, API_URL_SUFFIX } from "~/constants/api";
 import { Page } from "~/layouts/page";
-import { home } from "~/loaders";
+import { extractProps } from "~/utils/api";
 import { router } from ".";
 
 export const homeRoute = createRouteConfig().createRoute({
   path: "/",
   component: Home,
-  loader: home,
+  loader: async () => {
+    const years = await fetch(`${API_URL}/${API_URL_SUFFIX}`);
+
+    if (!years.ok) {
+      throw new Error("Failed to fetch");
+    }
+
+    return {
+      years: extractProps(await years.json()),
+    };
+  },
 });
 
 export default function Home() {
