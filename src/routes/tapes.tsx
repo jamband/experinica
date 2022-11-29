@@ -1,8 +1,16 @@
+import { createRouteConfig } from "@tanstack/react-router";
 import { BackToHome } from "~/components/back-to-home";
 import { SectionDivider } from "~/components/section-divider";
 import { TapeHeader } from "~/components/tape-header";
 import { Page } from "~/layouts/page";
+import { tapes } from "~/loaders";
 import { router } from ".";
+
+export const tapesRoute = createRouteConfig().createRoute({
+  path: "/$year",
+  component: Tapes,
+  loader: tapes,
+});
 
 export default function Tapes() {
   const {

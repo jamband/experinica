@@ -1,7 +1,15 @@
+import { createRouteConfig } from "@tanstack/react-router";
 import { SectionDivider } from "~/components/section-divider";
 import { TapeHeader } from "~/components/tape-header";
 import { Page } from "~/layouts/page";
+import { home } from "~/loaders";
 import { router } from ".";
+
+export const homeRoute = createRouteConfig().createRoute({
+  path: "/",
+  component: Home,
+  loader: home,
+});
 
 export default function Home() {
   const {

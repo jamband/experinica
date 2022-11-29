@@ -1,8 +1,16 @@
+import { createRouteConfig } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { useTape } from "~/hooks/tape";
 import { useTrack } from "~/hooks/track";
 import { Page } from "~/layouts/page";
+import { track } from "~/loaders";
 import { router } from ".";
+
+export const trackRoute = createRouteConfig().createRoute({
+  path: "/$year/$month/$tape/$track",
+  component: Track,
+  loader: track,
+});
 
 export default function Track() {
   const {

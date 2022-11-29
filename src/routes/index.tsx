@@ -1,43 +1,18 @@
 import { createReactRouter, createRouteConfig } from "@tanstack/react-router";
-import * as loaders from "~/loaders";
-import About from "./about";
-import Contact from "./contact";
-import Home from "./home";
-import Tape from "./tape";
-import Tapes from "./tapes";
-import Track from "./track";
-
-const routeConfig = createRouteConfig().addChildren([
-  createRouteConfig().createRoute({
-    path: "/",
-    component: Home,
-    loader: loaders.home,
-  }),
-  createRouteConfig().createRoute({
-    path: "about",
-    component: About,
-  }),
-  createRouteConfig().createRoute({
-    path: "contact",
-    component: Contact,
-  }),
-  createRouteConfig().createRoute({
-    path: "/$year/$month/$tape/$track",
-    component: Track,
-    loader: loaders.track,
-  }),
-  createRouteConfig().createRoute({
-    path: "/$year/$month/$tape",
-    component: Tape,
-    loader: loaders.tape,
-  }),
-  createRouteConfig().createRoute({
-    path: "/$year",
-    component: Tapes,
-    loader: loaders.tapes,
-  }),
-]);
+import { aboutRoute } from "./about";
+import { contactRoute } from "./contact";
+import { homeRoute } from "./home";
+import { tapeRoute } from "./tape";
+import { tapesRoute } from "./tapes";
+import { trackRoute } from "./track";
 
 export const router = createReactRouter({
-  routeConfig,
+  routeConfig: createRouteConfig().addChildren([
+    homeRoute,
+    aboutRoute,
+    contactRoute,
+    trackRoute,
+    tapeRoute,
+    tapesRoute,
+  ]),
 });

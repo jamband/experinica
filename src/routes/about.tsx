@@ -1,8 +1,14 @@
+import { createRouteConfig } from "@tanstack/react-router";
 import { BackToHome } from "~/components/back-to-home";
 import { SectionDivider } from "~/components/section-divider";
 import { APP_NAME } from "~/constants/app";
 import { IconExternalLink } from "~/icons/external-link";
 import { Page } from "~/layouts/page";
+
+export const aboutRoute = createRouteConfig().createRoute({
+  path: "/about",
+  component: About,
+});
 
 export default function About() {
   return (

@@ -1,12 +1,20 @@
+import { createRouteConfig } from "@tanstack/react-router";
 import { SectionDivider } from "~/components/section-divider";
 import { TapeHeader } from "~/components/tape-header";
 import { useTrack } from "~/hooks/track";
 import { IconPause } from "~/icons/pause";
 import { IconPlay } from "~/icons/play";
 import { Page } from "~/layouts/page";
+import { tape } from "~/loaders";
 import { aspectRatio } from "~/styles/dynamic";
 import { scrollToTop } from "~/utils/scroll";
 import { router } from ".";
+
+export const tapeRoute = createRouteConfig().createRoute({
+  path: "/$year/$month/$tape",
+  component: Tape,
+  loader: tape,
+});
 
 export default function Tape() {
   const {
