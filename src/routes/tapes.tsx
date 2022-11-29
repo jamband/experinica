@@ -8,7 +8,7 @@ export default function Tapes() {
   const {
     params,
     loaderData: { tapes },
-  } = router.useMatch("/:year");
+  } = router.useMatch("/$year");
 
   return (
     <Page title={tapes?.title || ""}>

@@ -7,33 +7,33 @@ import Tape from "./tape";
 import Tapes from "./tapes";
 import Track from "./track";
 
-const routeConfig = createRouteConfig().createChildren((createRoute) => [
-  createRoute({
+const routeConfig = createRouteConfig().addChildren([
+  createRouteConfig().createRoute({
     path: "/",
-    element: <Home />,
+    component: Home,
     loader: loaders.home,
   }),
-  createRoute({
+  createRouteConfig().createRoute({
     path: "about",
-    element: <About />,
+    component: About,
   }),
-  createRoute({
+  createRouteConfig().createRoute({
     path: "contact",
-    element: <Contact />,
+    component: Contact,
   }),
-  createRoute({
-    path: "/:year/:month/:tape/:track",
-    element: <Track />,
+  createRouteConfig().createRoute({
+    path: "/$year/$month/$tape/$track",
+    component: Track,
     loader: loaders.track,
   }),
-  createRoute({
-    path: "/:year/:month/:tape",
-    element: <Tape />,
+  createRouteConfig().createRoute({
+    path: "/$year/$month/$tape",
+    component: Tape,
     loader: loaders.tape,
   }),
-  createRoute({
-    path: "/:year",
-    element: <Tapes />,
+  createRouteConfig().createRoute({
+    path: "/$year",
+    component: Tapes,
     loader: loaders.tapes,
   }),
 ]);

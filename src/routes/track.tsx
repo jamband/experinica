@@ -7,7 +7,7 @@ import { router } from ".";
 export default function Track() {
   const {
     loaderData: { track },
-  } = router.useMatch("/:year/:month/:tape/:track");
+  } = router.useMatch("/$year/$month/$tape/$track");
 
   const { setTape } = useTape();
   const { setTrack } = useTrack();

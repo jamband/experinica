@@ -12,7 +12,7 @@ export default function Tape() {
   const {
     params,
     loaderData: { tape },
-  } = router.useMatch("/:year/:month/:tape");
+  } = router.useMatch("/$year/$month/$tape");
   const { track } = useTrack();
 
   return (
