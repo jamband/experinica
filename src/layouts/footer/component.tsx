@@ -1,4 +1,3 @@
-import { ExternalLink } from "~/components/external-link";
 import { router } from "~/routes";
 import { APP_NAME } from "~/constants/app";
 import { IconX } from "~/icons/x";
@@ -40,12 +39,14 @@ export const Component: React.FC<_Props> = (props) => (
           >
             Contact
           </router.Link>
-          <ExternalLink
+          <a
             href={`https://github.com/jamband/${APP_NAME.toLowerCase()}`}
             className="rounded px-4 py-1 text-gray-400 no-underline hover:bg-gray-600 hover:text-gray-100 active:bg-gray-600 active:text-gray-100"
+            target="_blank"
+            rel="noreferrer"
           >
             GitHub
-          </ExternalLink>
+          </a>
         </div>
       </nav>
     )}

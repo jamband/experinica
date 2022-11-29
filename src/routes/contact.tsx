@@ -1,5 +1,4 @@
 import { BackToHome } from "~/components/back-to-home";
-import { ExternalLink } from "~/components/external-link";
 import { SectionDivider } from "~/components/section-divider";
 import { APP_NAME } from "~/constants/app";
 import { IconExternalLink } from "~/icons/external-link";
@@ -13,21 +12,25 @@ export default function Contact() {
           <h1>Contact</h1>
           <p className="mb-10">
             Please to the message via{" "}
-            <ExternalLink
+            <a
               href="https://twitter.com/livejam_db"
               className="text-yellow-500"
+              target="_blank"
+              rel="noreferrer"
             >
               Twitter
               <IconExternalLink className="h-4 w-4 align-[-0.125em]" />
-            </ExternalLink>{" "}
+            </a>{" "}
             or{" "}
-            <ExternalLink
+            <a
               href={`https://github.com/jamband/${APP_NAME.toLowerCase()}/issues`}
               className="text-yellow-500"
+              target="_blank"
+              rel="noreferrer"
             >
               GitHub
               <IconExternalLink className="h-4 w-4 align-[-0.125em]" />
-            </ExternalLink>{" "}
+            </a>{" "}
             issues. Thank you.
           </p>
           <SectionDivider className="mb-10" />

@@ -1,5 +1,4 @@
 import { BackToHome } from "~/components/back-to-home";
-import { ExternalLink } from "~/components/external-link";
 import { SectionDivider } from "~/components/section-divider";
 import { APP_NAME } from "~/constants/app";
 import { IconExternalLink } from "~/icons/external-link";
@@ -13,21 +12,25 @@ export default function About() {
           <h1>About</h1>
           <p className="mb-10">
             {APP_NAME} is my private playground for{" "}
-            <ExternalLink
+            <a
               href="https://tanstack.com/router"
               className="text-yellow-500"
+              target="_blank"
+              rel="noreferrer"
             >
               TanStack Router
               <IconExternalLink className="h-4 w-4 align-[-0.125em]" />
-            </ExternalLink>
+            </a>
             . This website is an open source project. See{" "}
-            <ExternalLink
+            <a
               href={`https://github.com/jamband/${APP_NAME.toLowerCase()}`}
               className="text-yellow-500"
+              target="_blank"
+              rel="noreferrer"
             >
               GitHub: jamband/{APP_NAME.toLowerCase()}
               <IconExternalLink className="h-4 w-4 align-[-0.125em]" />
-            </ExternalLink>{" "}
+            </a>{" "}
             for details.
           </p>
           <SectionDivider className="mb-10" />
