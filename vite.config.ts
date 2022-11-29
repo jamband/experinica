@@ -2,24 +2,24 @@
 /// <reference types="vite/client" />
 
 import react from "@vitejs/plugin-react";
-import { resolve } from "path";
+import { resolve } from "node:path";
 import { defineConfig } from "vite";
 
 export default defineConfig({
   resolve: {
     alias: {
-      "~": resolve(__dirname, "./src"),
+      "~": resolve(__dirname, "src"),
     },
   },
-  root: "src",
+  root: resolve(__dirname, "src"),
   build: {
-    outDir: "../dist",
+    outDir: resolve(__dirname, "dist"),
   },
   plugins: [react()],
   test: {
     globals: true,
     cache: {
-      dir: "../node_modules/.vitest",
+      dir: resolve(__dirname, "node_modules/.vitest"),
     },
     environment: "happy-dom",
     setupFiles: "tests/setup.ts",
