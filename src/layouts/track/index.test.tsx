@@ -1,8 +1,3 @@
-import {
-  createReactRouter,
-  createRouteConfig,
-  RouterProvider,
-} from "@tanstack/react-router";
 import { render } from "@testing-library/react";
 import type { Mock } from "vitest";
 import { beforeEach, expect, test, vi } from "vitest";
@@ -22,15 +17,7 @@ beforeEach(() => {
 test("when don't have the data for track", () => {
   useTrackMock.mockReturnValue({ track: { path: "" } });
 
-  const router = createReactRouter({
-    routeConfig: createRouteConfig(),
-  });
-
-  const { container } = render(
-    <RouterProvider router={router}>
-      <Track />
-    </RouterProvider>
-  );
+  const { container } = render(<Track />);
 
   expect(container).toBeEmptyDOMElement();
 });
@@ -38,15 +25,7 @@ test("when don't have the data for track", () => {
 test("when does not match the /:track route", () => {
   useTrackMock.mockReturnValue({ track: { path: "/foo" } });
 
-  const router = createReactRouter({
-    routeConfig: createRouteConfig(),
-  });
-
-  const { container } = render(
-    <RouterProvider router={router}>
-      <Track />
-    </RouterProvider>
-  );
+  const { container } = render(<Track />);
 
   // eslint-disable-next-line testing-library/no-node-access
   expect(container.firstChild).toHaveAttribute("class", "hidden");

@@ -1,23 +1,11 @@
-import {
-  createReactRouter,
-  createRouteConfig,
-  RouterProvider,
-} from "@tanstack/react-router";
 import { render, screen } from "@testing-library/react";
 import { expect, test } from "vitest";
 import { APP_NAME } from "~/constants/app";
 import { Footer } from ".";
 
 test("", () => {
-  const router = createReactRouter({
-    routeConfig: createRouteConfig(),
-  });
+  render(<Footer />);
 
-  render(
-    <RouterProvider router={router}>
-      <Footer />
-    </RouterProvider>
-  );
   const links = screen.getAllByRole("link");
   expect(links.length).toBe(3);
   expect(links[0]).toHaveAttribute("href", "/about");

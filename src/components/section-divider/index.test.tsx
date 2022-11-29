@@ -4,5 +4,6 @@ import { SectionDivider } from ".";
 
 test("", () => {
   render(<SectionDivider />);
+
   expect(screen.getByRole("separator")).toBeInTheDocument();
 });

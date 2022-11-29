@@ -9,6 +9,7 @@ test("title: ''", () => {
       <h1>Home</h1>
     </Page>
   );
+
   expect(document.title).toBe(APP_NAME);
   expect(screen.getByRole("heading", { name: "Home" })).toBeInTheDocument();
 });
@@ -19,6 +20,7 @@ test("title: Foo", () => {
       <h1>Foo</h1>
     </Page>
   );
+
   expect(document.title).toBe(`Foo ･ ${APP_NAME}`);
   expect(screen.getByRole("heading", { name: "Foo" })).toBeInTheDocument();
 });
