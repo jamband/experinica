@@ -28,7 +28,7 @@ export const trackRoute = createRouteConfig().createRoute({
 export default function Track() {
   const {
     loaderData: { track },
-  } = router.useMatch("/$year/$month/$tape/$track");
+  } = router.useMatch(trackRoute.id);
 
   const { setTape } = useTape();
   const { setTrack } = useTrack();

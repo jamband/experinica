@@ -25,7 +25,7 @@ export const homeRoute = createRouteConfig().createRoute({
 export default function Home() {
   const {
     loaderData: { years },
-  } = router.useMatch("/");
+  } = router.useMatch(homeRoute.id);
 
   return (
     <Page title="">
