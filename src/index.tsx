@@ -1,4 +1,4 @@
-import { Outlet, RouterProvider } from "@tanstack/react-router";
+import { RouterProvider } from "@tanstack/react-router";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "regenerator-runtime";
@@ -16,13 +16,11 @@ if (rootElement === null) {
 
 createRoot(rootElement).render(
   <StrictMode>
-    <RouterProvider router={router}>
-      <Header />
-      <main className="container mx-auto pb-32 pt-28">
-        <Track />
-        <Outlet />
-      </main>
-      <Footer />
-    </RouterProvider>
+    <Header />
+    <main className="container mx-auto pb-32 pt-28">
+      <Track />
+      <RouterProvider router={router} />
+    </main>
+    <Footer />
   </StrictMode>
 );

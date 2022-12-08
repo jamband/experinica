@@ -7,7 +7,7 @@ import { Component } from "./component";
 export const Track: React.FC = () => {
   const { tape } = useTape();
   const { track } = useTrack();
-  const { location } = router.useState();
+  const { currentLocation } = router.useState();
 
   if (!track.path) return null;
 
@@ -29,7 +29,7 @@ export const Track: React.FC = () => {
 
   return (
     <Component
-      isTrackRoute={track.path === location.pathname}
+      isTrackRoute={track.path === currentLocation.pathname}
       track={track}
       src={src}
       tapeTitle={tape.title}

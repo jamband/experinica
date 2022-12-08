@@ -4,13 +4,13 @@ import { Component } from "./component";
 
 export const Footer: React.FC = () => {
   const { track, resetTrack } = useTrack();
-  const { location } = router.useState();
+  const { currentLocation } = router.useState();
 
   const showTrackTitle =
     track.path !== "" &&
-    location.pathname !== track.path &&
-    location.pathname !== "/about" &&
-    location.pathname !== "/contact";
+    currentLocation.pathname !== track.path &&
+    currentLocation.pathname !== "/about" &&
+    currentLocation.pathname !== "/contact";
 
   return (
     <Component
