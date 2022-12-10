@@ -20,22 +20,22 @@ export default function About() {
             {APP_NAME} is my private playground for{" "}
             <a
               href="https://tanstack.com/router"
-              className="text-yellow-500"
+              className="text-yellow-500 decoration-yellow-500/70"
               target="_blank"
               rel="noreferrer"
             >
               TanStack Router
-              <IconExternalLink className="h-4 w-4 align-[-0.125em]" />
+              <IconExternalLink className="h-4 w-4 align-[-0.125em] text-yellow-500/70" />
             </a>
             . This website is an open source project. See{" "}
             <a
               href={`https://github.com/jamband/${APP_NAME.toLowerCase()}`}
-              className="text-yellow-500"
+              className="text-yellow-500 decoration-yellow-500/70"
               target="_blank"
               rel="noreferrer"
             >
               GitHub: jamband/{APP_NAME.toLowerCase()}
-              <IconExternalLink className="h-4 w-4 align-[-0.125em]" />
+              <IconExternalLink className="h-4 w-4 align-[-0.125em] text-yellow-500/70" />
             </a>{" "}
             for details.
           </p>

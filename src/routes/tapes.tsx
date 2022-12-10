@@ -38,12 +38,15 @@ export default function Tapes() {
       <SectionDivider className="mb-10" />
       <ul>
         {tapes?.tapes.map((tape) => (
-          <li key={tape.id} className="mb-3">
+          <li key={tape.id} className="mb-4">
             <router.Link
               to={tape.path}
-              className="text-2xl font-semibold text-gray-100 hover:text-yellow-500"
+              className="group pb-0.5 text-2xl font-bold text-gray-100 no-underline shadow-[0_2px_0_0_rgba(236,239,244,0.7)] hover:text-yellow-500 hover:shadow-[0_2px_0_0_rgba(247,214,142,0.7)]"
             >
-              {tape.title} →
+              {tape.title}
+              <span className="ml-2 align-top text-base text-gray-100/70 group-hover:text-yellow-500/70">
+                →
+              </span>
             </router.Link>
             <div className="text-xs">{tape.date}</div>
           </li>

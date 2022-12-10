@@ -72,10 +72,13 @@ export default function Tape() {
       <div className="text-center">
         <router.Link
           to={`/${params.year}`}
-          className="px-4 py-3 text-gray-300 hover:text-yellow-500"
+          className="group px-4 py-3 text-gray-300 decoration-gray-300/70 hover:text-yellow-500 hover:decoration-yellow-500/70"
           onClick={scrollToTop}
         >
-          ← Monthly Favorite Tracks of {params.year}
+          <span className="align-top text-sm text-gray-300/70 group-hover:text-yellow-500/70">
+            ←
+          </span>{" "}
+          Monthly Favorite Tracks of {params.year}
         </router.Link>
       </div>
     </Page>

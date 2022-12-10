@@ -21,6 +21,7 @@ module.exports = {
       "2xl": ["1.25rem", "1.65rem"],
       "3xl": ["1.65rem", "2.0rem"],
       "4xl": ["2rem", "2.5rem"],
+      "5xl": ["2.5rem", "3rem"],
     },
     extend: {
       colors: {

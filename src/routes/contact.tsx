@@ -20,22 +20,22 @@ export default function Contact() {
             Please to the message via{" "}
             <a
               href="https://twitter.com/livejam_db"
-              className="text-yellow-500"
+              className="group text-yellow-500 decoration-yellow-500/70"
               target="_blank"
               rel="noreferrer"
             >
               Twitter
-              <IconExternalLink className="h-4 w-4 align-[-0.125em]" />
+              <IconExternalLink className="h-4 w-4 align-[-0.125em] text-yellow-500/70" />
             </a>{" "}
             or{" "}
             <a
               href={`https://github.com/jamband/${APP_NAME.toLowerCase()}/issues`}
-              className="text-yellow-500"
+              className="group text-yellow-500 decoration-yellow-500/70"
               target="_blank"
               rel="noreferrer"
             >
               GitHub
-              <IconExternalLink className="h-4 w-4 align-[-0.125em]" />
+              <IconExternalLink className="h-4 w-4 align-[-0.125em] text-yellow-500/70" />
             </a>{" "}
             issues. Thank you.
           </p>
