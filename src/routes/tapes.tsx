@@ -41,10 +41,10 @@ export default function Tapes() {
           <li key={tape.id} className="mb-4">
             <router.Link
               to={tape.path}
-              className="group pb-0.5 text-2xl font-bold text-gray-100 no-underline shadow-[0_2px_0_0_rgba(236,239,244,0.7)] hover:text-yellow-500 hover:shadow-[0_2px_0_0_rgba(247,214,142,0.7)]"
+              className="group pb-0.5 text-2xl font-bold text-gray-100 no-underline shadow-[0_2px_0_0_rgba(236,239,244,0.7)] hover:text-yellow-500 hover:shadow-[0_2px_0_0_rgba(247,214,142,0.7)] active:shadow-[0_2px_0_0_rgba(247,214,142,0.7)]"
             >
               {tape.title}
-              <span className="ml-2 align-top text-base text-gray-100/70 group-hover:text-yellow-500/70">
+              <span className="ml-2 align-top text-base text-gray-100/70 group-hover:text-yellow-500/70 group-active:text-yellow-500/70">
                 →
               </span>
             </router.Link>

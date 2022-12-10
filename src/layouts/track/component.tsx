@@ -38,7 +38,7 @@ export const Component: React.FC<_Props> = (props) => (
         to={props.tapePath}
         className="group px-4 py-3 text-gray-300 decoration-gray-300/70 hover:text-yellow-500 hover:decoration-yellow-500/70"
       >
-        <span className="text-gray-300/70 group-hover:text-yellow-500/70">
+        <span className="text-gray-300/70 group-hover:text-yellow-500/70 group-active:text-yellow-500/70">
           ←
         </span>{" "}
         {props.tapeTitle}

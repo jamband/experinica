@@ -13,7 +13,7 @@ export const Component: React.FC<_Props> = (props) => (
         rel="noreferrer"
       >
         PlusArchive
-        <IconExternalLink className="h-4 w-4 align-[-0.2em] text-gray-400/70 group-hover:text-yellow-500/70" />
+        <IconExternalLink className="h-4 w-4 align-[-0.2em] text-gray-400/70 group-hover:text-yellow-500/70 group-active:text-yellow-500/70" />
       </a>
     </p>
   </header>

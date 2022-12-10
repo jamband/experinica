@@ -75,7 +75,7 @@ export default function Tape() {
           className="group px-4 py-3 text-gray-300 decoration-gray-300/70 hover:text-yellow-500 hover:decoration-yellow-500/70"
           onClick={scrollToTop}
         >
-          <span className="align-top text-sm text-gray-300/70 group-hover:text-yellow-500/70">
+          <span className="align-top text-sm text-gray-300/70 group-hover:text-yellow-500/70 group-active:text-yellow-500/70">
             ←
           </span>{" "}
           Monthly Favorite Tracks of {params.year}
