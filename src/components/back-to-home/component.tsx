@@ -7,7 +7,7 @@ export const Component: React.FC<_Props> = (props) => (
       to="/"
       className="group px-4 py-3 text-gray-300 decoration-gray-400/70 hover:text-yellow-500 hover:decoration-yellow-500/70"
     >
-      <span className="text-gray-400 active:text-yellow-500/70 group-hover:text-yellow-500/70">
+      <span className="text-gray-400 group-hover:text-yellow-500/70 group-active:text-yellow-500/70">
         ←
       </span>{" "}
       Back to Home
