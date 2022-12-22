@@ -36,9 +36,9 @@ export default function Home() {
           <router.Link
             key={year}
             to={year}
-            className="group rounded bg-gray-700 px-4 py-1 font-mono text-sm text-gray-300 no-underline hover:bg-yellow-500 hover:text-gray-900 active:bg-yellow-500 active:text-gray-900"
+            className="group rounded bg-gray-700 px-4 py-1 font-mono text-sm leading-7 text-gray-300 no-underline hover:bg-yellow-500 hover:text-gray-900 active:bg-yellow-500 active:text-gray-900"
           >
-            <span className="text-xs text-gray-500 group-hover:text-gray-600 group-active:text-gray-600">
+            <span className="align-top text-xs text-gray-500 group-hover:text-gray-600 group-active:text-gray-600">
               #
             </span>
             {year}
