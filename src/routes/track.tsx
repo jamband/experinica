@@ -4,8 +4,14 @@ import { API_URL, API_URL_SUFFIX } from "~/constants/api";
 import { useTape } from "~/hooks/tape";
 import { useTrack } from "~/hooks/track";
 import { Page } from "~/layouts/page";
+import type { Track as TTrack } from "~/types/track";
 import { extractProps } from "~/utils/api";
 import { rootRoute } from "./__root";
+
+type LoaderData = {
+  tapeTitle: string;
+  track: TTrack;
+};
 
 export const trackRoute = rootRoute.createRoute({
   path: "/$year/$month/$tape/$track",
@@ -25,7 +31,7 @@ export const trackRoute = rootRoute.createRoute({
     return {
       tapeTitle: data.tapeTitle,
       track: data.track,
-    };
+    } as LoaderData;
   },
 });
 

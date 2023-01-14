@@ -7,9 +7,18 @@ import { IconPause } from "~/icons/pause";
 import { IconPlay } from "~/icons/play";
 import { Page } from "~/layouts/page";
 import { aspectRatio } from "~/styles/dynamic";
+import type { Tape as TTape } from "~/types/tape";
 import { extractProps } from "~/utils/api";
 import { scrollToTop } from "~/utils/scroll";
+import { tapesRoute } from "./tapes";
+import { trackRoute } from "./track";
 import { rootRoute } from "./__root";
+
+type LoaderData = {
+  title: string;
+  tape: TTape;
+  year: string;
+};
 
 export const tapeRoute = rootRoute.createRoute({
   path: "/$year/$month/$tape",
@@ -26,7 +35,7 @@ export const tapeRoute = rootRoute.createRoute({
     const data = { ...extractProps(await tape.json()) };
     data.tape = { ...data.tape };
 
-    data.tape.items = data.tape.items.map((item: any) => {
+    data.tape.items = data.tape.items.map((item: TTape["items"]) => {
       return { ...item };
     });
 
@@ -34,7 +43,7 @@ export const tapeRoute = rootRoute.createRoute({
       title: data.title,
       tape: data.tape,
       year: data.year,
-    };
+    } as LoaderData;
   },
 });
 
@@ -51,7 +60,13 @@ export default function Tape() {
         {data.tape.items.map((item) => (
           <Link
             key={item.slug}
-            to={`/${params.year}/${params.month}/${params.tape}/${item.slug}`}
+            to={trackRoute.id}
+            params={{
+              year: params.year,
+              month: params.month,
+              tape: params.tape,
+              track: item.slug,
+            }}
             className="relative mb-1 text-gray-200 shadow active:text-gray-100"
           >
             <img
@@ -79,7 +94,8 @@ export default function Tape() {
       <SectionDivider className="mb-10" />
       <div className="text-center">
         <Link
-          to={`/${params.year}`}
+          to={tapesRoute.id}
+          params={{ year: params.year }}
           className="group px-4 py-3 text-gray-300 decoration-gray-300/70 hover:text-yellow-500 hover:decoration-yellow-500/70"
           onClick={scrollToTop}
         >

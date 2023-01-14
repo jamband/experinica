@@ -26,6 +26,7 @@ export const Track: React.FC = () => {
   }
 
   const tapePath = track.path.split("/").slice(0, -1).join("/");
+  const tapeParams = tapePath.split("/").filter(Boolean);
 
   return (
     <Component
@@ -33,7 +34,7 @@ export const Track: React.FC = () => {
       track={track}
       src={src}
       tapeTitle={tape.title}
-      tapePath={tapePath}
+      tapeParams={tapeParams}
     />
   );
 };

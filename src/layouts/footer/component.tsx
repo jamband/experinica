@@ -8,7 +8,13 @@ export const Component: React.FC<_Props> = (props) => (
     {props.showTrackTitle ? (
       <div className="my-3 flex items-center justify-center md:container md:mx-auto">
         <Link
-          to={props.track.path}
+          to="/$year/$month/$tape/$track"
+          params={{
+            year: props.trackParams[0],
+            month: props.trackParams[1],
+            tape: props.trackParams[2],
+            track: props.trackParams[3],
+          }}
           className="ml-4 mr-1 overflow-hidden text-ellipsis whitespace-nowrap py-1 text-sm font-semibold text-gray-100 no-underline"
         >
           {props.track.title}

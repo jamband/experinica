@@ -35,7 +35,12 @@ export const Component: React.FC<_Props> = (props) => (
       </div>
       <SectionDivider className="mb-10" />
       <Link
-        to={props.tapePath}
+        to="/$year/$month/$tape"
+        params={{
+          year: props.tapeParams[0],
+          month: props.tapeParams[1],
+          tape: props.tapeParams[2],
+        }}
         className="group px-4 py-3 text-gray-300 decoration-gray-300/70 hover:text-yellow-500 hover:decoration-yellow-500/70"
       >
         <span className="text-gray-300/70 group-hover:text-yellow-500/70 group-active:text-yellow-500/70">

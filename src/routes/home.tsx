@@ -6,6 +6,10 @@ import { Page } from "~/layouts/page";
 import { extractProps } from "~/utils/api";
 import { rootRoute } from "./__root";
 
+type LoaderData = {
+  years: Array<string>;
+};
+
 export const homeRoute = rootRoute.createRoute({
   path: "/",
   component: Home,
@@ -16,16 +20,16 @@ export const homeRoute = rootRoute.createRoute({
       throw new Error("Failed to fetch");
     }
 
-    const data = { ...extractProps(await response.json()) };
+    const data = extractProps(await response.json());
 
     return {
       years: data.years,
-    };
+    } as LoaderData;
   },
 });
 
 export default function Home() {
-  const data = useLoaderData({ from: homeRoute.id, strict: true });
+  const data = useLoaderData({ from: homeRoute.id });
 
   return (
     <Page title="">
@@ -35,7 +39,8 @@ export default function Home() {
         {data.years.map((year) => (
           <Link
             key={year}
-            to={year}
+            to="/$year"
+            params={{ year }}
             className="group rounded bg-gray-700 px-4 py-1 font-mono text-sm leading-7 text-gray-300 no-underline hover:bg-yellow-500 hover:text-gray-900 active:bg-yellow-500 active:text-gray-900"
           >
             <span className="align-top text-xs text-gray-500 group-hover:text-gray-600 group-active:text-gray-600">

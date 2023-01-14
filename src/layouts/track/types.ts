@@ -5,5 +5,5 @@ export type _Props = {
   track: TrackValue;
   src: string;
   tapeTitle: string;
-  tapePath: string;
+  tapeParams: Array<string>;
 };

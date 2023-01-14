@@ -4,8 +4,15 @@ import { SectionDivider } from "~/components/section-divider";
 import { TapeHeader } from "~/components/tape-header";
 import { API_URL, API_URL_SUFFIX } from "~/constants/api";
 import { Page } from "~/layouts/page";
+import type { Tape, Tapes as TTapes } from "~/types/tape";
 import { extractProps } from "~/utils/api";
+import { tapeRoute } from "./tape";
 import { rootRoute } from "./__root";
+
+type LoaderData = {
+  title: string;
+  tapes: TTapes;
+};
 
 export const tapesRoute = rootRoute.createRoute({
   path: "/$year",
@@ -19,20 +26,30 @@ export const tapesRoute = rootRoute.createRoute({
 
     const data = { ...extractProps(await response.json()) };
 
-    const tapes = data.tapes.map((tape: any) => {
+    const tapes = data.tapes.map((tape: Tape) => {
       return { ...tape };
     });
 
     return {
       title: data.title,
       tapes,
-    };
+    } as LoaderData;
   },
 });
 
 export default function Tapes() {
   const { params } = useMatch({ from: tapesRoute.id });
   const data = useLoaderData({ from: tapesRoute.id });
+
+  const extractParamsFromTapePath = (path: string) => {
+    const params = path.split("/").filter(Boolean);
+
+    return {
+      year: params[0],
+      month: params[1],
+      tape: params[2],
+    };
+  };
 
   return (
     <Page title={data.title}>
@@ -45,7 +62,8 @@ export default function Tapes() {
         {data.tapes.map((tape) => (
           <li key={tape.id} className="mb-4">
             <Link
-              to={tape.path}
+              to={tapeRoute.id}
+              params={extractParamsFromTapePath(tape.path)}
               className="group pb-0.5 text-2xl font-bold text-gray-100 no-underline shadow-[0_2px_0_0_rgba(236,239,244,0.7)] hover:text-yellow-500 hover:shadow-[0_2px_0_0_rgba(247,214,142,0.7)] active:shadow-[0_2px_0_0_rgba(247,214,142,0.7)]"
             >
               {tape.title}

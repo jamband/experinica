@@ -12,9 +12,12 @@ export const Footer: React.FC = () => {
     currentLocation.pathname !== "/about" &&
     currentLocation.pathname !== "/contact";
 
+  const trackParams = track.path.split("/").filter(Boolean);
+
   return (
     <Component
       showTrackTitle={showTrackTitle}
+      trackParams={trackParams}
       track={track}
       resetTrack={resetTrack}
     />
