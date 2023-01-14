@@ -1,39 +1,39 @@
-import { createRouteConfig } from "@tanstack/react-router";
+import { Link, useLoaderData } from "@tanstack/react-router";
 import { SectionDivider } from "~/components/section-divider";
 import { TapeHeader } from "~/components/tape-header";
 import { API_URL, API_URL_SUFFIX } from "~/constants/api";
 import { Page } from "~/layouts/page";
 import { extractProps } from "~/utils/api";
-import { router } from ".";
+import { rootRoute } from "./__root";
 
-export const homeRoute = createRouteConfig().createRoute({
+export const homeRoute = rootRoute.createRoute({
   path: "/",
   component: Home,
   loader: async () => {
-    const years = await fetch(`${API_URL}/${API_URL_SUFFIX}`);
+    const response = await fetch(`${API_URL}/${API_URL_SUFFIX}`);
 
-    if (!years.ok) {
+    if (!response.ok) {
       throw new Error("Failed to fetch");
     }
 
+    const data = { ...extractProps(await response.json()) };
+
     return {
-      years: extractProps(await years.json()),
+      years: data.years,
     };
   },
 });
 
 export default function Home() {
-  const {
-    loaderData: { years },
-  } = router.useMatch(homeRoute.id);
+  const data = useLoaderData({ from: homeRoute.id, strict: true });
 
   return (
     <Page title="">
       <TapeHeader title="Monthly Favorite Tracks" className="mb-10" />
       <SectionDivider className="mb-10" />
       <section className="flex items-center justify-center gap-5">
-        {years?.years.map((year) => (
-          <router.Link
+        {data.years.map((year) => (
+          <Link
             key={year}
             to={year}
             className="group rounded bg-gray-700 px-4 py-1 font-mono text-sm leading-7 text-gray-300 no-underline hover:bg-yellow-500 hover:text-gray-900 active:bg-yellow-500 active:text-gray-900"
@@ -42,7 +42,7 @@ export default function Home() {
               #
             </span>
             {year}
-          </router.Link>
+          </Link>
         ))}
       </section>
     </Page>

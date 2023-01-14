@@ -1,13 +1,13 @@
-import { createRouteConfig } from "@tanstack/react-router";
+import { useLoaderData } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { API_URL, API_URL_SUFFIX } from "~/constants/api";
 import { useTape } from "~/hooks/tape";
 import { useTrack } from "~/hooks/track";
 import { Page } from "~/layouts/page";
 import { extractProps } from "~/utils/api";
-import { router } from ".";
+import { rootRoute } from "./__root";
 
-export const trackRoute = createRouteConfig().createRoute({
+export const trackRoute = rootRoute.createRoute({
   path: "/$year/$month/$tape/$track",
   component: Track,
   loader: async ({ params }) => {
@@ -19,24 +19,25 @@ export const trackRoute = createRouteConfig().createRoute({
       throw new Error("Failed to fetch");
     }
 
+    const data = extractProps(await track.json());
+    data.track = { ...data.track };
+
     return {
-      track: extractProps(await track.json()),
+      tapeTitle: data.tapeTitle,
+      track: data.track,
     };
   },
 });
 
 export default function Track() {
-  const {
-    loaderData: { track },
-  } = router.useMatch(trackRoute.id);
-
+  const data = useLoaderData({ from: trackRoute.id });
   const { setTape } = useTape();
   const { setTrack } = useTrack();
 
   useEffect(() => {
-    if (track) setTape({ title: track.tapeTitle });
-    if (track) setTrack(track.track);
-  }, [setTape, setTrack, track]);
+    if (data.track) setTape({ title: data.tapeTitle });
+    if (data.track) setTrack(data.track);
+  }, [setTape, setTrack, data.track, data.tapeTitle]);
 
-  return <Page title={`${track?.tapeTitle} ･ ${track?.track.title}`}>{}</Page>;
+  return <Page title={`${data.tapeTitle} ･ ${data.track.title}`}>{}</Page>;
 }

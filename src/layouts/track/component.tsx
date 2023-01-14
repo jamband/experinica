@@ -1,5 +1,5 @@
+import { Link } from "@tanstack/react-router";
 import { SectionDivider } from "~/components/section-divider";
-import { router } from "~/routes";
 import { aspectRatio } from "~/styles/dynamic";
 import type { _Props } from "./types";
 
@@ -34,7 +34,7 @@ export const Component: React.FC<_Props> = (props) => (
         via {props.track.provider}
       </div>
       <SectionDivider className="mb-10" />
-      <router.Link
+      <Link
         to={props.tapePath}
         className="group px-4 py-3 text-gray-300 decoration-gray-300/70 hover:text-yellow-500 hover:decoration-yellow-500/70"
       >
@@ -42,7 +42,7 @@ export const Component: React.FC<_Props> = (props) => (
           ←
         </span>{" "}
         {props.tapeTitle}
-      </router.Link>
+      </Link>
     </div>
   </div>
 );

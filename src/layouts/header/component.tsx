@@ -1,11 +1,11 @@
+import { Link } from "@tanstack/react-router";
 import { APP_NAME } from "~/constants/app";
-import { router } from "~/routes";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
   <header className="fixed z-10 w-full bg-gray-700 text-center font-mono">
     <nav aria-label="Header navigation" className="my-2">
-      <router.Link
+      <Link
         to="/"
         className="m-1 inline-block rounded px-4 py-1 no-underline hover:bg-gray-600 active:bg-gray-600"
       >
@@ -23,7 +23,7 @@ export const Component: React.FC<_Props> = (props) => (
         >
           {APP_NAME.toLowerCase()}
         </span>
-      </router.Link>
+      </Link>
     </nav>
   </header>
 );

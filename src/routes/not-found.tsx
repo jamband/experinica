@@ -1,6 +1,6 @@
+import { Link } from "@tanstack/react-router";
 import { SectionDivider } from "~/components/section-divider";
 import { Page } from "~/layouts/page";
-import { router } from ".";
 
 export default function NotFound() {
   return (
@@ -10,9 +10,9 @@ export default function NotFound() {
           <h1>Not Found</h1>
           <p className="mb-10">This page does not exist.</p>
           <SectionDivider className="mb-10" />
-          <router.Link to="/" className="text-gray-300 hover:text-yellow-500">
+          <Link to="/" className="text-gray-300 hover:text-yellow-500">
             Go Digging →
-          </router.Link>
+          </Link>
         </div>
       </div>
     </Page>

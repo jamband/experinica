@@ -4,7 +4,7 @@ import { Component } from "./component";
 
 export const Footer: React.FC = () => {
   const { track, resetTrack } = useTrack();
-  const { currentLocation } = router.useState();
+  const { currentLocation } = router.store;
 
   const showTrackTitle =
     track.path !== "" &&
