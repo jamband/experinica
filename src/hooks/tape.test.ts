@@ -1,5 +1,4 @@
 import { act, renderHook } from "@testing-library/react";
-import { expect, test } from "vitest";
 import { useTape, type TapeValue } from "./tape";
 
 // when using Jotai, automatic cleanup() doesn't work.

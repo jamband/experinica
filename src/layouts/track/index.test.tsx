@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import type { Mock } from "vitest";
-import { beforeEach, expect, test, vi } from "vitest";
+import { vi } from "vitest";
 import { useTrack } from "~/hooks/track";
 import { Track } from ".";
 

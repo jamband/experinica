@@ -1,5 +1,4 @@
 import { act, renderHook } from "@testing-library/react";
-import { expect, test } from "vitest";
 import { useTrack, type TrackValue } from "./track";
 
 // when using Jotai, automatic cleanup() doesn't work.
