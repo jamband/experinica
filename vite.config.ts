@@ -1,27 +1,27 @@
-/// <reference types="vitest" />
 /// <reference types="vite/client" />
+/// <reference types="vitest" />
 
 import react from "@vitejs/plugin-react-swc";
 import { resolve } from "node:path";
 import { defineConfig } from "vite";
 
+const srcDir = resolve(__dirname, "src");
+
 export default defineConfig({
+  root: srcDir,
   resolve: {
-    alias: {
-      "~": resolve(__dirname, "src"),
-    },
+    alias: { "~": srcDir },
   },
-  root: resolve(__dirname, "src"),
   build: {
-    outDir: resolve(__dirname, "dist"),
+    outDir: "../dist",
   },
   plugins: [react()],
   test: {
     globals: true,
     cache: {
-      dir: resolve(__dirname, "node_modules/.vitest"),
+      dir: "../node_modules/.vitest",
     },
     environment: "happy-dom",
-    setupFiles: "tests/setup.ts",
+    setupFiles: "../vitest.setup.ts",
   },
 });
