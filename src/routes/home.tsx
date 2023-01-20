@@ -1,9 +1,9 @@
+import { SectionDivider } from "@/components/section-divider";
+import { TapeHeader } from "@/components/tape-header";
+import { API_URL, API_URL_SUFFIX } from "@/constants/api";
+import { Page } from "@/layouts/page";
+import { extractProps } from "@/utils/api";
 import { Link, useLoaderData } from "@tanstack/react-router";
-import { SectionDivider } from "~/components/section-divider";
-import { TapeHeader } from "~/components/tape-header";
-import { API_URL, API_URL_SUFFIX } from "~/constants/api";
-import { Page } from "~/layouts/page";
-import { extractProps } from "~/utils/api";
 import { rootRoute } from "./__root";
 
 type LoaderData = {

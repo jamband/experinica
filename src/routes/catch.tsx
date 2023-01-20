@@ -1,6 +1,6 @@
+import { SectionDivider } from "@/components/section-divider";
+import { Page } from "@/layouts/page";
 import { Link } from "@tanstack/react-router";
-import { SectionDivider } from "~/components/section-divider";
-import { Page } from "~/layouts/page";
 
 export default function Catch() {
   return (

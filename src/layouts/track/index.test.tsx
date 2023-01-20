@@ -1,10 +1,10 @@
+import { useTrack } from "@/hooks/track";
 import { render } from "@testing-library/react";
 import type { Mock } from "vitest";
 import { vi } from "vitest";
-import { useTrack } from "~/hooks/track";
 import { Track } from ".";
 
-vi.mock("~/hooks/track", () => ({
+vi.mock("@/hooks/track", () => ({
   useTrack: vi.fn(),
 }));
 

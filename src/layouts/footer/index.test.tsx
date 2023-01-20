@@ -1,5 +1,5 @@
+import { APP_NAME } from "@/constants/app";
 import { render, screen } from "@testing-library/react";
-import { APP_NAME } from "~/constants/app";
 import { Footer } from ".";
 
 test("", () => {

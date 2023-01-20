@@ -1,11 +1,11 @@
+import { BackToHome } from "@/components/back-to-home";
+import { SectionDivider } from "@/components/section-divider";
+import { TapeHeader } from "@/components/tape-header";
+import { API_URL, API_URL_SUFFIX } from "@/constants/api";
+import { Page } from "@/layouts/page";
+import type { Tape, Tapes as TTapes } from "@/types/tape";
+import { extractProps } from "@/utils/api";
 import { Link, useLoaderData, useMatch } from "@tanstack/react-router";
-import { BackToHome } from "~/components/back-to-home";
-import { SectionDivider } from "~/components/section-divider";
-import { TapeHeader } from "~/components/tape-header";
-import { API_URL, API_URL_SUFFIX } from "~/constants/api";
-import { Page } from "~/layouts/page";
-import type { Tape, Tapes as TTapes } from "~/types/tape";
-import { extractProps } from "~/utils/api";
 import { tapeRoute } from "./tape";
 import { rootRoute } from "./__root";
 

@@ -1,8 +1,8 @@
+import { Footer } from "@/layouts/footer";
+import { Header } from "@/layouts/header";
+import { Track } from "@/layouts/track";
+import "@/styles/app.css";
 import { createRouteConfig, Outlet } from "@tanstack/react-router";
-import { Footer } from "~/layouts/footer";
-import { Header } from "~/layouts/header";
-import { Track } from "~/layouts/track";
-import "~/styles/app.css";
 
 export const rootRoute = createRouteConfig({
   component: () => {

@@ -1,6 +1,6 @@
+import { SectionDivider } from "@/components/section-divider";
+import { aspectRatio } from "@/styles/dynamic";
 import { Link } from "@tanstack/react-router";
-import { SectionDivider } from "~/components/section-divider";
-import { aspectRatio } from "~/styles/dynamic";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (

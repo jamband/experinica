@@ -1,9 +1,9 @@
+import { BackToHome } from "@/components/back-to-home";
+import { SectionDivider } from "@/components/section-divider";
+import { APP_NAME } from "@/constants/app";
+import { IconExternalLink } from "@/icons/external-link";
+import { Page } from "@/layouts/page";
 import { createRouteConfig } from "@tanstack/react-router";
-import { BackToHome } from "~/components/back-to-home";
-import { SectionDivider } from "~/components/section-divider";
-import { APP_NAME } from "~/constants/app";
-import { IconExternalLink } from "~/icons/external-link";
-import { Page } from "~/layouts/page";
 
 export const contactRoute = createRouteConfig().createRoute({
   path: "/contact",

@@ -1,5 +1,5 @@
-import { useTrack } from "~/hooks/track";
-import { router } from "~/routes";
+import { useTrack } from "@/hooks/track";
+import { router } from "@/routes";
 import { Component } from "./component";
 
 export const Footer: React.FC = () => {

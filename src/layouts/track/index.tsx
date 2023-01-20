@@ -1,7 +1,7 @@
-import { APP_PRIMARY_COLOR } from "~/constants/app";
-import { useTape } from "~/hooks/tape";
-import { useTrack } from "~/hooks/track";
-import { router } from "~/routes";
+import { APP_PRIMARY_COLOR } from "@/constants/app";
+import { useTape } from "@/hooks/tape";
+import { useTrack } from "@/hooks/track";
+import { router } from "@/routes";
 import { Component } from "./component";
 
 export const Track: React.FC = () => {
