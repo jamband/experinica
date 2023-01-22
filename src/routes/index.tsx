@@ -1,4 +1,4 @@
-import { createReactRouter } from "@tanstack/react-router";
+import { ReactRouter } from "@tanstack/react-router";
 import { aboutRoute } from "./about";
 import { contactRoute } from "./contact";
 import { homeRoute } from "./home";
@@ -16,7 +16,7 @@ const routeConfig = rootRoute.addChildren([
   tapesRoute,
 ]);
 
-export const router = createReactRouter({
+export const router = new ReactRouter({
   routeConfig,
 });
 

@@ -7,7 +7,7 @@ import { Component } from "./component";
 export const Track: React.FC = () => {
   const { tape } = useTape();
   const { track } = useTrack();
-  const { currentLocation } = router.store;
+  const { currentLocation } = router.store.state;
 
   if (!track.path) return null;
 
