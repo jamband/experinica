@@ -3,16 +3,16 @@ import { TapeHeader } from "@/components/tape-header";
 import { API_URL, API_URL_SUFFIX } from "@/constants/api";
 import { Page } from "@/layouts/page";
 import { extractProps } from "@/utils/api";
-import { Link, useLoaderData } from "@tanstack/react-router";
+import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
+import { Link } from "@tanstack/react-router";
 import { rootRoute } from "./__root";
 
 type LoaderData = {
   years: Array<string>;
 };
 
-export const homeRoute = rootRoute.createRoute({
-  path: "/",
-  component: Home,
+export const homeLoader = new Loader({
+  key: "home",
   loader: async () => {
     const response = await fetch(`${API_URL}/${API_URL_SUFFIX}`);
 
@@ -28,8 +28,16 @@ export const homeRoute = rootRoute.createRoute({
   },
 });
 
+export const homeRoute = rootRoute.createRoute({
+  path: "/",
+  component: Home,
+  onLoad: ({ preload }) => homeLoader.load({ silent: preload }),
+});
+
 export default function Home() {
-  const data = useLoaderData({ from: homeRoute.id });
+  const {
+    state: { data },
+  } = useLoaderInstance({ key: homeLoader.key });
 
   return (
     <Page title="">

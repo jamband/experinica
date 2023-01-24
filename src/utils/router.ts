@@ -1,11 +1,11 @@
+import { aboutRoute } from "@/routes/about";
+import { contactRoute } from "@/routes/contact";
+import { homeRoute } from "@/routes/home";
+import { tapeRoute } from "@/routes/tape";
+import { tapesRoute } from "@/routes/tapes";
+import { trackRoute } from "@/routes/track";
+import { rootRoute } from "@/routes/__root";
 import { ReactRouter } from "@tanstack/react-router";
-import { aboutRoute } from "./about";
-import { contactRoute } from "./contact";
-import { homeRoute } from "./home";
-import { tapeRoute } from "./tape";
-import { tapesRoute } from "./tapes";
-import { trackRoute } from "./track";
-import { rootRoute } from "./__root";
 
 const routeConfig = rootRoute.addChildren([
   homeRoute,

@@ -1,10 +1,10 @@
 import { useTrack } from "@/hooks/track";
-import { router } from "@/routes";
+import { useRouterStore } from "@tanstack/react-router";
 import { Component } from "./component";
 
 export const Footer: React.FC = () => {
   const { track, resetTrack } = useTrack();
-  const { currentLocation } = router.store.state;
+  const { currentLocation } = useRouterStore();
 
   const showTrackTitle =
     track.path !== "" &&
