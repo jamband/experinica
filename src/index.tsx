@@ -5,13 +5,13 @@ import { createRoot } from "react-dom/client";
 import { loaderClient } from "./utils/loader-client";
 import { router } from "./utils/router";
 
-const rootElement = document.getElementById("app");
+const container = document.getElementById("app");
 
-if (rootElement === null) {
+if (container === null) {
   throw new Error("Root element does not exists.");
 }
 
-createRoot(rootElement).render(
+createRoot(container).render(
   <StrictMode>
     <LoaderClientProvider loaderClient={loaderClient}>
       <RouterProvider router={router} />
