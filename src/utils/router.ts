@@ -7,7 +7,7 @@ import { trackRoute } from "@/routes/track";
 import { rootRoute } from "@/routes/__root";
 import { ReactRouter } from "@tanstack/react-router";
 
-const routeConfig = rootRoute.addChildren([
+const routeTree = rootRoute.addChildren([
   homeRoute,
   aboutRoute,
   contactRoute,
@@ -17,11 +17,11 @@ const routeConfig = rootRoute.addChildren([
 ]);
 
 export const router = new ReactRouter({
-  routeConfig,
+  routeTree,
 });
 
 declare module "@tanstack/react-router" {
-  interface RegisterRouter {
+  interface Register {
     router: typeof router;
   }
 }

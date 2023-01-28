@@ -3,9 +3,11 @@ import { SectionDivider } from "@/components/section-divider";
 import { APP_NAME } from "@/constants/app";
 import { IconExternalLink } from "@/icons/external-link";
 import { Page } from "@/layouts/page";
-import { createRouteConfig } from "@tanstack/react-router";
+import { Route } from "@tanstack/react-router";
+import { rootRoute } from "./__root";
 
-export const contactRoute = createRouteConfig().createRoute({
+export const contactRoute = new Route({
+  getParentRoute: () => rootRoute,
   path: "/contact",
   component: Contact,
 });

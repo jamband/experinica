@@ -4,7 +4,7 @@ import { API_URL, API_URL_SUFFIX } from "@/constants/api";
 import { Page } from "@/layouts/page";
 import { extractProps } from "@/utils/api";
 import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
-import { Link } from "@tanstack/react-router";
+import { Link, Route } from "@tanstack/react-router";
 import { rootRoute } from "./__root";
 
 type LoaderData = {
@@ -28,16 +28,19 @@ export const homeLoader = new Loader({
   },
 });
 
-export const homeRoute = rootRoute.createRoute({
+export const homeRoute = new Route({
+  getParentRoute: () => rootRoute,
   path: "/",
   component: Home,
-  onLoad: ({ preload }) => homeLoader.load({ silent: preload }),
+  onLoad: async ({ preload }) => homeLoader.load({ preload }),
 });
 
 export default function Home() {
   const {
     state: { data },
-  } = useLoaderInstance({ key: homeLoader.key });
+  } = useLoaderInstance({
+    key: homeLoader.key,
+  });
 
   return (
     <Page title="">

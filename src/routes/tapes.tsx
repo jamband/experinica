@@ -6,7 +6,7 @@ import { Page } from "@/layouts/page";
 import type { Tape, Tapes as TTapes } from "@/types/tape";
 import { extractProps } from "@/utils/api";
 import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
-import { Link, useParams } from "@tanstack/react-router";
+import { Link, Route, useParams } from "@tanstack/react-router";
 import { tapeRoute } from "./tape";
 import { rootRoute } from "./__root";
 
@@ -41,7 +41,8 @@ export const tapesLoader = new Loader({
   },
 });
 
-export const tapesRoute = rootRoute.createRoute({
+export const tapesRoute = new Route({
+  getParentRoute: () => rootRoute,
   path: "/$year",
   component: Tapes,
   onLoad: async ({ params }) => tapesLoader.load({ variables: params }),

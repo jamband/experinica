@@ -10,7 +10,7 @@ import type { Tape as TTape } from "@/types/tape";
 import { extractProps } from "@/utils/api";
 import { scrollToTop } from "@/utils/scroll";
 import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
-import { Link, useParams } from "@tanstack/react-router";
+import { Link, Route, useParams } from "@tanstack/react-router";
 import { tapesRoute } from "./tapes";
 import { trackRoute } from "./track";
 import { rootRoute } from "./__root";
@@ -53,7 +53,8 @@ export const tapeLoader = new Loader({
   },
 });
 
-export const tapeRoute = rootRoute.createRoute({
+export const tapeRoute = new Route({
+  getParentRoute: () => rootRoute,
   path: "/$year/$month/$tape",
   component: Tape,
   onLoad: async ({ params }) => tapeLoader.load({ variables: params }),
@@ -64,7 +65,10 @@ export default function Tape() {
 
   const {
     state: { data },
-  } = useLoaderInstance({ key: tapeLoader.key, variables: params });
+  } = useLoaderInstance({
+    key: tapeLoader.key,
+    variables: params,
+  });
 
   const { track } = useTrack();
 

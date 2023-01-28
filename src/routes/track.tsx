@@ -5,7 +5,7 @@ import { Page } from "@/layouts/page";
 import type { Track as TTrack } from "@/types/track";
 import { extractProps } from "@/utils/api";
 import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
-import { useParams } from "@tanstack/react-router";
+import { Route, useParams } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { rootRoute } from "./__root";
 
@@ -42,10 +42,11 @@ export const trackLoader = new Loader({
   },
 });
 
-export const trackRoute = rootRoute.createRoute({
+export const trackRoute = new Route({
+  getParentRoute: () => rootRoute,
   path: "/$year/$month/$tape/$track",
   component: Track,
-  onLoad: ({ params }) => trackLoader.load({ variables: params }),
+  onLoad: async ({ params }) => trackLoader.load({ variables: params }),
 });
 
 export default function Track() {
@@ -53,7 +54,10 @@ export default function Track() {
 
   const {
     state: { data },
-  } = useLoaderInstance({ key: trackLoader.key, variables: params });
+  } = useLoaderInstance({
+    key: trackLoader.key,
+    variables: params,
+  });
 
   const { setTape } = useTape();
   const { setTrack } = useTrack();
