@@ -1,13 +1,16 @@
 import { APP_PRIMARY_COLOR } from "@/constants/app";
 import { useTape } from "@/hooks/tape";
 import { useTrack } from "@/hooks/track";
-import { useRouterStore } from "@tanstack/react-router";
+import { useRouterContext } from "@tanstack/react-router";
 import { Component } from "./component";
 
 export const Track: React.FC = () => {
   const { tape } = useTape();
   const { track } = useTrack();
-  const { currentLocation } = useRouterStore();
+
+  const {
+    state: { currentLocation },
+  } = useRouterContext();
 
   if (!track.path) return null;
 
