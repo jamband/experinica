@@ -13,8 +13,7 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
-    "importsNotUsedAsValues": "error",
-    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
     "noEmit": true,
     "paths": { "@/*": ["./src/*"] },
     "jsx": "react-jsx"
