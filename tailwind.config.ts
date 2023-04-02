@@ -1,5 +1,6 @@
-/** @type {import("tailwindcss").Config} */
-module.exports = {
+import type { Config } from "tailwindcss";
+
+export default {
   content: ["./src/**/*.{html,ts,tsx}"],
   future: {
     hoverOnlyWhenSupported: true,
@@ -14,9 +15,9 @@ module.exports = {
       lg: "1024px",
     },
     fontSize: {
-      xxs: ["0.675rem"],
-      xs: ["0.8125rem"],
-      sm: ["0.9375rem"],
+      xxs: "0.675rem",
+      xs: "0.8125rem",
+      sm: "0.9375rem",
       base: ["1.0625rem", "1.65rem"],
       "2xl": ["1.25rem", "1.65rem"],
       "3xl": ["1.65rem", "2.0rem"],
@@ -46,4 +47,4 @@ module.exports = {
       },
     },
   },
-};
+} satisfies Config;
