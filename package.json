@@ -4,7 +4,7 @@
     "dev": "vite --open",
     "build": "vite build",
     "preview": "vite preview --open",
-    "tsc": "tsc",
+    "typecheck": "tsc",
     "lint": "eslint .",
     "format": "prettier --check .",
     "test": "vitest",
