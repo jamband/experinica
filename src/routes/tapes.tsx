@@ -55,7 +55,7 @@ export default function Tapes() {
   const {
     state: { data },
   } = useLoader({
-    key: tapesLoader.key,
+    key: "tapesLoader",
     variables: params,
   });
 

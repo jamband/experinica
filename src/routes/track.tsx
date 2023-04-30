@@ -56,7 +56,7 @@ export default function Track() {
   const {
     state: { data },
   } = useLoader({
-    key: trackLoader.key,
+    key: "trackLoader",
     variables: params,
   });
 

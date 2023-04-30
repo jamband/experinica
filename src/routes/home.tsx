@@ -39,7 +39,7 @@ export const homeRoute = new Route({
 export default function Home() {
   const {
     state: { data },
-  } = useLoader({ key: homeLoader.key });
+  } = useLoader({ key: "homeLoader" });
 
   return (
     <Page title="">
