@@ -21,7 +21,7 @@ export const Component: React.FC<_Props> = (props) => (
         </Link>
         <button
           type="button"
-          className="mr-2 rounded py-1 px-2 hover:bg-gray-600 hover:text-gray-100 active:bg-gray-600 active:text-yellow-500"
+          className="mr-2 rounded px-2 py-1 hover:bg-gray-600 hover:text-gray-100 active:bg-gray-600 active:text-yellow-500"
           onClick={props.resetTrack}
         >
           <IconX className="h-5 w-5 align-[-0.275em]" />
