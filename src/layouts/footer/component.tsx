@@ -1,6 +1,6 @@
 import { APP_NAME } from "@/constants/app";
 import { IconX } from "@/icons/x";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@tanstack/router";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (

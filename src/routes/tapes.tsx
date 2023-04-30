@@ -3,12 +3,12 @@ import { SectionDivider } from "@/components/section-divider";
 import { TapeHeader } from "@/components/tape-header";
 import { API_URL, API_URL_SUFFIX } from "@/constants/api";
 import { Page } from "@/layouts/page";
-import type { Tape, Tapes as TTapes } from "@/types/tape";
+import type { Tapes as TTapes, Tape } from "@/types/tape";
 import { extractProps } from "@/utils/api";
 import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
-import { Link, Route, useParams } from "@tanstack/react-router";
-import { tapeRoute } from "./tape";
+import { Link, Route, useParams } from "@tanstack/router";
 import { rootRoute } from "./__root";
+import { tapeRoute } from "./tape";
 
 type Params = {
   year: string;

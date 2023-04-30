@@ -1,11 +1,11 @@
+import { rootRoute } from "@/routes/__root";
 import { aboutRoute } from "@/routes/about";
 import { contactRoute } from "@/routes/contact";
 import { homeRoute } from "@/routes/home";
 import { tapeRoute } from "@/routes/tape";
 import { tapesRoute } from "@/routes/tapes";
 import { trackRoute } from "@/routes/track";
-import { rootRoute } from "@/routes/__root";
-import { ReactRouter } from "@tanstack/react-router";
+import { Router } from "@tanstack/router";
 
 const routeTree = rootRoute.addChildren([
   homeRoute,
@@ -16,11 +16,11 @@ const routeTree = rootRoute.addChildren([
   tapesRoute,
 ]);
 
-export const router = new ReactRouter({
+export const router = new Router({
   routeTree,
 });
 
-declare module "@tanstack/react-router" {
+declare module "@tanstack/router" {
   interface Register {
     router: typeof router;
   }

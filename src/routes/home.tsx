@@ -4,7 +4,7 @@ import { API_URL, API_URL_SUFFIX } from "@/constants/api";
 import { Page } from "@/layouts/page";
 import { extractProps } from "@/utils/api";
 import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
-import { Link, Route } from "@tanstack/react-router";
+import { Link, Route } from "@tanstack/router";
 import { rootRoute } from "./__root";
 
 type LoaderData = {

@@ -5,7 +5,7 @@ import { Page } from "@/layouts/page";
 import type { Track as TTrack } from "@/types/track";
 import { extractProps } from "@/utils/api";
 import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
-import { Route, useParams } from "@tanstack/react-router";
+import { Route, useParams } from "@tanstack/router";
 import { useEffect } from "react";
 import { rootRoute } from "./__root";
 
