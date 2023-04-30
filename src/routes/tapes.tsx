@@ -5,7 +5,7 @@ import { API_URL, API_URL_SUFFIX } from "@/constants/api";
 import { Page } from "@/layouts/page";
 import type { Tapes as TTapes, Tape } from "@/types/tape";
 import { extractProps } from "@/utils/api";
-import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
+import { Loader, useLoader } from "@tanstack/react-loaders";
 import { Link, Route, useParams } from "@tanstack/router";
 import { rootRoute } from "./__root";
 import { tapeRoute } from "./tape";
@@ -20,8 +20,7 @@ type LoaderData = {
 };
 
 export const tapesLoader = new Loader({
-  key: "tapes",
-  loader: async (params: Params) => {
+  fn: async (params: Params) => {
     const response = await fetch(`${API_URL}/${params.year}/${API_URL_SUFFIX}`);
 
     if (!response.ok) {
@@ -45,7 +44,9 @@ export const tapesRoute = new Route({
   getParentRoute: () => rootRoute,
   path: "/$year",
   component: Tapes,
-  onLoad: async ({ params }) => tapesLoader.load({ variables: params }),
+  loader: async ({ params }) => {
+    await tapesLoader.load({ variables: params });
+  },
 });
 
 export default function Tapes() {
@@ -53,7 +54,7 @@ export default function Tapes() {
 
   const {
     state: { data },
-  } = useLoaderInstance({
+  } = useLoader({
     key: tapesLoader.key,
     variables: params,
   });

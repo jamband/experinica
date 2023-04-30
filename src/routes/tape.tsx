@@ -9,7 +9,7 @@ import { aspectRatio } from "@/styles/dynamic";
 import type { Tape as TTape } from "@/types/tape";
 import { extractProps } from "@/utils/api";
 import { scrollToTop } from "@/utils/scroll";
-import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
+import { Loader, useLoader } from "@tanstack/react-loaders";
 import { Link, Route, useParams } from "@tanstack/router";
 import { rootRoute } from "./__root";
 import { tapesRoute } from "./tapes";
@@ -28,8 +28,7 @@ type LoaderData = {
 };
 
 export const tapeLoader = new Loader({
-  key: "tape",
-  loader: async (params: Params) => {
+  fn: async (params: Params) => {
     const tape = await fetch(
       `${API_URL}/${params.year}/${params.month}/${params.tape}/${API_URL_SUFFIX}`
     );
@@ -57,7 +56,9 @@ export const tapeRoute = new Route({
   getParentRoute: () => rootRoute,
   path: "/$year/$month/$tape",
   component: Tape,
-  onLoad: async ({ params }) => tapeLoader.load({ variables: params }),
+  loader: async ({ params }) => {
+    await tapeLoader.load({ variables: params });
+  },
 });
 
 export default function Tape() {
@@ -65,7 +66,7 @@ export default function Tape() {
 
   const {
     state: { data },
-  } = useLoaderInstance({
+  } = useLoader({
     key: tapeLoader.key,
     variables: params,
   });

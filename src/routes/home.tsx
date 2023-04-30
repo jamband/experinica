@@ -3,7 +3,7 @@ import { TapeHeader } from "@/components/tape-header";
 import { API_URL, API_URL_SUFFIX } from "@/constants/api";
 import { Page } from "@/layouts/page";
 import { extractProps } from "@/utils/api";
-import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
+import { Loader, useLoader } from "@tanstack/react-loaders";
 import { Link, Route } from "@tanstack/router";
 import { rootRoute } from "./__root";
 
@@ -12,8 +12,7 @@ type LoaderData = {
 };
 
 export const homeLoader = new Loader({
-  key: "home",
-  loader: async () => {
+  fn: async () => {
     const response = await fetch(`${API_URL}/${API_URL_SUFFIX}`);
 
     if (!response.ok) {
@@ -32,15 +31,15 @@ export const homeRoute = new Route({
   getParentRoute: () => rootRoute,
   path: "/",
   component: Home,
-  onLoad: async ({ preload }) => homeLoader.load({ preload }),
+  loader: async ({ preload }) => {
+    await homeLoader.load({ preload });
+  },
 });
 
 export default function Home() {
   const {
     state: { data },
-  } = useLoaderInstance({
-    key: homeLoader.key,
-  });
+  } = useLoader({ key: homeLoader.key });
 
   return (
     <Page title="">

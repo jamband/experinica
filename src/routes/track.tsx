@@ -4,7 +4,7 @@ import { useTrack } from "@/hooks/track";
 import { Page } from "@/layouts/page";
 import type { Track as TTrack } from "@/types/track";
 import { extractProps } from "@/utils/api";
-import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
+import { Loader, useLoader } from "@tanstack/react-loaders";
 import { Route, useParams } from "@tanstack/router";
 import { useEffect } from "react";
 import { rootRoute } from "./__root";
@@ -22,8 +22,7 @@ type LoaderData = {
 };
 
 export const trackLoader = new Loader({
-  key: "track",
-  loader: async (params: Params) => {
+  fn: async (params: Params) => {
     const track = await fetch(
       `${API_URL}/${params.year}/${params.month}/${params.tape}/${params.track}/${API_URL_SUFFIX}`
     );
@@ -46,7 +45,9 @@ export const trackRoute = new Route({
   getParentRoute: () => rootRoute,
   path: "/$year/$month/$tape/$track",
   component: Track,
-  onLoad: async ({ params }) => trackLoader.load({ variables: params }),
+  loader: async ({ params }) => {
+    await trackLoader.load({ variables: params });
+  },
 });
 
 export default function Track() {
@@ -54,7 +55,7 @@ export default function Track() {
 
   const {
     state: { data },
-  } = useLoaderInstance({
+  } = useLoader({
     key: trackLoader.key,
     variables: params,
   });
