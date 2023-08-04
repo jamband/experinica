@@ -29,7 +29,7 @@ test("setTrack", () => {
       provider_key: "key1",
       path: "path1",
       embed_aspect_ratio: "1/1",
-    })
+    }),
   );
 
   expect(result.current.track).toEqual({
@@ -54,7 +54,7 @@ test("resetTrack", () => {
       provider_key: "key1",
       path: "path1",
       embed_aspect_ratio: "1/1",
-    })
+    }),
   );
 
   expect(result.current.track).toEqual({

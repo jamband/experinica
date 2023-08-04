@@ -6,7 +6,7 @@ test("title: ''", () => {
   render(
     <Page title="">
       <h1>Home</h1>
-    </Page>
+    </Page>,
   );
 
   expect(document.title).toBe(APP_NAME);
@@ -17,7 +17,7 @@ test("title: Foo", () => {
   render(
     <Page title="Foo">
       <h1>Foo</h1>
-    </Page>
+    </Page>,
   );
 
   expect(document.title).toBe(`Foo ･ ${APP_NAME}`);

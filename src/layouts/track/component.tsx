@@ -21,7 +21,7 @@ export const Component: React.FC<_Props> = (props) => (
           key={props.track.path}
           src={props.src}
           className={`w-full rounded bg-gray-700 ${aspectRatio(
-            props.track.embed_aspect_ratio
+            props.track.embed_aspect_ratio,
           )}`}
           title={props.track.title}
           allowFullScreen

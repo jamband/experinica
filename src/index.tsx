@@ -16,5 +16,5 @@ createRoot(container).render(
     <LoaderClientProvider loaderClient={loaderClient}>
       <RouterProvider router={router} />
     </LoaderClientProvider>
-  </StrictMode>
+  </StrictMode>,
 );

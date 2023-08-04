@@ -1,6 +1,6 @@
 export const extractProps = (
   base: any /* eslint-disable-line */,
-  next?: any /* eslint-disable-line */
+  next?: any /* eslint-disable-line */,
 ) => {
   const data = base["nodes"][1]["data"];
   const props: any = []; // eslint-disable-line

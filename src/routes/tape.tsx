@@ -30,7 +30,7 @@ type LoaderData = {
 export const tapeLoader = new Loader({
   fn: async (params: Params) => {
     const tape = await fetch(
-      `${API_URL}/${params.year}/${params.month}/${params.tape}/${API_URL_SUFFIX}`
+      `${API_URL}/${params.year}/${params.month}/${params.tape}/${API_URL_SUFFIX}`,
     );
 
     if (!tape.ok) {
@@ -92,7 +92,7 @@ export default function Tape() {
           >
             <img
               className={`w-full rounded bg-gray-700 object-cover opacity-70 ${aspectRatio(
-                item.image_aspect_ratio
+                item.image_aspect_ratio,
               )}`}
               src={item.image}
               loading="lazy"

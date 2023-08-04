@@ -24,7 +24,7 @@ type LoaderData = {
 export const trackLoader = new Loader({
   fn: async (params: Params) => {
     const track = await fetch(
-      `${API_URL}/${params.year}/${params.month}/${params.tape}/${params.track}/${API_URL_SUFFIX}`
+      `${API_URL}/${params.year}/${params.month}/${params.tape}/${params.track}/${API_URL_SUFFIX}`,
     );
 
     if (!track.ok) {

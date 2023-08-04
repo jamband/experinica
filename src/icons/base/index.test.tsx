@@ -6,7 +6,7 @@ test("", () => {
   render(
     <Icon className="h-4 w-4" viewBox="0 0 20 20">
       icon
-    </Icon>
+    </Icon>,
   );
 
   const imageElement = screen.getByText("icon");
