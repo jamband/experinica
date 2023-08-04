@@ -6,6 +6,7 @@ import { tapeRoute } from "@/routes/tape";
 import { tapesRoute } from "@/routes/tapes";
 import { trackRoute } from "@/routes/track";
 import { Router } from "@tanstack/router";
+import { loaderClient } from "./loader-client";
 
 const routeTree = rootRoute.addChildren([
   homeRoute,
@@ -18,6 +19,9 @@ const routeTree = rootRoute.addChildren([
 
 export const router = new Router({
   routeTree,
+  context: {
+    loadClient: loaderClient,
+  },
 });
 
 declare module "@tanstack/router" {

@@ -5,7 +5,7 @@ import { API_URL, API_URL_SUFFIX } from "@/constants/api";
 import { Page } from "@/layouts/page";
 import type { Tapes as TTapes, Tape } from "@/types/tape";
 import { extractProps } from "@/utils/api";
-import { Loader, useLoader } from "@tanstack/react-loaders";
+import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
 import { Link, Route, useParams } from "@tanstack/router";
 import { rootRoute } from "./__root";
 import { tapeRoute } from "./tape";
@@ -20,6 +20,7 @@ type LoaderData = {
 };
 
 export const tapesLoader = new Loader({
+  key: "tapes",
   fn: async (params: Params) => {
     const response = await fetch(`${API_URL}/${params.year}/${API_URL_SUFFIX}`);
 
@@ -43,21 +44,16 @@ export const tapesLoader = new Loader({
 export const tapesRoute = new Route({
   getParentRoute: () => rootRoute,
   path: "/$year",
-  component: Tapes,
-  loader: async ({ params }) => {
-    await tapesLoader.load({ variables: params });
+  loader: async ({ context, params }) => {
+    await context.loadClient.load({ key: "tapes", variables: params });
+    return () => useLoaderInstance({ key: "tapes", variables: params });
   },
+  component: Tapes,
 });
 
 export default function Tapes() {
+  const { data } = tapesRoute.useLoader()();
   const params = useParams({ from: tapesRoute.id });
-
-  const {
-    state: { data },
-  } = useLoader({
-    key: "tapesLoader",
-    variables: params,
-  });
 
   const extractParamsFromTapePath = (path: string) => {
     const params = path.split("/").filter(Boolean);

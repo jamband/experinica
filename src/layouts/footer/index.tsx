@@ -1,19 +1,19 @@
 import { useTrack } from "@/hooks/track";
-import { useRouterContext } from "@tanstack/router";
+import { useRouter } from "@tanstack/router";
 import { Component } from "./component";
 
 export const Footer: React.FC = () => {
   const { track, resetTrack } = useTrack();
 
   const {
-    state: { currentLocation },
-  } = useRouterContext();
+    state: { resolvedLocation },
+  } = useRouter();
 
   const showTrackTitle =
     track.path !== "" &&
-    currentLocation.pathname !== track.path &&
-    currentLocation.pathname !== "/about" &&
-    currentLocation.pathname !== "/contact";
+    resolvedLocation.pathname !== track.path &&
+    resolvedLocation.pathname !== "/about" &&
+    resolvedLocation.pathname !== "/contact";
 
   const trackParams = track.path.split("/").filter(Boolean);
 

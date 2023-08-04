@@ -2,9 +2,10 @@ import { Footer } from "@/layouts/footer";
 import { Header } from "@/layouts/header";
 import { Track } from "@/layouts/track";
 import "@/styles/app.css";
-import { Outlet, RootRoute } from "@tanstack/router";
+import { routerContext } from "@/utils/router-context";
+import { Outlet } from "@tanstack/router";
 
-export const rootRoute = new RootRoute({
+export const rootRoute = routerContext.createRootRoute({
   component: () => {
     return (
       <>

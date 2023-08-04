@@ -5,12 +5,7 @@ import { trackLoader } from "@/routes/track";
 import { LoaderClient } from "@tanstack/react-loaders";
 
 export const loaderClient = new LoaderClient({
-  getLoaders: () => ({
-    homeLoader,
-    tapesLoader,
-    tapeLoader,
-    trackLoader,
-  }),
+  loaders: [homeLoader, tapesLoader, tapeLoader, trackLoader],
 });
 
 declare module "@tanstack/react-loaders" {

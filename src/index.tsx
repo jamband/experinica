@@ -13,7 +13,7 @@ if (container === null) {
 
 createRoot(container).render(
   <StrictMode>
-    <LoaderClientProvider loaderClient={loaderClient}>
+    <LoaderClientProvider client={loaderClient}>
       <RouterProvider router={router} />
     </LoaderClientProvider>
   </StrictMode>,
