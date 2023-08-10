@@ -3,7 +3,7 @@ import { SectionDivider } from "@/components/section-divider";
 import { APP_NAME } from "@/constants/app";
 import { IconExternalLink } from "@/icons/external-link";
 import { Page } from "@/layouts/page";
-import { Route } from "@tanstack/router";
+import { Route } from "@tanstack/react-router";
 import { rootRoute } from "./__root";
 
 export const contactRoute = new Route({

@@ -10,7 +10,7 @@ import type { Tape as TTape } from "@/types/tape";
 import { extractProps } from "@/utils/api";
 import { scrollToTop } from "@/utils/scroll";
 import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
-import { Link, Route, useParams } from "@tanstack/router";
+import { Link, Route, useParams } from "@tanstack/react-router";
 import { rootRoute } from "./__root";
 import { tapesRoute } from "./tapes";
 import { trackRoute } from "./track";

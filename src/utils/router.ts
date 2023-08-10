@@ -5,7 +5,7 @@ import { homeRoute } from "@/routes/home";
 import { tapeRoute } from "@/routes/tape";
 import { tapesRoute } from "@/routes/tapes";
 import { trackRoute } from "@/routes/track";
-import { Router } from "@tanstack/router";
+import { Router } from "@tanstack/react-router";
 import { loaderClient } from "./loader-client";
 
 const routeTree = rootRoute.addChildren([
@@ -24,7 +24,7 @@ export const router = new Router({
   },
 });
 
-declare module "@tanstack/router" {
+declare module "@tanstack/react-router" {
   interface Register {
     router: typeof router;
   }

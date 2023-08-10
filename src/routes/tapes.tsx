@@ -6,7 +6,7 @@ import { Page } from "@/layouts/page";
 import type { Tapes as TTapes, Tape } from "@/types/tape";
 import { extractProps } from "@/utils/api";
 import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
-import { Link, Route, useParams } from "@tanstack/router";
+import { Link, Route, useParams } from "@tanstack/react-router";
 import { rootRoute } from "./__root";
 import { tapeRoute } from "./tape";
 

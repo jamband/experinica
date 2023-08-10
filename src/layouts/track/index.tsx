@@ -1,7 +1,7 @@
 import { APP_PRIMARY_COLOR } from "@/constants/app";
 import { useTape } from "@/hooks/tape";
 import { useTrack } from "@/hooks/track";
-import { useRouter } from "@tanstack/router";
+import { useRouter } from "@tanstack/react-router";
 import { Component } from "./component";
 
 export const Track: React.FC = () => {
