@@ -12,8 +12,8 @@
     "clean": "node scripts/clean.mjs"
   },
   "dependencies": {
-    "@tanstack/react-loaders": "0.0.1-beta.134",
-    "@tanstack/react-router": "0.0.1-beta.145",
+    "@tanstack/react-loaders": "0.0.1-beta.156",
+    "@tanstack/react-router": "0.0.1-beta.156",
     "@testing-library/jest-dom": "6.1.1",
     "@testing-library/react": "14.0.0",
     "@types/react": "18.2.21",
