@@ -8,7 +8,6 @@ This repository is the client-side rendering (CSR) edition of [jamband/tapes](ht
 
 - Library: [React](https://reactjs.org/)
 - Routing: [TanStack Router](https://tanstack.com/router)
-- State management: [Jotai](https://jotai.org/)
 - Building: [Vite](https://vitejs.dev/)
 - Testing: [Vitest](https://vitest.dev/)
 
