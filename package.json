@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "vite --open",
-    "build": "vite build",
+    "build": "vite build --emptyOutDir",
     "preview": "vite preview --open",
     "typecheck": "tsc",
     "lint": "eslint .",
