@@ -1,6 +1,6 @@
 import { API_URL, API_URL_SUFFIX } from "@/constants/api";
-import { useTape } from "@/hooks/tape";
-import { useTrack } from "@/hooks/track";
+import { useTapeAction } from "@/hooks/tape";
+import { useTrackAction } from "@/hooks/track";
 import { Page } from "@/layouts/page";
 import type { Track as TTrack } from "@/types/track";
 import { extractProps } from "@/utils/api";
@@ -54,8 +54,8 @@ export const trackRoute = new Route({
 
 export default function Track() {
   const { data } = trackRoute.useLoader()();
-  const { setTape } = useTape();
-  const { setTrack } = useTrack();
+  const { setTape } = useTapeAction();
+  const { setTrack } = useTrackAction();
 
   useEffect(() => {
     if (data.track) setTape({ title: data.tapeTitle });

@@ -1,7 +1,7 @@
 import { SectionDivider } from "@/components/section-divider";
 import { TapeHeader } from "@/components/tape-header";
 import { API_URL, API_URL_SUFFIX } from "@/constants/api";
-import { useTrack } from "@/hooks/track";
+import { useTrackState } from "@/hooks/track";
 import { IconPause } from "@/icons/pause";
 import { IconPlay } from "@/icons/play";
 import { Page } from "@/layouts/page";
@@ -66,7 +66,7 @@ export const tapeRoute = new Route({
 export default function Tape() {
   const { data } = tapeRoute.useLoader()();
   const params = useParams({ from: tapeRoute.id });
-  const { track } = useTrack();
+  const track = useTrackState();
 
   return (
     <Page title={data.title || ""}>

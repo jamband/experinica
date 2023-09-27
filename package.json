@@ -30,7 +30,6 @@
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-testing-library": "6.0.2",
     "happy-dom": "12.2.0",
-    "jotai": "2.4.2",
     "postcss": "8.4.30",
     "postcss-import": "15.1.0",
     "prettier": "3.0.3",

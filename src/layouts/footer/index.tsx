@@ -1,9 +1,10 @@
-import { useTrack } from "@/hooks/track";
+import { useTrackAction, useTrackState } from "@/hooks/track";
 import { useRouter } from "@tanstack/react-router";
 import { Component } from "./component";
 
 export const Footer: React.FC = () => {
-  const { track, resetTrack } = useTrack();
+  const track = useTrackState();
+  const { resetTrack } = useTrackAction();
 
   const {
     state: { resolvedLocation },
