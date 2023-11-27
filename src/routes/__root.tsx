@@ -6,7 +6,7 @@ import type { loaderClient } from "@/utils/loader-client";
 import { Outlet, rootRouteWithContext } from "@tanstack/react-router";
 
 export const rootRoute = rootRouteWithContext<{
-  loaderClient: typeof loaderClient,
+  loaderClient: typeof loaderClient;
 }>()({
   component: () => {
     return (
