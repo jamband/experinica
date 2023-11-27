@@ -24,7 +24,7 @@ export const Component: React.FC<_Props> = (props) => (
             props.track.embed_aspect_ratio,
           )}`}
           title={props.track.title}
-          allowFullScreen
+          allow="fullscreen"
         />
       </div>
     </div>
