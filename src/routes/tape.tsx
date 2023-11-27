@@ -56,16 +56,19 @@ export const tapeLoader = new Loader({
 export const tapeRoute = new Route({
   getParentRoute: () => rootRoute,
   path: "/$year/$month/$tape",
-  loader: async ({ context, params }) => {
-    await context.loadClient.load({ key: "tape", variables: params });
-    return () => useLoaderInstance({ key: "tape", variables: params });
-  },
   component: Tape,
 });
 
 export default function Tape() {
-  const { data } = tapeRoute.useLoader()();
-  const params = useParams({ from: tapeRoute.id });
+  const params = useParams({
+    from: tapeRoute.id,
+  });
+
+  const { data } = useLoaderInstance({
+    key: "tape",
+    variables: params,
+  });
+
   const track = useTrackState();
 
   return (

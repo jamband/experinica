@@ -5,7 +5,7 @@ import { Page } from "@/layouts/page";
 import type { Track as TTrack } from "@/types/track";
 import { extractProps } from "@/utils/api";
 import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
-import { Route } from "@tanstack/react-router";
+import { Route, useParams } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { rootRoute } from "./__root";
 
@@ -45,15 +45,19 @@ export const trackLoader = new Loader({
 export const trackRoute = new Route({
   getParentRoute: () => rootRoute,
   path: "/$year/$month/$tape/$track",
-  loader: async ({ context, params }) => {
-    await context.loadClient.load({ key: "track", variables: params });
-    return () => useLoaderInstance({ key: "track", variables: params });
-  },
   component: Track,
 });
 
 export default function Track() {
-  const { data } = trackRoute.useLoader()();
+  const params = useParams({
+    from: trackRoute.id,
+  });
+
+  const { data } = useLoaderInstance({
+    key: "track",
+    variables: params,
+  });
+
   const { setTape } = useTapeAction();
   const { setTrack } = useTrackAction();
 

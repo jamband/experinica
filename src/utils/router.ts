@@ -20,7 +20,7 @@ const routeTree = rootRoute.addChildren([
 export const router = new Router({
   routeTree,
   context: {
-    loadClient: loaderClient,
+    loaderClient,
   },
 });
 

@@ -31,15 +31,13 @@ export const homeLoader = new Loader({
 export const homeRoute = new Route({
   getParentRoute: () => rootRoute,
   path: "/",
-  loader: async ({ context }) => {
-    await context.loadClient.load({ key: "home" });
-    return () => useLoaderInstance({ key: "home" });
-  },
   component: Home,
 });
 
 export default function Home() {
-  const { data } = homeRoute.useLoader()();
+  const { data } = useLoaderInstance({
+    key: "home",
+  });
 
   return (
     <Page title="">

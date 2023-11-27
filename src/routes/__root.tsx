@@ -2,10 +2,12 @@ import { Footer } from "@/layouts/footer";
 import { Header } from "@/layouts/header";
 import { Track } from "@/layouts/track";
 import "@/styles/app.css";
-import { routerContext } from "@/utils/router-context";
-import { Outlet } from "@tanstack/react-router";
+import type { loaderClient } from "@/utils/loader-client";
+import { Outlet, rootRouteWithContext } from "@tanstack/react-router";
 
-export const rootRoute = routerContext.createRootRoute({
+export const rootRoute = rootRouteWithContext<{
+  loaderClient: typeof loaderClient,
+}>()({
   component: () => {
     return (
       <>

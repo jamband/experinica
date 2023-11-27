@@ -44,16 +44,16 @@ export const tapesLoader = new Loader({
 export const tapesRoute = new Route({
   getParentRoute: () => rootRoute,
   path: "/$year",
-  loader: async ({ context, params }) => {
-    await context.loadClient.load({ key: "tapes", variables: params });
-    return () => useLoaderInstance({ key: "tapes", variables: params });
-  },
   component: Tapes,
 });
 
 export default function Tapes() {
-  const { data } = tapesRoute.useLoader()();
   const params = useParams({ from: tapesRoute.id });
+
+  const { data } = useLoaderInstance({
+    key: "tapes",
+    variables: params,
+  });
 
   const extractParamsFromTapePath = (path: string) => {
     const params = path.split("/").filter(Boolean);
