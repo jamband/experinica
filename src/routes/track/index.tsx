@@ -66,5 +66,9 @@ export default function Track() {
     if (data.track) setTrack(data.track);
   }, [setTape, setTrack, data.track, data.tapeTitle]);
 
-  return <Page title={`${data.tapeTitle} ･ ${data.track.title}`}>{}</Page>;
+  return (
+    <Page title={`${data.tapeTitle} ･ ${data.track.title}`}>
+      <></>
+    </Page>
+  );
 }
