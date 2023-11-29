@@ -87,6 +87,7 @@ export default function Tape() {
               track: item.slug,
             }}
             className={styles.track}
+            onClick={scrollToTop}
           >
             <img
               className={`${styles.trackImage} ${
