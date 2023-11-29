@@ -67,7 +67,7 @@ export default function Tapes() {
   };
 
   return (
-    <Page title={data.title}>
+    <Page title={data.title} className={styles.container}>
       <TapeHeader title={`Monthly Favorite Tracks of ${params.year}`} />
       <SectionDivider className={styles.sectionDivider} />
       <ul className={styles.main}>
@@ -94,8 +94,8 @@ export default function Tapes() {
           </li>
         ))}
       </ul>
-      <SectionDivider className={styles.sectionDivider} />
-      <BackToHome className={styles.backToHome} />
+      <SectionDivider />
+      <BackToHome />
     </Page>
   );
 }

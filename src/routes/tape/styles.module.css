@@ -1,11 +1,12 @@
-.sectionDivider {
-  margin: 2.5rem 0 0 0;
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 }
 
 .main {
   display: grid;
   gap: 1.5rem;
-  margin: 2.5rem 0 0 0;
 }
 
 @media (min-width: 768px) {
@@ -83,7 +84,6 @@
 }
 
 .backToTape {
-  margin: 2.5rem 0 0 0;
   text-align: center;
 }
 

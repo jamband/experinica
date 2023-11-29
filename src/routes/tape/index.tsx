@@ -1,4 +1,5 @@
 import { SectionDivider } from "@/components/section-divider";
+import { TapeHeader } from "@/components/tape-header";
 import { API_URL, API_URL_SUFFIX } from "@/constants/api";
 import { useTrackState } from "@/hooks/track";
 import { IconPause } from "@/icons/pause";
@@ -12,7 +13,6 @@ import { Link, Route, useParams } from "@tanstack/react-router";
 import { rootRoute } from "../root";
 import { tapesRoute } from "../tapes";
 import { trackRoute } from "../track";
-import { TapeHeader } from "./components/header";
 import styles from "./styles.module.css";
 
 type Params = {
@@ -72,9 +72,9 @@ export default function Tape() {
   const track = useTrackState();
 
   return (
-    <Page title={data.title || ""}>
-      <TapeHeader title={data.title || ""} />
-      <SectionDivider className={styles.sectionDivider} />
+    <Page title={data.title} className={styles.container}>
+      <TapeHeader title={data.title} />
+      <SectionDivider />
       <div className={styles.main}>
         {data.tape.items.map((item) => (
           <Link
@@ -112,7 +112,7 @@ export default function Tape() {
           </Link>
         ))}
       </div>
-      <SectionDivider className={styles.sectionDivider} />
+      <SectionDivider />
       <div className={styles.backToTape}>
         <Link
           to={tapesRoute.id}

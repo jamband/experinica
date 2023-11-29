@@ -41,9 +41,9 @@ export default function Home() {
   });
 
   return (
-    <Page title="">
+    <Page title="" className={styles.container}>
       <TapeHeader title="Monthly Favorite Tracks" />
-      <SectionDivider className={styles.sectionDivider} />
+      <SectionDivider />
       <section className={styles.main}>
         {data.years.map((year) => (
           <Link

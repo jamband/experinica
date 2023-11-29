@@ -5,16 +5,14 @@ import styles from "./styles.module.css";
 
 export default function Catch() {
   return (
-    <Page title="Request Failed">
-      <div className={styles.container}>
-        <div className={styles.containerInner}>
-          <h1>Request Failed</h1>
-          <p className={styles.description}>Failed to get data.</p>
-          <SectionDivider className={styles.sectionDivider} />
-          <Link to="/contact" className={styles.link}>
-            Go to Contact →
-          </Link>
-        </div>
+    <Page title="Request Failed" className={styles.container}>
+      <div className={styles.containerInner}>
+        <h1>Request Failed</h1>
+        <p className={styles.description}>Failed to get data.</p>
+        <SectionDivider className={styles.sectionDivider} />
+        <Link to="/contact" className={styles.link}>
+          Go to Contact →
+        </Link>
       </div>
     </Page>
   );
