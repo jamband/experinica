@@ -1,6 +1,5 @@
 import { APP_NAME } from "@/constants/app";
 import { IconX } from "@/icons/x";
-import { scrollToTop } from "@/utils/scroll";
 import { Link } from "@tanstack/react-router";
 import styles from "./styles.module.css";
 import type { _Props } from "./types";
@@ -18,7 +17,6 @@ export const Component: React.FC<_Props> = (props) => (
             track: props.trackParams[3],
           }}
           className={styles.titleLink}
-          onClick={scrollToTop}
         >
           {props.track.title}
         </Link>

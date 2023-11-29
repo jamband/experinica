@@ -7,7 +7,6 @@ import { IconPlay } from "@/icons/play";
 import { Page } from "@/layouts/page";
 import type { Tape as TTape } from "@/types/tape";
 import { extractProps } from "@/utils/api";
-import { scrollToTop } from "@/utils/scroll";
 import {
   Loader,
   createLoaderOptions,
@@ -91,7 +90,6 @@ export const tapeRoute = new Route({
                 track: item.slug,
               }}
               className={styles.track}
-              onClick={scrollToTop}
             >
               <img
                 className={`${styles.trackImage} ${
@@ -123,7 +121,6 @@ export const tapeRoute = new Route({
             to={tapesRoute.id}
             params={{ year: params.year }}
             className={styles.backToTapeLink}
-            onClick={scrollToTop}
           >
             <span className={styles.backToTapeLinkSymbol}>←</span> Monthly
             Favorite Tracks of {params.year}
