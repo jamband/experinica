@@ -1,4 +1,5 @@
 import { SectionDivider } from "@/components/section-divider";
+import { scrollToTop } from "@/utils/scroll";
 import { Link } from "@tanstack/react-router";
 import styles from "./styles.module.css";
 import type { _Props } from "./types";
@@ -44,6 +45,7 @@ export const Component: React.FC<_Props> = (props) => (
           tape: props.tapeParams[2],
         }}
         className={styles.backToTape}
+        onClick={scrollToTop}
       >
         <span className={styles.backToTapeSymbol}>←</span> {props.tapeTitle}
       </Link>

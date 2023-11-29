@@ -3,7 +3,11 @@ import { TapeHeader } from "@/components/tape-header";
 import { API_URL, API_URL_SUFFIX } from "@/constants/api";
 import { Page } from "@/layouts/page";
 import { extractProps } from "@/utils/api";
-import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
+import {
+  Loader,
+  createLoaderOptions,
+  useLoaderInstance,
+} from "@tanstack/react-loaders";
 import { Link, Route } from "@tanstack/react-router";
 import { rootRoute } from "../root";
 import styles from "./styles.module.css";
@@ -32,31 +36,36 @@ export const homeLoader = new Loader({
 export const homeRoute = new Route({
   getParentRoute: () => rootRoute,
   path: "/",
-  component: Home,
+  beforeLoad: () => ({
+    loaderOpts: createLoaderOptions({
+      key: "home",
+    }),
+  }),
+  loader: async ({ context: { loaderClient, loaderOpts } }) => {
+    await loaderClient.load({ ...loaderOpts });
+  },
+  component: function Home({ useRouteContext }) {
+    const { loaderOpts } = useRouteContext();
+    const { data } = useLoaderInstance(loaderOpts);
+
+    return (
+      <Page title="" className={styles.container}>
+        <TapeHeader title="Monthly Favorite Tracks" />
+        <SectionDivider />
+        <section className={styles.main}>
+          {data.years.map((year) => (
+            <Link
+              key={year}
+              to="/$year"
+              params={{ year }}
+              className={styles.link}
+            >
+              <span className={styles.linkSymbol}>#</span>
+              {year}
+            </Link>
+          ))}
+        </section>
+      </Page>
+    );
+  },
 });
-
-export default function Home() {
-  const { data } = useLoaderInstance({
-    key: "home",
-  });
-
-  return (
-    <Page title="" className={styles.container}>
-      <TapeHeader title="Monthly Favorite Tracks" />
-      <SectionDivider />
-      <section className={styles.main}>
-        {data.years.map((year) => (
-          <Link
-            key={year}
-            to="/$year"
-            params={{ year }}
-            className={styles.link}
-          >
-            <span className={styles.linkSymbol}>#</span>
-            {year}
-          </Link>
-        ))}
-      </section>
-    </Page>
-  );
-}

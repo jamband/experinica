@@ -4,8 +4,12 @@ import { useTrackAction } from "@/hooks/track";
 import { Page } from "@/layouts/page";
 import type { Track as TTrack } from "@/types/track";
 import { extractProps } from "@/utils/api";
-import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
-import { Route, useParams } from "@tanstack/react-router";
+import {
+  Loader,
+  createLoaderOptions,
+  useLoaderInstance,
+} from "@tanstack/react-loaders";
+import { Route } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { rootRoute } from "../root";
 
@@ -45,32 +49,32 @@ export const trackLoader = new Loader({
 export const trackRoute = new Route({
   getParentRoute: () => rootRoute,
   path: "/$year/$month/$tape/$track",
-  component: Track,
+  beforeLoad: ({ params }) => ({
+    loaderOpts: createLoaderOptions({
+      key: "track",
+      variables: params,
+    }),
+  }),
+  loader: async ({ context: { loaderClient, loaderOpts } }) => {
+    await loaderClient.load({ ...loaderOpts });
+  },
+  component: function Track({ useRouteContext }) {
+    const { loaderOpts } = useRouteContext();
+    const { data } = useLoaderInstance(loaderOpts);
+    const { setTape } = useTapeAction();
+    const { setTrack } = useTrackAction();
+
+    useEffect(() => {
+      if (data.track) {
+        setTape({ title: data.tapeTitle });
+        setTrack(data.track);
+      }
+    }, [data, setTape, setTrack]);
+
+    return (
+      <Page title={`${data.tapeTitle} ･ ${data.track.title}`}>
+        <></>
+      </Page>
+    );
+  },
 });
-
-export default function Track() {
-  const params = useParams({
-    from: trackRoute.id,
-  });
-
-  const { data } = useLoaderInstance({
-    key: "track",
-    variables: params,
-  });
-
-  const { setTape } = useTapeAction();
-  const { setTrack } = useTrackAction();
-
-  useEffect(() => {
-    if (data.track) {
-      setTape({ title: data.tapeTitle });
-      setTrack(data.track);
-    }
-  }, [data, setTape, setTrack]);
-
-  return (
-    <Page title={`${data.tapeTitle} ･ ${data.track.title}`}>
-      <></>
-    </Page>
-  );
-}

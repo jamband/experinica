@@ -8,8 +8,12 @@ import { Page } from "@/layouts/page";
 import type { Tape as TTape } from "@/types/tape";
 import { extractProps } from "@/utils/api";
 import { scrollToTop } from "@/utils/scroll";
-import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
-import { Link, Route, useParams } from "@tanstack/react-router";
+import {
+  Loader,
+  createLoaderOptions,
+  useLoaderInstance,
+} from "@tanstack/react-loaders";
+import { Link, Route } from "@tanstack/react-router";
 import { rootRoute } from "../root";
 import { tapesRoute } from "../tapes";
 import { trackRoute } from "../track";
@@ -56,75 +60,76 @@ export const tapeLoader = new Loader({
 export const tapeRoute = new Route({
   getParentRoute: () => rootRoute,
   path: "/$year/$month/$tape",
-  component: Tape,
-});
+  beforeLoad: ({ params }) => ({
+    loaderOpts: createLoaderOptions({
+      key: "tape",
+      variables: params,
+    }),
+  }),
+  loader: async ({ context: { loaderClient, loaderOpts } }) => {
+    await loaderClient.load({ ...loaderOpts });
+  },
+  component: function Tape({ useRouteContext, useParams }) {
+    const { loaderOpts } = useRouteContext();
+    const { data } = useLoaderInstance(loaderOpts);
+    const params = useParams();
+    const track = useTrackState();
 
-export default function Tape() {
-  const params = useParams({
-    from: tapeRoute.id,
-  });
-
-  const { data } = useLoaderInstance({
-    key: "tape",
-    variables: params,
-  });
-
-  const track = useTrackState();
-
-  return (
-    <Page title={data.title} className={styles.container}>
-      <TapeHeader title={data.title} />
-      <SectionDivider />
-      <div className={styles.main}>
-        {data.tape.items.map((item) => (
+    return (
+      <Page title={data.title} className={styles.container}>
+        <TapeHeader title={data.title} />
+        <SectionDivider />
+        <div className={styles.main}>
+          {data.tape.items.map((item) => (
+            <Link
+              key={item.slug}
+              to={trackRoute.id}
+              params={{
+                year: params.year,
+                month: params.month,
+                tape: params.tape,
+                track: item.slug,
+              }}
+              className={styles.track}
+              onClick={scrollToTop}
+            >
+              <img
+                className={`${styles.trackImage} ${
+                  item.image_aspect_ratio === "1/1" ? "aspect1x1" : ""
+                } ${item.image_aspect_ratio === "4/3" ? "aspect4x3" : ""} ${
+                  item.image_aspect_ratio === "16/9" ? "aspect16x9" : ""
+                } ${item.image_aspect_ratio === "21/9" ? "aspect21x9" : ""}`}
+                src={item.image}
+                loading="lazy"
+                alt=""
+              />
+              <div className={styles.trackIconStatus}>
+                {`${data.tape.path}/${item.slug}` === track.path ? (
+                  <IconPause className={styles.trackIcon} />
+                ) : (
+                  <IconPlay className={styles.trackIcon} />
+                )}
+              </div>
+              <div className={styles.trackFooter}>
+                <h4 className={styles.trackFooterTitle}>{item.title}</h4>
+                <div className={styles.trackFooterTapeTitle}>{data.title}</div>
+              </div>
+            </Link>
+          ))}
+        </div>
+        <SectionDivider />
+        <div className={styles.backToTape}>
           <Link
-            key={item.slug}
-            to={trackRoute.id}
-            params={{
-              year: params.year,
-              month: params.month,
-              tape: params.tape,
-              track: item.slug,
-            }}
-            className={styles.track}
+            to={tapesRoute.id}
+            params={{ year: params.year }}
+            className={styles.backToTapeLink}
             onClick={scrollToTop}
           >
-            <img
-              className={`${styles.trackImage} ${
-                item.image_aspect_ratio === "1/1" ? "aspect1x1" : ""
-              } ${item.image_aspect_ratio === "4/3" ? "aspect4x3" : ""} ${
-                item.image_aspect_ratio === "16/9" ? "aspect16x9" : ""
-              } ${item.image_aspect_ratio === "21/9" ? "aspect21x9" : ""}`}
-              src={item.image}
-              loading="lazy"
-              alt=""
-            />
-            <div className={styles.trackIconStatus}>
-              {`${data.tape.path}/${item.slug}` === track.path ? (
-                <IconPause className={styles.trackIcon} />
-              ) : (
-                <IconPlay className={styles.trackIcon} />
-              )}
-            </div>
-            <div className={styles.trackFooter}>
-              <h4 className={styles.trackFooterTitle}>{item.title}</h4>
-              <div className={styles.trackFooterTapeTitle}>{data.title}</div>
-            </div>
+            <span className={styles.backToTapeLinkSymbol}>←</span> Monthly
+            Favorite Tracks of {params.year}
           </Link>
-        ))}
-      </div>
-      <SectionDivider />
-      <div className={styles.backToTape}>
-        <Link
-          to={tapesRoute.id}
-          params={{ year: params.year }}
-          className={styles.backToTapeLink}
-          onClick={scrollToTop}
-        >
-          <span className={styles.backToTapeLinkSymbol}>←</span> Monthly
-          Favorite Tracks of {params.year}
-        </Link>
-      </div>
-    </Page>
-  );
-}
+        </div>
+      </Page>
+    );
+  },
+});
