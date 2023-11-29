@@ -1,0 +1,86 @@
+.container {
+  display: none;
+}
+
+.embedContainer {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.embedContainerInner {
+  grid-column: span 12 / span 12;
+}
+
+@media (min-width: 768px) {
+  .embedContainerInnerAspect1x1 {
+    grid-column: 3 / span 8;
+  }
+}
+
+@media (min-width: 768px) {
+  .embedContainerInnerAspect4x3 {
+    grid-column: 2 / span 10;
+  }
+}
+
+.embed {
+  background: rgb(--gray-700);
+  border-radius: var(--rounded);
+  width: 100%;
+}
+
+.titleContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: center;
+}
+
+.title {
+  font-size: var(--text-2xl);
+  margin: 0.75rem 0 0 0;
+}
+
+.provider {
+  color: rgb(var(--gray-400));
+  font-size: var(--text-sm);
+}
+
+.sectionDivider {
+  margin: 2.5rem 0 0 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.backToTape {
+  color: rgb(var(--gray-200));
+  margin: 2.5rem 0 0 0;
+  padding: 0.5rem 1rem;
+  text-decoration-color: rgb(var(--gray-200) / 70%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .backToTape:hover {
+    color: rgb(var(--yellow-500));
+    text-decoration-color: rgb(var(--yellow-500) / 70%);
+  }
+}
+
+.backToTapeSymbol {
+  color: rgb(var(--gray-200) / 70%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .backToTape:hover .backToTapeSymbol {
+    color: rgb(var(--yellow-500) / 70%);
+  }
+}
+
+.backToTape::active .backToTapeSymbol {
+  color: rgb(var(--yellow-500) / 70%);
+}

@@ -5,6 +5,7 @@ import { IconExternalLink } from "@/icons/external-link";
 import { Page } from "@/layouts/page";
 import { Route } from "@tanstack/react-router";
 import { rootRoute } from "./__root";
+import styles from "./contact.module.css";
 
 export const contactRoute = new Route({
   getParentRoute: () => rootRoute,
@@ -15,34 +16,34 @@ export const contactRoute = new Route({
 export default function Contact() {
   return (
     <Page title="Contact">
-      <div className="grid lg:grid-cols-6 lg:gap-4">
-        <div className="lg:col-span-4 lg:col-start-2">
+      <div className={styles.container}>
+        <div className={styles.containerInner}>
           <h1>Contact</h1>
-          <p className="mb-10">
+          <p className={styles.description}>
             Please to the message via{" "}
             <a
               href="https://twitter.com/livejam_db"
-              className="group text-yellow-500 decoration-yellow-500/70"
+              className={styles.link}
               target="_blank"
               rel="noreferrer"
             >
               Twitter
-              <IconExternalLink className="h-4 w-4 align-[-0.125em] text-yellow-500/70" />
+              <IconExternalLink className={styles.linkIcon} />
             </a>{" "}
             or{" "}
             <a
               href={`https://github.com/jamband/${APP_NAME.toLowerCase()}/issues`}
-              className="group text-yellow-500 decoration-yellow-500/70"
+              className={styles.link}
               target="_blank"
               rel="noreferrer"
             >
               GitHub
-              <IconExternalLink className="h-4 w-4 align-[-0.125em] text-yellow-500/70" />
+              <IconExternalLink className={styles.linkIcon} />
             </a>{" "}
             issues. Thank you.
           </p>
-          <SectionDivider className="mb-10" />
-          <BackToHome />
+          <SectionDivider className={styles.sectionDivider} />
+          <BackToHome className={styles.backToHome} />
         </div>
       </div>
     </Page>

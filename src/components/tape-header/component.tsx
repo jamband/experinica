@@ -1,19 +1,20 @@
 import { IconExternalLink } from "@/icons/external-link";
+import styles from "./styles.module.css";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
-  <header className={props.className}>
-    <h1 className="text-center md:mb-1">{props.title}</h1>
-    <p className="text-center text-sm">
+  <header className={styles.container}>
+    <h1>{props.title}</h1>
+    <p className={styles.description}>
       selected from{" "}
       <a
         href="https://plusarchive.com"
-        className="group text-gray-400 decoration-gray-400/70 hover:text-yellow-500 hover:decoration-yellow-500/70"
+        className={styles.link}
         target="_blank"
         rel="noreferrer"
       >
         PlusArchive
-        <IconExternalLink className="h-4 w-4 align-[-0.2em] text-gray-400/70 group-hover:text-yellow-500/70 group-active:text-yellow-500/70" />
+        <IconExternalLink className={styles.linkIcon} />
       </a>
     </p>
   </header>

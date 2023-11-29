@@ -1,0 +1,55 @@
+.container {
+  align-items: center;
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+}
+
+.bar1 {
+  background: rgb(var(--yellow-500));
+  border-radius: 1px;
+  height: 0.25rem;
+  width: 0.25rem;
+}
+
+.bar2 {
+  background: rgb(var(--yellow-600));
+  border-radius: 1px;
+  height: 0.75rem;
+  width: 0.25rem;
+}
+
+.bar3 {
+  background: rgb(var(--yellow-800));
+  border-radius: 1px;
+  height: 1.5rem;
+  width: 0.25rem;
+}
+
+.bar4 {
+  background: rgb(var(--yellow-700));
+  border-radius: 1px;
+  height: 1rem;
+  width: 0.25rem;
+}
+
+.bar5 {
+  background: rgb(var(--yellow-500));
+  border-radius: 1px;
+  height: 1.75rem;
+  width: 0.25rem;
+}
+
+.bar6 {
+  background: rgb(var(--yellow-600));
+  border-radius: 1px;
+  height: 0.75rem;
+  width: 0.25rem;
+}
+
+.bar7 {
+  background: rgb(var(--yellow-400));
+  border-radius: 1px;
+  height: 0.25rem;
+  width: 0.25rem;
+}

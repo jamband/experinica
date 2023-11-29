@@ -1,0 +1,68 @@
+.sectionDivider {
+  margin: 2.5rem 0 0 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2.5rem 0 0 0;
+}
+
+.tape {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.title {
+  box-shadow: 0 2px 0 0 rgb(var(--gray-100) / 70%);
+  color: rgb(var(--gray-100));
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.blankTitle {
+  box-shadow: 0 2px 0 0 rgb(var(--gray-100) / 30%);
+  color: rgb(var(--gray-100) / 60%);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .title:hover {
+    box-shadow: 0 2px 0 0 rgb(var(--yellow-500) / 70%);
+    color: rgb(var(--yellow-500));
+  }
+}
+
+.title:active {
+  box-shadow: 0 2px 0 0 rgb(var(--yellow-500) / 70%);
+}
+
+.titleSymbol {
+  color: rgb(var(--gray-100) / 70%);
+  font-size: var(--text-base);
+  margin: 0 0 0 0.5rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .title:hover .titleSymbol {
+    color: rgb(var(--yellow-500) / 70%);
+  }
+}
+
+.title:active .titleSymbol {
+  color: rgb(var(--yellow-500) / 70%);
+}
+
+.date {
+  font-size: var(--text-xs);
+}
+
+.backToHome {
+  margin: 2.5rem 0 0 0;
+}

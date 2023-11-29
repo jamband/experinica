@@ -1,0 +1,52 @@
+.sectionDivider {
+  margin: 2.5rem 0 0 0;
+}
+
+.main {
+  align-items: center;
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  margin: 2.5rem 0 0 0;
+}
+
+.link {
+  align-items: center;
+  background: rgb(var(--gray-700));
+  border-radius: var(--rounded);
+  color: rgb(var(--gray-200));
+  display: flex;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  gap: 0.075rem;
+  line-height: 1.75rem;
+  padding: 0.25rem 1rem;
+  text-decoration: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    background: rgb(var(--yellow-500));
+    color: rgb(var(--gray-900));
+  }
+}
+
+.link:active {
+  background: rgb(var(--yellow-500));
+  color: rgb(var(--gray-900));
+}
+
+.linkSymbol {
+  color: rgb(var(--gray-500));
+  font-size: var(--text-xs);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover .linkSymbol {
+    color: rgb(var(--gray-600));
+  }
+}
+
+.link:active .linkSymbol {
+  color: rgb(var(--gray-600));
+}

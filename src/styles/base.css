@@ -1,0 +1,48 @@
+html {
+  font-size: var(--text-base);
+  line-height: 1.5;
+  scrollbar-gutter: stable;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: rgb(var(--gray-800));
+  color: rgb(var(--gray-400));
+  font-family: system-ui, Arial, sans-serif;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+h1 {
+  color: rgb(var(--gray-100));
+  font-size: var(--text-5xl);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h2 {
+  color: rgb(var(--gray-100));
+  font-size: var(--text-5xl);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration-thickness: 0.05em;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+a:active {
+  color: rgb(var(--yellow-500));
+  text-decoration-color: rgb(var(--yellow-500) / 50%);
+}
+
+button {
+  cursor: pointer;
+}
+
+iframe {
+  border: none;
+  vertical-align: middle;
+}

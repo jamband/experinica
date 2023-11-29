@@ -5,6 +5,7 @@ import { IconExternalLink } from "@/icons/external-link";
 import { Page } from "@/layouts/page";
 import { Route } from "@tanstack/react-router";
 import { rootRoute } from "./__root";
+import styles from "./about.module.css";
 
 export const aboutRoute = new Route({
   getParentRoute: () => rootRoute,
@@ -15,34 +16,34 @@ export const aboutRoute = new Route({
 export default function About() {
   return (
     <Page title="About">
-      <div className="grid lg:grid-cols-6 lg:gap-4">
-        <div className="lg:col-span-4 lg:col-start-2">
+      <div className={styles.container}>
+        <div className={styles.containerInner}>
           <h1>About</h1>
-          <p className="mb-10">
+          <p className={styles.description}>
             {APP_NAME} is my private playground for{" "}
             <a
               href="https://tanstack.com/router"
-              className="text-yellow-500 decoration-yellow-500/70"
+              className={styles.link}
               target="_blank"
               rel="noreferrer"
             >
               TanStack Router
-              <IconExternalLink className="h-4 w-4 align-[-0.125em] text-yellow-500/70" />
+              <IconExternalLink className={styles.linkIcon} />
             </a>
             . This website is an open source project. See{" "}
             <a
               href={`https://github.com/jamband/${APP_NAME.toLowerCase()}`}
-              className="text-yellow-500 decoration-yellow-500/70"
+              className={styles.link}
               target="_blank"
               rel="noreferrer"
             >
               GitHub: jamband/{APP_NAME.toLowerCase()}
-              <IconExternalLink className="h-4 w-4 align-[-0.125em] text-yellow-500/70" />
+              <IconExternalLink className={styles.linkIcon} />
             </a>{" "}
             for details.
           </p>
-          <SectionDivider className="mb-10" />
-          <BackToHome />
+          <SectionDivider className={styles.sectionDivider} />
+          <BackToHome className={styles.backToHome} />
         </div>
       </div>
     </Page>

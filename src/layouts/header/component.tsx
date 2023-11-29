@@ -1,28 +1,14 @@
 import { APP_NAME } from "@/constants/app";
 import { Link } from "@tanstack/react-router";
+import styles from "./styles.module.css";
 import type { _Props } from "./types";
 
-export const Component: React.FC<_Props> = (props) => (
-  <header className="fixed z-10 w-full bg-gray-700 text-center font-mono">
-    <nav aria-label="Header navigation" className="my-2">
-      <Link
-        to="/"
-        className="m-1 inline-block rounded px-4 py-1 no-underline hover:bg-gray-600 active:bg-gray-600"
-      >
-        <span
-          className={`text-xs font-semibold text-gray-400 ${
-            props.isTrackRoute ? "!text-gray-100 duration-1000" : ""
-          }`}
-        >
-          jamband/
-        </span>
-        <span
-          className={`text-sm font-bold text-gray-100 ${
-            props.isTrackRoute ? "!text-yellow-500 duration-1000" : ""
-          }`}
-        >
-          {APP_NAME.toLowerCase()}
-        </span>
+export const Component: React.FC<_Props> = () => (
+  <header className={styles.container}>
+    <nav aria-label="Header navigation" className={styles.nav}>
+      <Link to="/" className={styles.link}>
+        <span className={styles.account}>jamband/</span>
+        <span className={styles.repository}>{APP_NAME}</span>
       </Link>
     </nav>
   </header>

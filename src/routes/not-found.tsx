@@ -1,16 +1,17 @@
 import { SectionDivider } from "@/components/section-divider";
 import { Page } from "@/layouts/page";
 import { Link } from "@tanstack/react-router";
+import styles from "./not-found.module.css";
 
 export default function NotFound() {
   return (
     <Page title="Not Found">
-      <div className="flex h-[70vh] items-center justify-center">
-        <div className="text-center">
+      <div className={styles.container}>
+        <div className={styles.containerInner}>
           <h1>Not Found</h1>
-          <p className="mb-10">This page does not exist.</p>
-          <SectionDivider className="mb-10" />
-          <Link to="/" className="text-gray-300 hover:text-yellow-500">
+          <p className={styles.description}>This page does not exist.</p>
+          <SectionDivider className={styles.sectionDivider} />
+          <Link to="/" className={styles.link}>
             Go Digging →
           </Link>
         </div>

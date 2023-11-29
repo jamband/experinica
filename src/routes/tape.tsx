@@ -5,13 +5,13 @@ import { useTrackState } from "@/hooks/track";
 import { IconPause } from "@/icons/pause";
 import { IconPlay } from "@/icons/play";
 import { Page } from "@/layouts/page";
-import { aspectRatio } from "@/styles/dynamic";
 import type { Tape as TTape } from "@/types/tape";
 import { extractProps } from "@/utils/api";
 import { scrollToTop } from "@/utils/scroll";
 import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
 import { Link, Route, useParams } from "@tanstack/react-router";
 import { rootRoute } from "./__root";
+import styles from "./tape.module.css";
 import { tapesRoute } from "./tapes";
 import { trackRoute } from "./track";
 
@@ -73,9 +73,9 @@ export default function Tape() {
 
   return (
     <Page title={data.title || ""}>
-      <TapeHeader title={data.title || ""} className="mb-10" />
-      <SectionDivider className="mb-10" />
-      <div className="mb-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+      <TapeHeader title={data.title || ""} />
+      <SectionDivider className={styles.sectionDivider} />
+      <div className={styles.main}>
         {data.tape.items.map((item) => (
           <Link
             key={item.slug}
@@ -86,42 +86,42 @@ export default function Tape() {
               tape: params.tape,
               track: item.slug,
             }}
-            className="relative mb-1 text-gray-200 shadow active:text-gray-100"
+            className={styles.track}
           >
             <img
-              className={`w-full rounded bg-gray-700 object-cover opacity-70 ${aspectRatio(
-                item.image_aspect_ratio,
-              )}`}
+              className={`${styles.trackImage} ${
+                item.image_aspect_ratio === "1/1" ? "aspect1x1" : ""
+              } ${item.image_aspect_ratio === "4/3" ? "aspect4x3" : ""} ${
+                item.image_aspect_ratio === "16/9" ? "aspect16x9" : ""
+              } ${item.image_aspect_ratio === "21/9" ? "aspect21x9" : ""}`}
               src={item.image}
               loading="lazy"
               alt=""
             />
-            <div className="absolute inset-0 flex items-center justify-center opacity-70">
+            <div className={styles.trackIconStatus}>
               {`${data.tape.path}/${item.slug}` === track.path ? (
-                <IconPause className="h-12 w-12 lg:h-14 lg:w-14" />
+                <IconPause className={styles.trackIcon} />
               ) : (
-                <IconPlay className="h-12 w-12 lg:h-14 lg:w-14" />
+                <IconPlay className={styles.trackIcon} />
               )}
             </div>
-            <div className="absolute bottom-0 w-full px-2 py-1 text-right font-semibold">
-              <h4 className="truncate leading-tight">{item.title}</h4>
-              <div className="truncate text-xxs">{data.title}</div>
+            <div className={styles.trackFooter}>
+              <h4 className={styles.trackFooterTitle}>{item.title}</h4>
+              <div className={styles.trackFooterTapeTitle}>{data.title}</div>
             </div>
           </Link>
         ))}
       </div>
-      <SectionDivider className="mb-10" />
-      <div className="text-center">
+      <SectionDivider className={styles.sectionDivider} />
+      <div className={styles.backToTape}>
         <Link
           to={tapesRoute.id}
           params={{ year: params.year }}
-          className="group px-4 py-3 text-gray-300 decoration-gray-300/70 hover:text-yellow-500 hover:decoration-yellow-500/70"
+          className={styles.backToTapeLink}
           onClick={scrollToTop}
         >
-          <span className="align-top text-sm text-gray-300/70 group-hover:text-yellow-500/70 group-active:text-yellow-500/70">
-            ←
-          </span>{" "}
-          Monthly Favorite Tracks of {params.year}
+          <span className={styles.backToTapeLinkSymbol}>←</span> Monthly
+          Favorite Tracks of {params.year}
         </Link>
       </div>
     </Page>

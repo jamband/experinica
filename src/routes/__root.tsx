@@ -4,6 +4,7 @@ import { Track } from "@/layouts/track";
 import "@/styles/app.css";
 import type { loaderClient } from "@/utils/loader-client";
 import { Outlet, rootRouteWithContext } from "@tanstack/react-router";
+import styles from "./__root.module.css";
 
 export const rootRoute = rootRouteWithContext<{
   loaderClient: typeof loaderClient;
@@ -12,7 +13,7 @@ export const rootRoute = rootRouteWithContext<{
     return (
       <>
         <Header />
-        <main className="container mx-auto pb-32 pt-28">
+        <main className={styles.main}>
           <Track />
           <Outlet />
         </main>

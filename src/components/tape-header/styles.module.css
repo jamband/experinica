@@ -1,0 +1,36 @@
+.container {
+  text-align: center;
+}
+
+.description {
+  font-size: var(--text-sm);
+  margin: 0.25rem 0 0 0;
+}
+
+.link {
+  text-decoration-color: rgb(var(--gray-400) / 70%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    color: rgb(var(--yellow-500));
+    text-decoration-color: rgb(var(--yellow-500) / 70%);
+  }
+}
+
+.linkIcon {
+  color: rgb(var(--gray-400) / 70%);
+  height: 1rem;
+  vertical-align: -0.15em;
+  width: 1rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover .linkIcon {
+    color: rgb(var(--yellow-500) / 70%);
+  }
+}
+
+.link:active .linkIcon {
+  color: rgb(var(--yellow-500) / 70%);
+}

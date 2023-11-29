@@ -1,0 +1,43 @@
+.container {
+  background: rgb(var(--gray-700));
+  font-family: var(--font-mono);
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  z-index: 10;
+}
+
+.nav {
+  margin: 0.5rem 0;
+}
+
+.link {
+  border-radius: var(--rounded);
+  display: inline-block;
+  margin: 0.25rem;
+  padding: 0.25rem 1rem;
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+.account {
+  color: rgb(var(--gray-100));
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+
+.repository {
+  color: rgb(var(--yellow-500));
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    background: rgb(var(--gray-600));
+  }
+}
+
+.link:active {
+  background: rgb(var(--gray-600));
+}

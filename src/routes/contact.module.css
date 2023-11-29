@@ -1,0 +1,41 @@
+.container {
+  display: grid;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    gap: 1rem;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .containerInner {
+    grid-column: 2 / span 4;
+  }
+}
+
+.description {
+  margin: 1rem 0 0 0;
+}
+
+.link {
+  align-items: center;
+  color: rgb(var(--yellow-500));
+  display: inline-flex;
+  text-decoration-color: rgb(var(--yellow-500) / 70%);
+}
+
+.linkIcon {
+  color: rgb(var(--yellow-500) / 70%);
+  height: 1rem;
+  width: 1rem;
+}
+
+.sectionDivider {
+  margin: 2.5rem 0 0 0;
+}
+
+.backToHome {
+  margin: 2.5rem 0 0 0;
+}

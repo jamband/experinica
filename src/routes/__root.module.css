@@ -1,0 +1,17 @@
+.main {
+  margin: 0 auto;
+  padding: 7rem 1rem 8rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .main {
+    width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main {
+    width: 1024px;
+  }
+}

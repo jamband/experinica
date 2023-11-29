@@ -6,6 +6,7 @@ import { extractProps } from "@/utils/api";
 import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
 import { Link, Route } from "@tanstack/react-router";
 import { rootRoute } from "./__root";
+import styles from "./home.module.css";
 
 type LoaderData = {
   years: Array<string>;
@@ -41,19 +42,17 @@ export default function Home() {
 
   return (
     <Page title="">
-      <TapeHeader title="Monthly Favorite Tracks" className="mb-10" />
-      <SectionDivider className="mb-10" />
-      <section className="flex items-center justify-center gap-5">
+      <TapeHeader title="Monthly Favorite Tracks" />
+      <SectionDivider className={styles.sectionDivider} />
+      <section className={styles.main}>
         {data.years.map((year) => (
           <Link
             key={year}
             to="/$year"
             params={{ year }}
-            className="group rounded bg-gray-700 px-4 py-1 font-mono text-sm leading-7 text-gray-300 no-underline hover:bg-yellow-500 hover:text-gray-900 active:bg-yellow-500 active:text-gray-900"
+            className={styles.link}
           >
-            <span className="align-top text-xs text-gray-500 group-hover:text-gray-600 group-active:text-gray-600">
-              #
-            </span>
+            <span className={styles.linkSymbol}>#</span>
             {year}
           </Link>
         ))}

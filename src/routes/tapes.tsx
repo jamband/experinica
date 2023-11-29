@@ -9,6 +9,7 @@ import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
 import { Link, Route, useParams } from "@tanstack/react-router";
 import { rootRoute } from "./__root";
 import { tapeRoute } from "./tape";
+import styles from "./tapes.module.css";
 
 type Params = {
   year: string;
@@ -67,41 +68,34 @@ export default function Tapes() {
 
   return (
     <Page title={data.title}>
-      <TapeHeader
-        title={`Monthly Favorite Tracks of ${params.year}`}
-        className="mb-10"
-      />
-      <SectionDivider className="mb-10" />
-      <ul>
+      <TapeHeader title={`Monthly Favorite Tracks of ${params.year}`} />
+      <SectionDivider className={styles.sectionDivider} />
+      <ul className={styles.main}>
         {data.tapes.map((tape) => (
-          <li key={tape.id} className="mb-4">
+          <li key={tape.id}>
             {tape.path === "" ? (
-              <>
-                <span className="pb-0.5 text-2xl font-bold text-gray-500 shadow-[0_2px_0_0_rgba(236,239,244,0.3)]">
-                  :: {tape.title} ::
-                </span>
-                <div className="text-xs text-gray-500">{tape.date}</div>
-              </>
+              <div className={styles.tape}>
+                <span className={styles.blankTitle}>:: {tape.title} ::</span>
+                <div className={styles.date}>{tape.date}</div>
+              </div>
             ) : (
-              <>
+              <div className={styles.tape}>
                 <Link
                   to={tapeRoute.id}
                   params={extractParamsFromTapePath(tape.path)}
-                  className="group pb-0.5 text-2xl font-bold text-gray-100 no-underline shadow-[0_2px_0_0_rgba(236,239,244,0.7)] hover:text-yellow-500 hover:shadow-[0_2px_0_0_rgba(247,214,142,0.7)] active:shadow-[0_2px_0_0_rgba(247,214,142,0.7)]"
+                  className={styles.title}
                 >
                   {tape.title}
-                  <span className="ml-2 align-top text-base text-gray-100/70 group-hover:text-yellow-500/70 group-active:text-yellow-500/70">
-                    →
-                  </span>
+                  <span className={styles.titleSymbol}>→</span>
                 </Link>
-                <div className="text-xs">{tape.date}</div>
-              </>
+                <div className={styles.date}>{tape.date}</div>
+              </div>
             )}
           </li>
         ))}
       </ul>
-      <SectionDivider className="mb-10" />
-      <BackToHome />
+      <SectionDivider className={styles.sectionDivider} />
+      <BackToHome className={styles.backToHome} />
     </Page>
   );
 }

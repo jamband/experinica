@@ -1,39 +1,41 @@
 import { SectionDivider } from "@/components/section-divider";
-import { aspectRatio } from "@/styles/dynamic";
 import { Link } from "@tanstack/react-router";
+import styles from "./styles.module.css";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
-  <div className={`${props.isTrackRoute ? "" : "hidden"}`}>
-    <div className="mb-3 grid grid-cols-12">
+  <div className={`${props.isTrackRoute ? "" : styles.container}`}>
+    <div className={styles.embedContainer}>
       <div
-        className={`col-span-12 ${
+        className={`${styles.embedContainerInner} ${
           props.track.embed_aspect_ratio === "1/1"
-            ? "md:col-span-8 md:col-start-3"
+            ? styles.embedContainerInnerAspect1x1
             : ""
         } ${
           props.track.embed_aspect_ratio === "4/3"
-            ? "md:col-span-10 md:col-start-2"
+            ? styles.embedContainerInnerAspect4x3
             : ""
         }`}
       >
         <iframe
           key={props.track.path}
           src={props.src}
-          className={`w-full rounded bg-gray-700 ${aspectRatio(
-            props.track.embed_aspect_ratio,
-          )}`}
+          className={`${styles.embed} ${
+            props.track.embed_aspect_ratio === "1/1" ? "aspect1x1" : ""
+          } ${props.track.embed_aspect_ratio === "4/3" ? "aspect4x3" : ""} ${
+            props.track.embed_aspect_ratio === "16/9" ? "aspect16x9" : ""
+          } ${props.track.embed_aspect_ratio === "21/9" ? "aspect21x9" : ""}`}
           title={props.track.title}
           allow="fullscreen"
         />
       </div>
     </div>
-    <div className="text-center">
-      <h1 className="mb-0 text-2xl">{props.track.title}</h1>
-      <div className="mb-10 text-sm text-gray-400">
-        via {props.track.provider}
-      </div>
-      <SectionDivider className="mb-10" />
+    <div className={styles.titleContainer}>
+      <h1 className={styles.title}>{props.track.title}</h1>
+      <div className={styles.provider}>via {props.track.provider}</div>
+    </div>
+    <SectionDivider className={styles.sectionDivider} />
+    <div className={styles.footer}>
       <Link
         to="/$year/$month/$tape"
         params={{
@@ -41,12 +43,9 @@ export const Component: React.FC<_Props> = (props) => (
           month: props.tapeParams[1],
           tape: props.tapeParams[2],
         }}
-        className="group px-4 py-3 text-gray-300 decoration-gray-300/70 hover:text-yellow-500 hover:decoration-yellow-500/70"
+        className={styles.backToTape}
       >
-        <span className="text-gray-300/70 group-hover:text-yellow-500/70 group-active:text-yellow-500/70">
-          ←
-        </span>{" "}
-        {props.tapeTitle}
+        <span className={styles.backToTapeSymbol}>←</span> {props.tapeTitle}
       </Link>
     </div>
   </div>

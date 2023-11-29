@@ -1,0 +1,33 @@
+.container {
+  align-items: center;
+  display: flex;
+  height: 70vh;
+  justify-content: center;
+}
+
+.containerInner {
+  text-align: center;
+}
+
+.description {
+  margin: 1rem 0 0 0;
+}
+
+.sectionDivider {
+  margin: 2.5rem 0 0 0;
+}
+
+.link {
+  display: inline-block;
+  margin: 2.5rem 0 0 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    color: rgb(var(--yellow-500));
+  }
+}
+
+.link:active {
+  color: rgb(var(--yellow-500));
+}

@@ -1,16 +1,17 @@
 import { SectionDivider } from "@/components/section-divider";
 import { Page } from "@/layouts/page";
 import { Link } from "@tanstack/react-router";
+import styles from "./catch.module.css";
 
 export default function Catch() {
   return (
     <Page title="Request Failed">
-      <div className="flex h-[70vh] items-center justify-center">
-        <div className="text-center">
+      <div className={styles.container}>
+        <div className={styles.containerInner}>
           <h1>Request Failed</h1>
-          <p className="mb-10">Failed to get data.</p>
-          <SectionDivider className="mb-10" />
-          <Link to="/contact" className="text-gray-300 hover:text-yellow-500">
+          <p className={styles.description}>Failed to get data.</p>
+          <SectionDivider className={styles.sectionDivider} />
+          <Link to="/contact" className={styles.link}>
             Go to Contact →
           </Link>
         </div>

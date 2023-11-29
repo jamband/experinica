@@ -1,0 +1,116 @@
+.sectionDivider {
+  margin: 2.5rem 0 0 0;
+}
+
+.main {
+  display: grid;
+  gap: 1.5rem;
+  margin: 2.5rem 0 0 0;
+}
+
+@media (min-width: 768px) {
+  .main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.track {
+  box-shadow:
+    0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1);
+  color: rgb(var(--gray-200));
+  position: relative;
+}
+
+.track:active {
+  color: var(--gray-100);
+}
+
+.trackImage {
+  background: rgb(var(--gray-700));
+  border-radius: var(--rounded);
+  object-fit: cover;
+  opacity: 0.7;
+  width: 100%;
+}
+
+.trackIconStatus {
+  align-items: center;
+  display: flex;
+  inset: 0px;
+  justify-content: center;
+  opacity: 0.7;
+  position: absolute;
+}
+
+.trackIcon {
+  height: 3rem;
+  width: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .trackIcon {
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+}
+
+.trackFooter {
+  bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  gap: 0.25rem;
+  padding: 1rem;
+  position: absolute;
+  text-align: right;
+  width: 100%;
+}
+
+.trackFooterTitle {
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.trackFooterTapeTitle {
+  font-size: var(--text-xxs);
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.backToTape {
+  margin: 2.5rem 0 0 0;
+  text-align: center;
+}
+
+.backToTapeLink {
+  color: rgb(var(--gray-200));
+  padding: 0.5rem 1rem;
+  text-decoration-color: rgb(var(--gray-200) / 70%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .backToTapeLink:hover {
+    color: rgb(var(--yellow-500));
+    text-decoration-color: rgb(var(--yellow-500) / 70%);
+  }
+}
+
+.backToTapeLinkSymbol {
+  color: rgb(var(--gray-300) / 70%);
+  font-size: var(--text-sm);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .backToTapeLink:hover .backToTapeLinkSymbol {
+    color: rgb(var(--yellow-500) / 70%);
+  }
+}
+
+.backToTapeLink:active .backToTapeLinkSymbol {
+  color: rgb(var(--yellow-500) / 70%);
+}
