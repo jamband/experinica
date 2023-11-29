@@ -7,7 +7,7 @@ import { extractProps } from "@/utils/api";
 import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
 import { Route, useParams } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { rootRoute } from "./__root";
+import { rootRoute } from "../root";
 
 type Params = {
   year: string;

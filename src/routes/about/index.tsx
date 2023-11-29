@@ -4,43 +4,43 @@ import { APP_NAME } from "@/constants/app";
 import { IconExternalLink } from "@/icons/external-link";
 import { Page } from "@/layouts/page";
 import { Route } from "@tanstack/react-router";
-import { rootRoute } from "./__root";
-import styles from "./contact.module.css";
+import { rootRoute } from "../root";
+import styles from "./styles.module.css";
 
-export const contactRoute = new Route({
+export const aboutRoute = new Route({
   getParentRoute: () => rootRoute,
-  path: "/contact",
-  component: Contact,
+  path: "/about",
+  component: About,
 });
 
-export default function Contact() {
+export default function About() {
   return (
-    <Page title="Contact">
+    <Page title="About">
       <div className={styles.container}>
         <div className={styles.containerInner}>
-          <h1>Contact</h1>
+          <h1>About</h1>
           <p className={styles.description}>
-            Please to the message via{" "}
+            {APP_NAME} is my private playground for{" "}
             <a
-              href="https://twitter.com/livejam_db"
+              href="https://tanstack.com/router"
               className={styles.link}
               target="_blank"
               rel="noreferrer"
             >
-              Twitter
+              TanStack Router
               <IconExternalLink className={styles.linkIcon} />
-            </a>{" "}
-            or{" "}
+            </a>
+            . This website is an open source project. See{" "}
             <a
-              href={`https://github.com/jamband/${APP_NAME.toLowerCase()}/issues`}
+              href={`https://github.com/jamband/${APP_NAME.toLowerCase()}`}
               className={styles.link}
               target="_blank"
               rel="noreferrer"
             >
-              GitHub
+              GitHub: jamband/{APP_NAME.toLowerCase()}
               <IconExternalLink className={styles.linkIcon} />
             </a>{" "}
-            issues. Thank you.
+            for details.
           </p>
           <SectionDivider className={styles.sectionDivider} />
           <BackToHome className={styles.backToHome} />

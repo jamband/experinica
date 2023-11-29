@@ -1,5 +1,4 @@
 import { SectionDivider } from "@/components/section-divider";
-import { TapeHeader } from "@/components/tape-header";
 import { API_URL, API_URL_SUFFIX } from "@/constants/api";
 import { useTrackState } from "@/hooks/track";
 import { IconPause } from "@/icons/pause";
@@ -10,10 +9,11 @@ import { extractProps } from "@/utils/api";
 import { scrollToTop } from "@/utils/scroll";
 import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
 import { Link, Route, useParams } from "@tanstack/react-router";
-import { rootRoute } from "./__root";
-import styles from "./tape.module.css";
-import { tapesRoute } from "./tapes";
-import { trackRoute } from "./track";
+import { rootRoute } from "../root";
+import { tapesRoute } from "../tapes";
+import { trackRoute } from "../track";
+import { TapeHeader } from "./components/header";
+import styles from "./styles.module.css";
 
 type Params = {
   year: string;

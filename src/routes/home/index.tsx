@@ -5,8 +5,8 @@ import { Page } from "@/layouts/page";
 import { extractProps } from "@/utils/api";
 import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
 import { Link, Route } from "@tanstack/react-router";
-import { rootRoute } from "./__root";
-import styles from "./home.module.css";
+import { rootRoute } from "../root";
+import styles from "./styles.module.css";
 
 type LoaderData = {
   years: Array<string>;

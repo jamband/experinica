@@ -1,7 +1,7 @@
 import { SectionDivider } from "@/components/section-divider";
 import { Page } from "@/layouts/page";
 import { Link } from "@tanstack/react-router";
-import styles from "./catch.module.css";
+import styles from "./styles.module.css";
 
 export default function Catch() {
   return (

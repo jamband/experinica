@@ -4,43 +4,43 @@ import { APP_NAME } from "@/constants/app";
 import { IconExternalLink } from "@/icons/external-link";
 import { Page } from "@/layouts/page";
 import { Route } from "@tanstack/react-router";
-import { rootRoute } from "./__root";
-import styles from "./about.module.css";
+import { rootRoute } from "../root";
+import styles from "./styles.module.css";
 
-export const aboutRoute = new Route({
+export const contactRoute = new Route({
   getParentRoute: () => rootRoute,
-  path: "/about",
-  component: About,
+  path: "/contact",
+  component: Contact,
 });
 
-export default function About() {
+export default function Contact() {
   return (
-    <Page title="About">
+    <Page title="Contact">
       <div className={styles.container}>
         <div className={styles.containerInner}>
-          <h1>About</h1>
+          <h1>Contact</h1>
           <p className={styles.description}>
-            {APP_NAME} is my private playground for{" "}
+            Please to the message via{" "}
             <a
-              href="https://tanstack.com/router"
+              href="https://twitter.com/livejam_db"
               className={styles.link}
               target="_blank"
               rel="noreferrer"
             >
-              TanStack Router
-              <IconExternalLink className={styles.linkIcon} />
-            </a>
-            . This website is an open source project. See{" "}
-            <a
-              href={`https://github.com/jamband/${APP_NAME.toLowerCase()}`}
-              className={styles.link}
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub: jamband/{APP_NAME.toLowerCase()}
+              Twitter
               <IconExternalLink className={styles.linkIcon} />
             </a>{" "}
-            for details.
+            or{" "}
+            <a
+              href={`https://github.com/jamband/${APP_NAME.toLowerCase()}/issues`}
+              className={styles.link}
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+              <IconExternalLink className={styles.linkIcon} />
+            </a>{" "}
+            issues. Thank you.
           </p>
           <SectionDivider className={styles.sectionDivider} />
           <BackToHome className={styles.backToHome} />
