@@ -5,6 +5,7 @@ import { API_URL, API_URL_SUFFIX } from "@/constants/api";
 import { Page } from "@/layouts/page";
 import type { Tapes as TTapes, Tape } from "@/types/tape";
 import { extractProps } from "@/utils/api";
+import { scrollToTop } from "@/utils/scroll";
 import { Loader, useLoaderInstance } from "@tanstack/react-loaders";
 import { Link, Route, useParams } from "@tanstack/react-router";
 import { rootRoute } from "../root";
@@ -84,6 +85,7 @@ export default function Tapes() {
                   to={tapeRoute.id}
                   params={extractParamsFromTapePath(tape.path)}
                   className={styles.title}
+                  onClick={scrollToTop}
                 >
                   {tape.title}
                   <span className={styles.titleSymbol}>→</span>
