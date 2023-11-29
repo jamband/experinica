@@ -24,7 +24,7 @@
 }
 
 .embed {
-  background: rgb(--gray-700);
+  background: rgb(var(--gray-700));
   border-radius: var(--rounded);
   width: 100%;
 }
