@@ -42,6 +42,10 @@ button {
   cursor: pointer;
 }
 
+img {
+  vertical-align: middle;
+}
+
 iframe {
   border: none;
   vertical-align: middle;

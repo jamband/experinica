@@ -69,6 +69,7 @@
 }
 
 .trackFooterTitle {
+  font-size: var(--text-base);
   line-height: 1.25;
   overflow: hidden;
   text-overflow: ellipsis;

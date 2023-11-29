@@ -15,10 +15,10 @@
 }
 
 .svg {
+  animation: spin 1s linear infinite;
+  color: rgb(var(--yellow-500));
   height: 1.75rem;
   width: 1.75rem;
-  color: rgb(var(--yellow-500));
-  animation: spin 1s linear infinite;
 }
 
 .circle {
