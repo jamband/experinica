@@ -81,6 +81,6 @@
   }
 }
 
-.backToTape::active .backToTapeSymbol {
+.backToTape:active .backToTapeSymbol {
   color: rgb(var(--yellow-500) / 70%);
 }
