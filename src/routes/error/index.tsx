@@ -3,7 +3,7 @@ import { SectionDivider } from "@/components/section-divider";
 import { Page } from "@/layouts/page";
 import styles from "./styles.module.css";
 
-export default function Catch() {
+export default function Error() {
   return (
     <Page title="Request Failed" className={styles.container}>
       <div className={styles.containerInner}>

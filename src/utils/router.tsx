@@ -1,6 +1,6 @@
 import { aboutRoute } from "@/routes/about";
-import Catch from "@/routes/catch";
 import { contactRoute } from "@/routes/contact";
+import Error from "@/routes/error";
 import { homeRoute } from "@/routes/home";
 import { rootRoute } from "@/routes/root";
 import { tapeRoute } from "@/routes/tape";
@@ -23,7 +23,7 @@ export const router = new Router({
   context: {
     loaderClient,
   },
-  defaultErrorComponent: () => <Catch />,
+  defaultErrorComponent: () => <Error />,
 });
 
 declare module "@tanstack/react-router" {
