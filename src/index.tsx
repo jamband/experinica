@@ -4,6 +4,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { TapeProvider } from "./contexts/tape";
 import { TrackProvider } from "./contexts/track";
+import ErrorComponent from "./routes/error";
 import { routeTree } from "./utils/router";
 
 const queryClient = new QueryClient();
@@ -13,6 +14,7 @@ export const router = new Router({
   context: {
     queryClient,
   },
+  defaultErrorComponent: () => <ErrorComponent />,
 });
 
 declare module "@tanstack/react-router" {
