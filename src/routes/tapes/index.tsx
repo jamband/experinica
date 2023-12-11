@@ -13,7 +13,7 @@ import styles from "./styles.module.css";
 
 const tapesQueryOptions = (params: { year: string }) =>
   queryOptions({
-    queryKey: ["tapes"],
+    queryKey: ["tapes", params],
     queryFn: async (): Promise<{
       title: string;
       tapes: Tapes;

@@ -20,7 +20,7 @@ const tapeQueryOptions = (params: {
   tape: string;
 }) =>
   queryOptions({
-    queryKey: ["tape"],
+    queryKey: ["tape", params],
     queryFn: async (): Promise<{
       title: string;
       tape: Tape;

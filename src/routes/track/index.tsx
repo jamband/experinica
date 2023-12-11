@@ -16,7 +16,7 @@ const trackQueryOptions = (params: {
   track: string;
 }) =>
   queryOptions({
-    queryKey: ["track"],
+    queryKey: ["track", params],
     queryFn: async (): Promise<{
       tapeTitle: string;
       track: Track;
