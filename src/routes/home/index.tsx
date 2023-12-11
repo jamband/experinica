@@ -13,7 +13,7 @@ type LoaderData = {
 };
 
 const homeQueryOptions = queryOptions({
-  queryKey: ["/"],
+  queryKey: ["home"],
   queryFn: async () => {
     const response = await fetch(`${API_URL}/${API_URL_SUFFIX}`);
 
