@@ -5,11 +5,7 @@ import { API_URL, API_URL_SUFFIX } from "@/constants/api";
 import { Page } from "@/layouts/page";
 import type { Tapes as TTapes, Tape } from "@/types/tape";
 import { extractProps } from "@/utils/api";
-import {
-  Loader,
-  createLoaderOptions,
-  useLoaderInstance,
-} from "@tanstack/react-loaders";
+import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { Link, Route } from "@tanstack/react-router";
 import { rootRoute } from "../root";
 import { tapeRoute } from "../tape";
@@ -24,44 +20,39 @@ type LoaderData = {
   tapes: TTapes;
 };
 
-export const tapesLoader = new Loader({
-  key: "tapes",
-  fn: async (params: Params) => {
-    const response = await fetch(`${API_URL}/${params.year}/${API_URL_SUFFIX}`);
+const tapesQueryOptions = (params: Params) =>
+  queryOptions({
+    queryKey: ["tapes"],
+    queryFn: async () => {
+      const response = await fetch(
+        `${API_URL}/${params.year}/${API_URL_SUFFIX}`,
+      );
 
-    if (!response.ok) {
-      throw new Error("Failed to fetch");
-    }
+      if (!response.ok) {
+        throw new Error("Failed to fetch");
+      }
 
-    const data = { ...extractProps(await response.json()) };
+      const data = { ...extractProps(await response.json()) };
 
-    const tapes = data.tapes.map((tape: Tape) => {
-      return { ...tape };
-    });
+      const tapes = data.tapes.map((tape: Tape) => {
+        return { ...tape };
+      });
 
-    return {
-      title: data.title,
-      tapes,
-    } as LoaderData;
-  },
-});
+      return {
+        title: data.title,
+        tapes,
+      } as LoaderData;
+    },
+  });
 
 export const tapesRoute = new Route({
   getParentRoute: () => rootRoute,
   path: "/$year",
-  beforeLoad: ({ params }) => ({
-    loaderOpts: createLoaderOptions({
-      key: "tapes",
-      variables: params,
-    }),
-  }),
-  loader: async ({ context: { loaderClient, loaderOpts } }) => {
-    loaderClient.load({ ...loaderOpts });
-  },
-  component: function Tapes({ useRouteContext, useParams }) {
-    const { loaderOpts } = useRouteContext();
-    const { data } = useLoaderInstance(loaderOpts);
+  loader: ({ context: { queryClient }, params }) =>
+    queryClient.ensureQueryData(tapesQueryOptions(params)),
+  component: function Tapes({ useParams }) {
     const params = useParams();
+    const { data } = useSuspenseQuery(tapesQueryOptions(params));
 
     const extractParamsFromTapePath = (path: string) => {
       const params = path.split("/").filter(Boolean);

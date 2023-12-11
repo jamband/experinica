@@ -1,15 +1,12 @@
 import { aboutRoute } from "@/routes/about";
 import { contactRoute } from "@/routes/contact";
-import Error from "@/routes/error";
 import { homeRoute } from "@/routes/home";
 import { rootRoute } from "@/routes/root";
 import { tapeRoute } from "@/routes/tape";
 import { tapesRoute } from "@/routes/tapes";
 import { trackRoute } from "@/routes/track";
-import { Router } from "@tanstack/react-router";
-import { loaderClient } from "./loader-client";
 
-const routeTree = rootRoute.addChildren([
+export const routeTree = rootRoute.addChildren([
   homeRoute,
   aboutRoute,
   contactRoute,
@@ -17,17 +14,3 @@ const routeTree = rootRoute.addChildren([
   tapeRoute,
   tapesRoute,
 ]);
-
-export const router = new Router({
-  routeTree,
-  context: {
-    loaderClient,
-  },
-  defaultErrorComponent: () => <Error />,
-});
-
-declare module "@tanstack/react-router" {
-  interface Register {
-    router: typeof router;
-  }
-}

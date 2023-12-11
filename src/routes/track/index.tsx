@@ -4,11 +4,7 @@ import { useTrackAction } from "@/hooks/track";
 import { Page } from "@/layouts/page";
 import type { Track as TTrack } from "@/types/track";
 import { extractProps } from "@/utils/api";
-import {
-  Loader,
-  createLoaderOptions,
-  useLoaderInstance,
-} from "@tanstack/react-loaders";
+import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { Route } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { rootRoute } from "../root";
@@ -25,42 +21,36 @@ type LoaderData = {
   track: TTrack;
 };
 
-export const trackLoader = new Loader({
-  key: "track",
-  fn: async (params: Params) => {
-    const track = await fetch(
-      `${API_URL}/${params.year}/${params.month}/${params.tape}/${params.track}/${API_URL_SUFFIX}`,
-    );
+const trackQueryOptions = (params: Params) =>
+  queryOptions({
+    queryKey: ["track"],
+    queryFn: async () => {
+      const track = await fetch(
+        `${API_URL}/${params.year}/${params.month}/${params.tape}/${params.track}/${API_URL_SUFFIX}`,
+      );
 
-    if (!track.ok) {
-      throw new Error("Failed to fetch");
-    }
+      if (!track.ok) {
+        throw new Error("Failed to fetch");
+      }
 
-    const data = extractProps(await track.json());
-    data.track = { ...data.track };
+      const data = extractProps(await track.json());
+      data.track = { ...data.track };
 
-    return {
-      tapeTitle: data.tapeTitle,
-      track: data.track,
-    } as LoaderData;
-  },
-});
+      return {
+        tapeTitle: data.tapeTitle,
+        track: data.track,
+      } as LoaderData;
+    },
+  });
 
 export const trackRoute = new Route({
   getParentRoute: () => rootRoute,
   path: "/$year/$month/$tape/$track",
-  beforeLoad: ({ params }) => ({
-    loaderOpts: createLoaderOptions({
-      key: "track",
-      variables: params,
-    }),
-  }),
-  loader: async ({ context: { loaderClient, loaderOpts } }) => {
-    await loaderClient.load({ ...loaderOpts });
-  },
-  component: function Track({ useRouteContext }) {
-    const { loaderOpts } = useRouteContext();
-    const { data } = useLoaderInstance(loaderOpts);
+  loader: async ({ context: { queryClient }, params }) =>
+    queryClient.ensureQueryData(trackQueryOptions(params)),
+  component: function Track({ useParams }) {
+    const params = useParams();
+    const { data } = useSuspenseQuery(trackQueryOptions(params));
     const { setTape } = useTapeAction();
     const { setTrack } = useTrackAction();
 

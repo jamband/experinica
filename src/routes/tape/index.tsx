@@ -7,11 +7,7 @@ import { IconPlay } from "@/icons/play";
 import { Page } from "@/layouts/page";
 import type { Tape as TTape } from "@/types/tape";
 import { extractProps } from "@/utils/api";
-import {
-  Loader,
-  createLoaderOptions,
-  useLoaderInstance,
-} from "@tanstack/react-loaders";
+import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { Link, Route } from "@tanstack/react-router";
 import { rootRoute } from "../root";
 import { tapesRoute } from "../tapes";
@@ -30,48 +26,41 @@ type LoaderData = {
   year: string;
 };
 
-export const tapeLoader = new Loader({
-  key: "tape",
-  fn: async (params: Params) => {
-    const tape = await fetch(
-      `${API_URL}/${params.year}/${params.month}/${params.tape}/${API_URL_SUFFIX}`,
-    );
+const tapeQueryOptions = (params: Params) =>
+  queryOptions({
+    queryKey: ["tape"],
+    queryFn: async () => {
+      const tape = await fetch(
+        `${API_URL}/${params.year}/${params.month}/${params.tape}/${API_URL_SUFFIX}`,
+      );
 
-    if (!tape.ok) {
-      throw new Error("Failed to fetch");
-    }
+      if (!tape.ok) {
+        throw new Error("Failed to fetch");
+      }
 
-    const data = { ...extractProps(await tape.json()) };
-    data.tape = { ...data.tape };
+      const data = { ...extractProps(await tape.json()) };
+      data.tape = { ...data.tape };
 
-    data.tape.items = data.tape.items.map((item: TTape["items"]) => {
-      return { ...item };
-    });
+      data.tape.items = data.tape.items.map((item: TTape["items"]) => {
+        return { ...item };
+      });
 
-    return {
-      title: data.title,
-      tape: data.tape,
-      year: data.year,
-    } as LoaderData;
-  },
-});
+      return {
+        title: data.title,
+        tape: data.tape,
+        year: data.year,
+      } as LoaderData;
+    },
+  });
 
 export const tapeRoute = new Route({
   getParentRoute: () => rootRoute,
   path: "/$year/$month/$tape",
-  beforeLoad: ({ params }) => ({
-    loaderOpts: createLoaderOptions({
-      key: "tape",
-      variables: params,
-    }),
-  }),
-  loader: async ({ context: { loaderClient, loaderOpts } }) => {
-    await loaderClient.load({ ...loaderOpts });
-  },
-  component: function Tape({ useRouteContext, useParams }) {
-    const { loaderOpts } = useRouteContext();
-    const { data } = useLoaderInstance(loaderOpts);
+  loader: ({ context: { queryClient }, params }) =>
+    queryClient.ensureQueryData(tapeQueryOptions(params)),
+  component: function Tape({ useParams }) {
     const params = useParams();
+    const { data } = useSuspenseQuery(tapeQueryOptions(params));
     const track = useTrackState();
 
     return (

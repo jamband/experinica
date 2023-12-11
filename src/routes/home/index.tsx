@@ -3,11 +3,7 @@ import { TapeHeader } from "@/components/tape-header";
 import { API_URL, API_URL_SUFFIX } from "@/constants/api";
 import { Page } from "@/layouts/page";
 import { extractProps } from "@/utils/api";
-import {
-  Loader,
-  createLoaderOptions,
-  useLoaderInstance,
-} from "@tanstack/react-loaders";
+import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { Link, Route } from "@tanstack/react-router";
 import { rootRoute } from "../root";
 import styles from "./styles.module.css";
@@ -16,9 +12,9 @@ type LoaderData = {
   years: Array<string>;
 };
 
-export const homeLoader = new Loader({
-  key: "home",
-  fn: async () => {
+const homeQueryOptions = queryOptions({
+  queryKey: ["/"],
+  queryFn: async () => {
     const response = await fetch(`${API_URL}/${API_URL_SUFFIX}`);
 
     if (!response.ok) {
@@ -36,17 +32,10 @@ export const homeLoader = new Loader({
 export const homeRoute = new Route({
   getParentRoute: () => rootRoute,
   path: "/",
-  beforeLoad: () => ({
-    loaderOpts: createLoaderOptions({
-      key: "home",
-    }),
-  }),
-  loader: async ({ context: { loaderClient, loaderOpts } }) => {
-    await loaderClient.load({ ...loaderOpts });
-  },
-  component: function Home({ useRouteContext }) {
-    const { loaderOpts } = useRouteContext();
-    const { data } = useLoaderInstance(loaderOpts);
+  loader: async ({ context: { queryClient } }) =>
+    queryClient.ensureQueryData(homeQueryOptions),
+  component: function Home() {
+    const { data } = useSuspenseQuery(homeQueryOptions);
 
     return (
       <Page title="" className={styles.container}>

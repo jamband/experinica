@@ -2,7 +2,7 @@ import { Footer } from "@/layouts/footer";
 import { Header } from "@/layouts/header";
 import { Track } from "@/layouts/track";
 import "@/styles/app.css";
-import type { loaderClient } from "@/utils/loader-client";
+import type { QueryClient } from "@tanstack/react-query";
 import {
   Outlet,
   ScrollRestoration,
@@ -11,7 +11,7 @@ import {
 import styles from "./styles.module.css";
 
 export const rootRoute = rootRouteWithContext<{
-  loaderClient: typeof loaderClient;
+  queryClient: QueryClient;
 }>()({
   component: () => {
     return (

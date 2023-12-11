@@ -1,11 +1,25 @@
-import { LoaderClientProvider } from "@tanstack/react-loaders";
-import { RouterProvider } from "@tanstack/react-router";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Router, RouterProvider } from "@tanstack/react-router";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { TapeProvider } from "./contexts/tape";
 import { TrackProvider } from "./contexts/track";
-import { loaderClient } from "./utils/loader-client";
-import { router } from "./utils/router";
+import { routeTree } from "./utils/router";
+
+const queryClient = new QueryClient();
+
+export const router = new Router({
+  routeTree,
+  context: {
+    queryClient,
+  },
+});
+
+declare module "@tanstack/react-router" {
+  interface Register {
+    router: typeof router;
+  }
+}
 
 const container = document.getElementById("app");
 
@@ -17,9 +31,9 @@ createRoot(container).render(
   <StrictMode>
     <TapeProvider>
       <TrackProvider>
-        <LoaderClientProvider client={loaderClient}>
+        <QueryClientProvider client={queryClient}>
           <RouterProvider router={router} />
-        </LoaderClientProvider>
+        </QueryClientProvider>
       </TrackProvider>
     </TapeProvider>
   </StrictMode>,
