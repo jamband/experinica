@@ -8,6 +8,7 @@ import {
   ScrollRestoration,
   rootRouteWithContext,
 } from "@tanstack/react-router";
+import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import styles from "./styles.module.css";
 
 export const rootRoute = rootRouteWithContext<{
@@ -21,6 +22,7 @@ export const rootRoute = rootRouteWithContext<{
           <Track />
           <ScrollRestoration />
           <Outlet />
+          <TanStackRouterDevtools />
         </main>
         <Footer />
       </>
