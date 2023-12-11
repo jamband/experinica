@@ -3,7 +3,7 @@ import { SectionDivider } from "@/components/section-divider";
 import { TapeHeader } from "@/components/tape-header";
 import { API_URL, API_URL_SUFFIX } from "@/constants/api";
 import { Page } from "@/layouts/page";
-import type { Tapes as TTapes, Tape } from "@/types/tape";
+import type { Tape, Tapes } from "@/types/tape";
 import { extractProps } from "@/utils/api";
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { Link, Route } from "@tanstack/react-router";
@@ -11,19 +11,13 @@ import { rootRoute } from "../root";
 import { tapeRoute } from "../tape";
 import styles from "./styles.module.css";
 
-type Params = {
-  year: string;
-};
-
-type LoaderData = {
-  title: string;
-  tapes: TTapes;
-};
-
-const tapesQueryOptions = (params: Params) =>
+const tapesQueryOptions = (params: { year: string }) =>
   queryOptions({
     queryKey: ["tapes"],
-    queryFn: async () => {
+    queryFn: async (): Promise<{
+      title: string;
+      tapes: Tapes;
+    }> => {
       const response = await fetch(
         `${API_URL}/${params.year}/${API_URL_SUFFIX}`,
       );
@@ -41,7 +35,7 @@ const tapesQueryOptions = (params: Params) =>
       return {
         title: data.title,
         tapes,
-      } as LoaderData;
+      };
     },
   });
 

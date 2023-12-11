@@ -8,13 +8,9 @@ import { Link, Route } from "@tanstack/react-router";
 import { rootRoute } from "../root";
 import styles from "./styles.module.css";
 
-type LoaderData = {
-  years: Array<string>;
-};
-
 const homeQueryOptions = queryOptions({
   queryKey: ["home"],
-  queryFn: async () => {
+  queryFn: async (): Promise<{ years: Array<string> }> => {
     const response = await fetch(`${API_URL}/${API_URL_SUFFIX}`);
 
     if (!response.ok) {
@@ -25,7 +21,7 @@ const homeQueryOptions = queryOptions({
 
     return {
       years: data.years,
-    } as LoaderData;
+    };
   },
 });
 

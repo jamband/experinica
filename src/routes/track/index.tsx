@@ -2,29 +2,25 @@ import { API_URL, API_URL_SUFFIX } from "@/constants/api";
 import { useTapeAction } from "@/hooks/tape";
 import { useTrackAction } from "@/hooks/track";
 import { Page } from "@/layouts/page";
-import type { Track as TTrack } from "@/types/track";
+import type { Track } from "@/types/track";
 import { extractProps } from "@/utils/api";
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { Route } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { rootRoute } from "../root";
 
-type Params = {
+const trackQueryOptions = (params: {
   year: string;
   month: string;
   tape: string;
   track: string;
-};
-
-type LoaderData = {
-  tapeTitle: string;
-  track: TTrack;
-};
-
-const trackQueryOptions = (params: Params) =>
+}) =>
   queryOptions({
     queryKey: ["track"],
-    queryFn: async () => {
+    queryFn: async (): Promise<{
+      tapeTitle: string;
+      track: Track;
+    }> => {
       const track = await fetch(
         `${API_URL}/${params.year}/${params.month}/${params.tape}/${params.track}/${API_URL_SUFFIX}`,
       );
@@ -39,7 +35,7 @@ const trackQueryOptions = (params: Params) =>
       return {
         tapeTitle: data.tapeTitle,
         track: data.track,
-      } as LoaderData;
+      };
     },
   });
 

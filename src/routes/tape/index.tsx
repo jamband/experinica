@@ -5,7 +5,7 @@ import { useTrackState } from "@/hooks/track";
 import { IconPause } from "@/icons/pause";
 import { IconPlay } from "@/icons/play";
 import { Page } from "@/layouts/page";
-import type { Tape as TTape } from "@/types/tape";
+import type { Tape } from "@/types/tape";
 import { extractProps } from "@/utils/api";
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { Link, Route } from "@tanstack/react-router";
@@ -14,22 +14,18 @@ import { tapesRoute } from "../tapes";
 import { trackRoute } from "../track";
 import styles from "./styles.module.css";
 
-type Params = {
+const tapeQueryOptions = (params: {
   year: string;
   month: string;
   tape: string;
-};
-
-type LoaderData = {
-  title: string;
-  tape: TTape;
-  year: string;
-};
-
-const tapeQueryOptions = (params: Params) =>
+}) =>
   queryOptions({
     queryKey: ["tape"],
-    queryFn: async () => {
+    queryFn: async (): Promise<{
+      title: string;
+      tape: Tape;
+      year: string;
+    }> => {
       const tape = await fetch(
         `${API_URL}/${params.year}/${params.month}/${params.tape}/${API_URL_SUFFIX}`,
       );
@@ -41,7 +37,7 @@ const tapeQueryOptions = (params: Params) =>
       const data = { ...extractProps(await tape.json()) };
       data.tape = { ...data.tape };
 
-      data.tape.items = data.tape.items.map((item: TTape["items"]) => {
+      data.tape.items = data.tape.items.map((item: Tape["items"]) => {
         return { ...item };
       });
 
@@ -49,7 +45,7 @@ const tapeQueryOptions = (params: Params) =>
         title: data.title,
         tape: data.tape,
         year: data.year,
-      } as LoaderData;
+      };
     },
   });
 
