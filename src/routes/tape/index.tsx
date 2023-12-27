@@ -1,9 +1,9 @@
 import { API_URL, API_URL_SUFFIX } from "@/constants/api";
+import { layoutRoute } from "@/layouts/layout";
 import type { Tape } from "@/types/tape";
 import { extractProps } from "@/utils/api";
 import { queryOptions } from "@tanstack/react-query";
 import { Route } from "@tanstack/react-router";
-import { rootRoute } from "../root";
 import Component from "./component";
 
 export const tapeQueryOptions = (params: {
@@ -42,7 +42,7 @@ export const tapeQueryOptions = (params: {
   });
 
 export const tapeRoute = new Route({
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => layoutRoute,
   path: "/$year/$month/$tape",
   loader: ({ context: { queryClient }, params }) =>
     queryClient.ensureQueryData(tapeQueryOptions(params)),

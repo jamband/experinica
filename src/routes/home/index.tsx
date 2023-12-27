@@ -1,8 +1,8 @@
 import { API_URL, API_URL_SUFFIX } from "@/constants/api";
+import { layoutRoute } from "@/layouts/layout";
 import { extractProps } from "@/utils/api";
 import { queryOptions } from "@tanstack/react-query";
 import { Route } from "@tanstack/react-router";
-import { rootRoute } from "../root";
 import Component from "./component";
 
 export const homeQueryOptions = queryOptions({
@@ -23,7 +23,7 @@ export const homeQueryOptions = queryOptions({
 });
 
 export const homeRoute = new Route({
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => layoutRoute,
   path: "/",
   loader: async ({ context: { queryClient } }) =>
     queryClient.ensureQueryData(homeQueryOptions),

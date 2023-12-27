@@ -1,8 +1,8 @@
+import { layoutRoute } from "@/layouts/layout";
 import { aboutRoute } from "@/routes/about";
 import { contactRoute } from "@/routes/contact";
 import ErrorComponent from "@/routes/error";
 import { homeRoute } from "@/routes/home";
-import { rootRoute } from "@/routes/root";
 import { tapeRoute } from "@/routes/tape";
 import { tapesRoute } from "@/routes/tapes";
 import { trackRoute } from "@/routes/track";
@@ -10,7 +10,7 @@ import { Router } from "@tanstack/react-router";
 import { queryClient } from "./query-client";
 
 export const router = new Router({
-  routeTree: rootRoute.addChildren([
+  routeTree: layoutRoute.addChildren([
     homeRoute,
     aboutRoute,
     contactRoute,

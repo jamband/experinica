@@ -1,9 +1,9 @@
 import { API_URL, API_URL_SUFFIX } from "@/constants/api";
+import { layoutRoute } from "@/layouts/layout";
 import type { Track } from "@/types/track";
 import { extractProps } from "@/utils/api";
 import { queryOptions } from "@tanstack/react-query";
 import { Route } from "@tanstack/react-router";
-import { rootRoute } from "../root";
 import Component from "./component";
 
 export const trackQueryOptions = (params: {
@@ -37,7 +37,7 @@ export const trackQueryOptions = (params: {
   });
 
 export const trackRoute = new Route({
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => layoutRoute,
   path: "/$year/$month/$tape/$track",
   loader: async ({ context: { queryClient }, params }) =>
     queryClient.ensureQueryData(trackQueryOptions(params)),

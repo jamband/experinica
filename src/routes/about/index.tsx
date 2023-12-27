@@ -1,9 +1,9 @@
+import { layoutRoute } from "@/layouts/layout";
 import { Route } from "@tanstack/react-router";
-import { rootRoute } from "../root";
 import Component from "./component";
 
 export const aboutRoute = new Route({
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => layoutRoute,
   path: "/about",
   component: Component,
 });
