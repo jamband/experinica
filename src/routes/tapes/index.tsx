@@ -44,51 +44,53 @@ export const tapesRoute = new Route({
   path: "/$year",
   loader: ({ context: { queryClient }, params }) =>
     queryClient.ensureQueryData(tapesQueryOptions(params)),
-  component: function Tapes({ useParams }) {
-    const params = useParams();
-    const { data } = useSuspenseQuery(tapesQueryOptions(params));
-
-    const extractParamsFromTapePath = (path: string) => {
-      const params = path.split("/").filter(Boolean);
-
-      return {
-        year: params[0],
-        month: params[1],
-        tape: params[2],
-      };
-    };
-
-    return (
-      <Page title={data.title} className={styles.container}>
-        <TapeHeader title={`Monthly Favorite Tracks of ${params.year}`} />
-        <SectionDivider className={styles.sectionDivider} />
-        <ul className={styles.main}>
-          {data.tapes.map((tape) => (
-            <li key={tape.id}>
-              {tape.path === "" ? (
-                <div className={styles.tape}>
-                  <span className={styles.blankTitle}>:: {tape.title} ::</span>
-                  <div className={styles.date}>{tape.date}</div>
-                </div>
-              ) : (
-                <div className={styles.tape}>
-                  <Link
-                    to={tapeRoute.id}
-                    params={extractParamsFromTapePath(tape.path)}
-                    className={styles.title}
-                  >
-                    {tape.title}
-                    <span className={styles.titleSymbol}>→</span>
-                  </Link>
-                  <div className={styles.date}>{tape.date}</div>
-                </div>
-              )}
-            </li>
-          ))}
-        </ul>
-        <SectionDivider />
-        <BackToHome />
-      </Page>
-    );
-  },
+  component: TapesRouteComponent,
 });
+
+function TapesRouteComponent() {
+  const params = tapesRoute.useParams();
+  const { data } = useSuspenseQuery(tapesQueryOptions(params));
+
+  const extractParamsFromTapePath = (path: string) => {
+    const params = path.split("/").filter(Boolean);
+
+    return {
+      year: params[0],
+      month: params[1],
+      tape: params[2],
+    };
+  };
+
+  return (
+    <Page title={data.title} className={styles.container}>
+      <TapeHeader title={`Monthly Favorite Tracks of ${params.year}`} />
+      <SectionDivider className={styles.sectionDivider} />
+      <ul className={styles.main}>
+        {data.tapes.map((tape) => (
+          <li key={tape.id}>
+            {tape.path === "" ? (
+              <div className={styles.tape}>
+                <span className={styles.blankTitle}>:: {tape.title} ::</span>
+                <div className={styles.date}>{tape.date}</div>
+              </div>
+            ) : (
+              <div className={styles.tape}>
+                <Link
+                  to={tapeRoute.id}
+                  params={extractParamsFromTapePath(tape.path)}
+                  className={styles.title}
+                >
+                  {tape.title}
+                  <span className={styles.titleSymbol}>→</span>
+                </Link>
+                <div className={styles.date}>{tape.date}</div>
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+      <SectionDivider />
+      <BackToHome />
+    </Page>
+  );
+}

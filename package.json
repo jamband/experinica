@@ -15,8 +15,8 @@
   "dependencies": {
     "@tanstack/react-query": "5.15.0",
     "@tanstack/react-query-devtools": "5.15.0",
-    "@tanstack/react-router": "0.0.1-beta.249",
-    "@tanstack/router-devtools": "0.0.1-beta.249",
+    "@tanstack/react-router": "1.0.0",
+    "@tanstack/router-devtools": "1.0.0",
     "@testing-library/jest-dom": "6.1.5",
     "@testing-library/react": "14.1.2",
     "@types/css-modules": "1.0.5",

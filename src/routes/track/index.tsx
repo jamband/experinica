@@ -44,23 +44,25 @@ export const trackRoute = new Route({
   path: "/$year/$month/$tape/$track",
   loader: async ({ context: { queryClient }, params }) =>
     queryClient.ensureQueryData(trackQueryOptions(params)),
-  component: function Track({ useParams }) {
-    const params = useParams();
-    const { data } = useSuspenseQuery(trackQueryOptions(params));
-    const { setTape } = useTapeAction();
-    const { setTrack } = useTrackAction();
-
-    useEffect(() => {
-      if (data.track) {
-        setTape({ title: data.tapeTitle });
-        setTrack(data.track);
-      }
-    }, [data, setTape, setTrack]);
-
-    return (
-      <Page title={`${data.tapeTitle} ･ ${data.track.title}`}>
-        <></>
-      </Page>
-    );
-  },
+  component: TrackRouteComponent,
 });
+
+function TrackRouteComponent() {
+  const params = trackRoute.useParams();
+  const { data } = useSuspenseQuery(trackQueryOptions(params));
+  const { setTape } = useTapeAction();
+  const { setTrack } = useTrackAction();
+
+  useEffect(() => {
+    if (data.track) {
+      setTape({ title: data.tapeTitle });
+      setTrack(data.track);
+    }
+  }, [data, setTape, setTrack]);
+
+  return (
+    <Page title={`${data.tapeTitle} ･ ${data.track.title}`}>
+      <></>
+    </Page>
+  );
+}
