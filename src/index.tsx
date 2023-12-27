@@ -1,28 +1,12 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { Router, RouterProvider } from "@tanstack/react-router";
+import { RouterProvider } from "@tanstack/react-router";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { TapeProvider } from "./contexts/tape";
 import { TrackProvider } from "./contexts/track";
-import ErrorComponent from "./routes/error";
-import { routeTree } from "./utils/router";
-
-const queryClient = new QueryClient();
-
-export const router = new Router({
-  routeTree,
-  context: {
-    queryClient,
-  },
-  defaultErrorComponent: () => <ErrorComponent />,
-});
-
-declare module "@tanstack/react-router" {
-  interface Register {
-    router: typeof router;
-  }
-}
+import { queryClient } from "./utils/query-client";
+import { router } from "./utils/router";
 
 const container = document.getElementById("app");
 
