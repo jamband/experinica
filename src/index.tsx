@@ -11,7 +11,7 @@ import { router } from "./utils/router";
 const container = document.getElementById("app");
 
 if (container === null) {
-  throw new Error("Root element does not exists.");
+  throw new Error("app element does not exists.");
 }
 
 createRoot(container).render(
