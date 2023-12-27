@@ -1,15 +1,12 @@
 import { API_URL, API_URL_SUFFIX } from "@/constants/api";
-import { useTapeAction } from "@/hooks/tape";
-import { useTrackAction } from "@/hooks/track";
-import { Page } from "@/layouts/page";
 import type { Track } from "@/types/track";
 import { extractProps } from "@/utils/api";
-import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { queryOptions } from "@tanstack/react-query";
 import { Route } from "@tanstack/react-router";
-import { useEffect } from "react";
 import { rootRoute } from "../root";
+import Component from "./component";
 
-const trackQueryOptions = (params: {
+export const trackQueryOptions = (params: {
   year: string;
   month: string;
   tape: string;
@@ -44,25 +41,5 @@ export const trackRoute = new Route({
   path: "/$year/$month/$tape/$track",
   loader: async ({ context: { queryClient }, params }) =>
     queryClient.ensureQueryData(trackQueryOptions(params)),
-  component: TrackRouteComponent,
+  component: Component,
 });
-
-function TrackRouteComponent() {
-  const params = trackRoute.useParams();
-  const { data } = useSuspenseQuery(trackQueryOptions(params));
-  const { setTape } = useTapeAction();
-  const { setTrack } = useTrackAction();
-
-  useEffect(() => {
-    if (data.track) {
-      setTape({ title: data.tapeTitle });
-      setTrack(data.track);
-    }
-  }, [data, setTape, setTrack]);
-
-  return (
-    <Page title={`${data.tapeTitle} ･ ${data.track.title}`}>
-      <></>
-    </Page>
-  );
-}
