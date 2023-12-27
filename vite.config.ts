@@ -5,12 +5,10 @@ import react from "@vitejs/plugin-react-swc";
 import { resolve } from "node:path";
 import { defineConfig } from "vite";
 
-const srcDir = resolve(__dirname, "src");
-
 export default defineConfig({
-  root: srcDir,
+  root: resolve(__dirname, "src"),
   resolve: {
-    alias: { "@": srcDir },
+    alias: { "@": resolve(__dirname, "src") },
   },
   build: {
     outDir: "../dist",
