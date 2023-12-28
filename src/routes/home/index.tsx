@@ -25,7 +25,8 @@ export const homeQueryOptions = queryOptions({
 export const homeRoute = new Route({
   getParentRoute: () => layoutRoute,
   path: "/",
-  loader: async ({ context: { queryClient } }) =>
-    queryClient.ensureQueryData(homeQueryOptions),
+  loader: async ({ context }) => {
+    return context.queryClient.ensureQueryData(homeQueryOptions);
+  },
   component: Component,
 });

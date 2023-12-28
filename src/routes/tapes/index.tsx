@@ -37,7 +37,8 @@ export const tapesQueryOptions = (params: { year: string }) =>
 export const tapesRoute = new Route({
   getParentRoute: () => layoutRoute,
   path: "/$year",
-  loader: ({ context: { queryClient }, params }) =>
-    queryClient.ensureQueryData(tapesQueryOptions(params)),
+  loader: ({ context, params }) => {
+    return context.queryClient.ensureQueryData(tapesQueryOptions(params));
+  },
   component: Component,
 });

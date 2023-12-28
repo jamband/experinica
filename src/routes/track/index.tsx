@@ -39,7 +39,8 @@ export const trackQueryOptions = (params: {
 export const trackRoute = new Route({
   getParentRoute: () => layoutRoute,
   path: "/$year/$month/$tape/$track",
-  loader: async ({ context: { queryClient }, params }) =>
-    queryClient.ensureQueryData(trackQueryOptions(params)),
+  loader: async ({ context, params }) => {
+    return context.queryClient.ensureQueryData(trackQueryOptions(params));
+  },
   component: Component,
 });
