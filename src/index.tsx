@@ -1,12 +1,9 @@
 import "@/styles/app.css";
-import { QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { RouterProvider } from "@tanstack/react-router";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { TapeProvider } from "./contexts/tape";
 import { TrackProvider } from "./contexts/track";
-import { queryClient } from "./utils/query-client";
 import { router } from "./utils/router";
 
 const container = document.getElementById("app");
@@ -19,10 +16,7 @@ createRoot(container).render(
   <StrictMode>
     <TapeProvider>
       <TrackProvider>
-        <QueryClientProvider client={queryClient}>
-          <RouterProvider router={router} />
-          <ReactQueryDevtools />
-        </QueryClientProvider>
+        <RouterProvider router={router} />
       </TrackProvider>
     </TapeProvider>
   </StrictMode>,

@@ -1,13 +1,11 @@
 import { useTapeAction } from "@/hooks/tape";
 import { useTrackAction } from "@/hooks/track";
 import { Page } from "@/layouts/page";
-import { useSuspenseQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
-import { trackQueryOptions, trackRoute } from ".";
+import { trackRoute } from ".";
 
 export default function Component() {
-  const params = trackRoute.useParams();
-  const { data } = useSuspenseQuery(trackQueryOptions(params));
+  const data = trackRoute.useLoaderData();
   const { setTape } = useTapeAction();
   const { setTrack } = useTrackAction();
 

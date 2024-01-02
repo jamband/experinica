@@ -1,13 +1,12 @@
 import { SectionDivider } from "@/components/section-divider";
 import { TapeHeader } from "@/components/tape-header";
 import { Page } from "@/layouts/page";
-import { useSuspenseQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
-import { homeQueryOptions } from ".";
+import { homeRoute } from ".";
 import styles from "./styles.module.css";
 
 export default function Component() {
-  const { data } = useSuspenseQuery(homeQueryOptions);
+  const data = homeRoute.useLoaderData();
 
   return (
     <Page title="" className={styles.container}>

@@ -7,7 +7,6 @@ import { tapeRoute } from "@/routes/tape";
 import { tapesRoute } from "@/routes/tapes";
 import { trackRoute } from "@/routes/track";
 import { Router } from "@tanstack/react-router";
-import { queryClient } from "./query-client";
 
 export const router = new Router({
   routeTree: layoutRoute.addChildren([
@@ -18,9 +17,6 @@ export const router = new Router({
     tapeRoute,
     tapesRoute,
   ]),
-  context: {
-    queryClient,
-  },
   defaultErrorComponent: () => <ErrorComponent />,
 });
 

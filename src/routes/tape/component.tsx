@@ -4,16 +4,15 @@ import { useTrackState } from "@/hooks/track";
 import { IconPause } from "@/icons/pause";
 import { IconPlay } from "@/icons/play";
 import { Page } from "@/layouts/page";
-import { useSuspenseQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
-import { tapeQueryOptions, tapeRoute } from ".";
+import { tapeRoute } from ".";
 import { tapesRoute } from "../tapes";
 import { trackRoute } from "../track";
 import styles from "./styles.module.css";
 
 export default function Component() {
   const params = tapeRoute.useParams();
-  const { data } = useSuspenseQuery(tapeQueryOptions(params));
+  const data = tapeRoute.useLoaderData();
   const track = useTrackState();
 
   return (

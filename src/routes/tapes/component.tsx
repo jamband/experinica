@@ -2,15 +2,14 @@ import { BackToHome } from "@/components/back-to-home";
 import { SectionDivider } from "@/components/section-divider";
 import { TapeHeader } from "@/components/tape-header";
 import { Page } from "@/layouts/page";
-import { useSuspenseQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
-import { tapesQueryOptions, tapesRoute } from ".";
+import { tapesRoute } from ".";
 import { tapeRoute } from "../tape";
 import styles from "./styles.module.css";
 
 export default function Component() {
   const params = tapesRoute.useParams();
-  const { data } = useSuspenseQuery(tapesQueryOptions(params));
+  const data = tapesRoute.useLoaderData();
 
   const extractParamsFromTapePath = (path: string) => {
     const params = path.split("/").filter(Boolean);

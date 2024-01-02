@@ -1,9 +1,6 @@
-import type { QueryClient } from "@tanstack/react-query";
-import { rootRouteWithContext } from "@tanstack/react-router";
+import { RootRoute } from "@tanstack/react-router";
 import Component from "./component";
 
-export const layoutRoute = rootRouteWithContext<{
-  queryClient: QueryClient;
-}>()({
+export const layoutRoute = new RootRoute({
   component: Component,
 });
