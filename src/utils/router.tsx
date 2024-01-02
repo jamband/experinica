@@ -1,4 +1,5 @@
 import { layoutRoute } from "@/layouts/layout";
+import { Loading } from "@/layouts/loading";
 import { aboutRoute } from "@/routes/about";
 import { contactRoute } from "@/routes/contact";
 import ErrorComponent from "@/routes/error";
@@ -17,6 +18,9 @@ export const router = new Router({
     tapeRoute,
     tapesRoute,
   ]),
+  defaultPendingMinMs: 300,
+  defaultPendingMs: Infinity,
+  defaultPendingComponent: () => <Loading />,
   defaultErrorComponent: () => <ErrorComponent />,
 });
 
