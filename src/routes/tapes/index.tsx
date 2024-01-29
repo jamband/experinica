@@ -2,10 +2,10 @@ import { API_URL, API_URL_SUFFIX } from "@/constants/api";
 import { layoutRoute } from "@/layouts/layout";
 import type { Tape, Tapes } from "@/types/tape";
 import { extractProps } from "@/utils/api";
-import { Route } from "@tanstack/react-router";
+import { createRoute } from "@tanstack/react-router";
 import Component from "./component";
 
-export const tapesRoute = new Route({
+export const tapesRoute = createRoute({
   getParentRoute: () => layoutRoute,
   path: "/$year",
   loader: async ({

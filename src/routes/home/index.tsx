@@ -1,10 +1,10 @@
 import { API_URL, API_URL_SUFFIX } from "@/constants/api";
 import { layoutRoute } from "@/layouts/layout";
 import { extractProps } from "@/utils/api";
-import { Route } from "@tanstack/react-router";
+import { createRoute } from "@tanstack/react-router";
 import Component from "./component";
 
-export const homeRoute = new Route({
+export const homeRoute = createRoute({
   getParentRoute: () => layoutRoute,
   path: "/",
   loader: async (): Promise<{ years: Array<string> }> => {

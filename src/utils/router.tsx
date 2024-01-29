@@ -7,9 +7,9 @@ import { homeRoute } from "@/routes/home";
 import { tapeRoute } from "@/routes/tape";
 import { tapesRoute } from "@/routes/tapes";
 import { trackRoute } from "@/routes/track";
-import { Router } from "@tanstack/react-router";
+import { createRouter } from "@tanstack/react-router";
 
-export const router = new Router({
+export const router = createRouter({
   routeTree: layoutRoute.addChildren([
     homeRoute,
     aboutRoute,
