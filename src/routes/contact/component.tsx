@@ -18,7 +18,7 @@ export default function Component() {
             target="_blank"
             rel="noreferrer"
           >
-            Twitter
+            X
             <IconExternalLink className={styles.linkIcon} />
           </a>{" "}
           or{" "}
