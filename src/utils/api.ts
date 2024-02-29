@@ -1,5 +1,3 @@
-import { API_URL, API_URL_SUFFIX } from "@/constants/api";
-
 type DataNode = {
   type: "data";
   data: Record<string, unknown>;
@@ -11,7 +9,9 @@ type DataNodes = {
 };
 
 export const fetchDataNodes = async (path: string) => {
-  const response = await fetch(`${API_URL}${path}${API_URL_SUFFIX}`);
+  const response = await fetch(
+    `https://jamband.github.io/tapes${path}__data.json`,
+  );
 
   if (!response.ok) {
     throw new Error("Failed to fetch.");
