@@ -1,23 +1,17 @@
 import { layoutRoute } from "@/layouts/layout";
-import type { Tape } from "@/types/tape";
 import { extractData, fetchDataNodes } from "@/utils/api";
 import { createRoute } from "@tanstack/react-router";
 import Component from "./component";
-
-type Data = {
-  title: string;
-  tape: Tape;
-  year: string;
-};
+import type { LoaderData } from "./types";
 
 export const tapeRoute = createRoute({
   getParentRoute: () => layoutRoute,
   path: "/$year/$month/$tape",
-  loader: async ({ params }): Promise<Data> => {
+  loader: async ({ params }): Promise<LoaderData> => {
     const dataNodes = await fetchDataNodes(
       `/${params.year}/${params.month}/${params.tape}/`,
     );
-    const data = { ...extractData<Data>(dataNodes) };
+    const data = { ...extractData<LoaderData>(dataNodes) };
     data.tape = { ...data.tape };
 
     data.tape.items = data.tape.items.map((item) => {
