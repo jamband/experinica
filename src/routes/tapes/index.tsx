@@ -1,28 +1,22 @@
-import { API_URL, API_URL_SUFFIX } from "@/constants/api";
 import { layoutRoute } from "@/layouts/layout";
-import type { Tape, Tapes } from "@/types/tape";
-import { extractProps } from "@/utils/api";
+import type { Tapes } from "@/types/tape";
+import { extractData, fetchDataNodes } from "@/utils/api";
 import { createRoute } from "@tanstack/react-router";
 import Component from "./component";
+
+type Data = {
+  title: string;
+  tapes: Tapes;
+};
 
 export const tapesRoute = createRoute({
   getParentRoute: () => layoutRoute,
   path: "/$year",
-  loader: async ({
-    params,
-  }): Promise<{
-    title: string;
-    tapes: Tapes;
-  }> => {
-    const response = await fetch(`${API_URL}/${params.year}/${API_URL_SUFFIX}`);
+  loader: async ({ params }): Promise<Data> => {
+    const dataNodes = await fetchDataNodes(`/${params.year}/`);
+    const data = { ...extractData<Data>(dataNodes) };
 
-    if (!response.ok) {
-      throw new Error("Failed to fetch");
-    }
-
-    const data = { ...extractProps(await response.json()) };
-
-    const tapes = data.tapes.map((tape: Tape) => {
+    const tapes = data.tapes.map((tape) => {
       return { ...tape };
     });
 

@@ -1,28 +1,22 @@
-import { API_URL, API_URL_SUFFIX } from "@/constants/api";
 import { layoutRoute } from "@/layouts/layout";
 import type { Track } from "@/types/track";
-import { extractProps } from "@/utils/api";
+import { extractData, fetchDataNodes } from "@/utils/api";
 import { createRoute } from "@tanstack/react-router";
 import Component from "./component";
+
+type Data = {
+  tapeTitle: string;
+  track: Track;
+};
 
 export const trackRoute = createRoute({
   getParentRoute: () => layoutRoute,
   path: "/$year/$month/$tape/$track",
-  loader: async ({
-    params,
-  }): Promise<{
-    tapeTitle: string;
-    track: Track;
-  }> => {
-    const track = await fetch(
-      `${API_URL}/${params.year}/${params.month}/${params.tape}/${params.track}/${API_URL_SUFFIX}`,
+  loader: async ({ params }): Promise<Data> => {
+    const dataNodes = await fetchDataNodes(
+      `/${params.year}/${params.month}/${params.tape}/${params.track}/`,
     );
-
-    if (!track.ok) {
-      throw new Error("Failed to fetch");
-    }
-
-    const data = extractProps(await track.json());
+    const data = extractData<Data>(dataNodes);
     data.track = { ...data.track };
 
     return {

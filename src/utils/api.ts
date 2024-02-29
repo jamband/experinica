@@ -1,15 +1,38 @@
-export const extractProps = (
-  base: any /* eslint-disable-line */,
-  next?: any /* eslint-disable-line */,
-) => {
-  const data = base["nodes"][1]["data"];
-  const props: any = []; // eslint-disable-line
+import { API_URL, API_URL_SUFFIX } from "@/constants/api";
 
-  for (const [key, index] of Object.entries<number>(next || data[0])) {
-    props[key] =
-      typeof data[index] === "object"
-        ? extractProps(base, data[index])
-        : data[index];
+type DataNode = {
+  type: "data";
+  data: Record<string, unknown>;
+};
+
+type DataNodes = {
+  type: "data";
+  nodes: Array<DataNode>;
+};
+
+export const fetchDataNodes = async (path: string) => {
+  const response = await fetch(`${API_URL}${path}${API_URL_SUFFIX}`);
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch.");
   }
-  return props;
+
+  return response.json();
+};
+
+export const extractData = <T>(
+  dataNodes: DataNodes,
+  next?: any, // eslint-disable-line
+) => {
+  const current = dataNodes.nodes[1].data;
+  const data: any = []; // eslint-disable-line
+
+  for (const [key, index] of Object.entries<number>(next || current[0])) {
+    data[key] =
+      typeof current[index] === "object"
+        ? extractData(dataNodes, current[index])
+        : current[index];
+  }
+
+  return data as T;
 };

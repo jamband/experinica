@@ -1,20 +1,18 @@
-import { API_URL, API_URL_SUFFIX } from "@/constants/api";
 import { layoutRoute } from "@/layouts/layout";
-import { extractProps } from "@/utils/api";
+import { extractData, fetchDataNodes } from "@/utils/api";
 import { createRoute } from "@tanstack/react-router";
 import Component from "./component";
+
+type Data = {
+  years: Array<string>;
+};
 
 export const homeRoute = createRoute({
   getParentRoute: () => layoutRoute,
   path: "/",
-  loader: async (): Promise<{ years: Array<string> }> => {
-    const response = await fetch(`${API_URL}/${API_URL_SUFFIX}`);
-
-    if (!response.ok) {
-      throw new Error("Failed to fetch");
-    }
-
-    const data = extractProps(await response.json());
+  loader: async (): Promise<Data> => {
+    const dataNodes = await fetchDataNodes("/");
+    const data = extractData<Data>(dataNodes);
 
     return {
       years: data.years,
