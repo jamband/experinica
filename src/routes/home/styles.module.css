@@ -32,7 +32,8 @@
   }
 }
 
-.link:active {
+.link:active,
+.link:focus-visible {
   background: rgb(var(--yellow-500));
   color: rgb(var(--gray-900));
 }
@@ -48,6 +49,7 @@
   }
 }
 
-.link:active .linkSymbol {
+.link:active .linkSymbol,
+.link:focus-visible .linkSymbol {
   color: rgb(var(--gray-600));
 }

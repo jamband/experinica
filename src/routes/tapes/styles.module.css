@@ -40,7 +40,9 @@
   }
 }
 
-.title:active {
+.title:active,
+.title:focus-visible {
+  color: rgb(var(--yellow-500));
   box-shadow: 0 2px 0 0 rgb(var(--yellow-500) / 70%);
 }
 
@@ -56,7 +58,8 @@
   }
 }
 
-.title:active .titleSymbol {
+.title:active .titleSymbol,
+.title:focus-visible .titleSymbol {
   color: rgb(var(--yellow-500) / 70%);
 }
 

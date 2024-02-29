@@ -44,6 +44,11 @@
   }
 }
 
+.titleButton:focus-visible {
+  background: rgb(var(--gray-600));
+  color: rgb(var(--gray-100));
+}
+
 .titleButton:active {
   background: rgb(var(--gray-600));
   color: rgb(var(--yellow-500));
@@ -94,7 +99,8 @@
   }
 }
 
-.link:active {
+.link:active,
+.link:focus-visible {
   background: rgb(var(--gray-600));
   color: rgb(var(--gray-100));
 }
