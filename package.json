@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --open",
-    "build": "vite build --emptyOutDir",
+    "build": "vite build",
     "preview": "vite preview --open",
     "typecheck": "tsc",
     "lint": "eslint .",
