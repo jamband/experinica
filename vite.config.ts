@@ -16,9 +16,6 @@ export default defineConfig({
   plugins: [react()],
   test: {
     globals: true,
-    cache: {
-      dir: "../node_modules/.vitest",
-    },
     environment: "happy-dom",
     setupFiles: "../vitest.setup.ts",
   },
