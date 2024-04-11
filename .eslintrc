@@ -11,15 +11,16 @@
     "plugin:jsx-a11y/recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:testing-library/react",
-    "prettier"
+    "plugin:testing-library/react"
   ],
   "settings": {
     "react": {
       "version": "detect"
     }
   },
-  "ignorePatterns": ["dist"],
+  "ignorePatterns": [
+    "dist"
+  ],
   "rules": {
     "@typescript-eslint/consistent-type-imports": "error",
     "react/prop-types": "off",
