@@ -4,6 +4,7 @@ import { aboutRoute } from "@/routes/about";
 import { contactRoute } from "@/routes/contact";
 import ErrorComponent from "@/routes/error";
 import { homeRoute } from "@/routes/home";
+import NotFound from "@/routes/not-found";
 import { tapeRoute } from "@/routes/tape";
 import { tapesRoute } from "@/routes/tapes";
 import { trackRoute } from "@/routes/track";
@@ -22,6 +23,7 @@ export const router = createRouter({
   defaultPendingMs: Infinity,
   defaultPendingComponent: () => <Loading />,
   defaultErrorComponent: () => <ErrorComponent />,
+  defaultNotFoundComponent: () => <NotFound />,
 });
 
 declare module "@tanstack/react-router" {

@@ -1,6 +1,6 @@
+import { BackToHome } from "@/components/back-to-home";
 import { SectionDivider } from "@/components/section-divider";
 import { Page } from "@/layouts/page";
-import { Link } from "@tanstack/react-router";
 import styles from "./styles.module.css";
 
 export default function NotFound() {
@@ -11,9 +11,7 @@ export default function NotFound() {
           <h1>Not Found</h1>
           <p className={styles.description}>This page does not exist.</p>
           <SectionDivider className={styles.sectionDivider} />
-          <Link to="/" className={styles.link}>
-            Go Digging →
-          </Link>
+          <BackToHome className={styles.link} />
         </div>
       </div>
     </Page>
