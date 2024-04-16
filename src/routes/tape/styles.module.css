@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  flex-direction: column;
+  flex-flow: column;
   gap: 2.5rem;
 }
 
@@ -59,7 +59,7 @@
 .trackFooter {
   bottom: 0px;
   display: flex;
-  flex-direction: column;
+  flex-flow: column;
   font-weight: 600;
   gap: 0.25rem;
   padding: 1rem;

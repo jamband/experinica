@@ -32,7 +32,7 @@
 .titleContainer {
   align-items: center;
   display: flex;
-  flex-direction: column;
+  flex-flow: column;
   gap: 0.5rem;
   text-align: center;
 }
