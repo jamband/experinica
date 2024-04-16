@@ -1,5 +1,5 @@
-import type { Props } from "@/contexts/tape";
 import { TapeProvider } from "@/contexts/tape";
+import type { Props } from "@/contexts/types";
 import { initialState } from "@/reducers/tape";
 import { act, renderHook } from "@testing-library/react";
 import { useTapeAction, useTapeState } from "./tape";

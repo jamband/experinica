@@ -1,5 +1,5 @@
-import type { Props } from "@/contexts/track";
 import { TrackProvider } from "@/contexts/track";
+import type { Props } from "@/contexts/types";
 import { initialState } from "@/reducers/track";
 import { act, renderHook } from "@testing-library/react";
 import { useTrackAction, useTrackState } from "./track";

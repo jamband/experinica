@@ -25,7 +25,7 @@ export const Component: React.FC<_Props> = (props) => (
           } ${props.track.embed_aspect_ratio === "4/3" ? "aspect4x3" : ""} ${
             props.track.embed_aspect_ratio === "16/9" ? "aspect16x9" : ""
           } ${props.track.embed_aspect_ratio === "21/9" ? "aspect21x9" : ""}`}
-          title={props.track.title}
+          title={`${props.track.provider} player`}
           allow="fullscreen"
         />
       </div>

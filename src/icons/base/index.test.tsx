@@ -9,10 +9,10 @@ test("", () => {
     </Icon>,
   );
 
-  const imageElement = screen.getByText("icon");
-  expect(imageElement).toHaveAttribute("viewBox", "0 0 20 20");
-  expect(imageElement).toHaveClass("foo", { exact: true });
-  expect(imageElement).not.toHaveAccessibleName("img");
-  expect(imageElement).toHaveAttribute("role", "img");
-  expect(imageElement).toHaveAttribute("aria-hidden", "true");
+  const icon = screen.getByText("icon");
+  expect(icon).toHaveAttribute("viewBox", "0 0 20 20");
+  expect(icon).toHaveClass("foo", { exact: true });
+  expect(icon).not.toHaveAccessibleName("img");
+  expect(icon).toHaveAttribute("role", "img");
+  expect(icon).toHaveAttribute("aria-hidden", "true");
 });
