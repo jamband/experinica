@@ -1,5 +1,8 @@
+import { APP_NAME } from "@/constants/app";
 import { Component } from "./component";
 
 export const Header: React.FC = () => {
-  return <Component isTrackRoute={true} />;
+  const repository = APP_NAME.toLowerCase();
+
+  return <Component repository={repository} />;
 };

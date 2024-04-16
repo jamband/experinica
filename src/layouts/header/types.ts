@@ -1,3 +1,3 @@
 export type _Props = {
-  isTrackRoute: boolean;
+  repository: string;
 };
