@@ -5,10 +5,11 @@
 }
 
 .main {
-  align-items: center;
-  display: flex;
-  gap: 1.25rem;
+  display: grid;
+  gap: 1.5rem 1.25rem;
+  grid-template-columns: repeat(3, 90px);
   justify-content: center;
+  place-items: center;
 }
 
 .link {

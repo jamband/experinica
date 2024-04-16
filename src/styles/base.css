@@ -1,6 +1,6 @@
 html {
   font-size: var(--text-base);
-  line-height: 1.5;
+  line-height: 1.6;
   scrollbar-gutter: stable;
   -webkit-text-size-adjust: 100%;
 }
@@ -9,7 +9,7 @@ body {
   background: rgb(var(--gray-800));
   color: rgb(var(--gray-400));
   font-family: system-ui, Arial, sans-serif;
-  font-size: inherit;
+  font-size: var(--text-base);
   line-height: inherit;
 }
 

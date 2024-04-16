@@ -35,14 +35,16 @@ export default function Component() {
               </div>
             ) : (
               <div className={styles.tape}>
-                <Link
-                  to={tapeRoute.id}
-                  params={extractParamsFromTapePath(tape.path)}
-                  className={styles.title}
-                >
-                  {tape.title}
-                  <span className={styles.titleSymbol}>→</span>
-                </Link>
+                <div>
+                  <Link
+                    to={tapeRoute.id}
+                    params={extractParamsFromTapePath(tape.path)}
+                    className={styles.title}
+                  >
+                    {tape.title}
+                    <span className={styles.titleSymbol}>→</span>
+                  </Link>
+                </div>
                 <div className={styles.date}>{tape.date}</div>
               </div>
             )}
