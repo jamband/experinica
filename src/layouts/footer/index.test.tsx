@@ -1,9 +1,9 @@
 import { TrackProvider } from "@/contexts/track";
 import { useTrackState } from "@/hooks/track";
-import { mockRootRoute } from "@/mocks/router";
 import {
   RouterProvider,
   createMemoryHistory,
+  createRootRoute,
   createRoute,
   createRouter,
 } from "@tanstack/react-router";
@@ -29,7 +29,7 @@ test("", async () => {
     path: "",
   });
 
-  const rootRoute = mockRootRoute;
+  const rootRoute = createRootRoute();
 
   const route = createRoute({
     getParentRoute: () => rootRoute,
@@ -57,7 +57,7 @@ test("has track state and not on track route", async () => {
     path: "/1999/01/foo/bar",
   });
 
-  const rootRoute = mockRootRoute;
+  const rootRoute = createRootRoute();
 
   const route = createRoute({
     getParentRoute: () => rootRoute,
@@ -86,7 +86,7 @@ test("has track state and on track route", async () => {
     path: "/1999/01/foo/bar",
   });
 
-  const rootRoute = mockRootRoute;
+  const rootRoute = createRootRoute();
 
   const route1 = createRoute({
     getParentRoute: () => rootRoute,
@@ -102,15 +102,14 @@ test("has track state and on track route", async () => {
 
   const router = createRouter({
     routeTree: rootRoute.addChildren([route1, route2]),
-  });
-
-  const history = createMemoryHistory({
-    initialEntries: ["/1999/01/foo/bar"],
+    history: createMemoryHistory({
+      initialEntries: ["/1999/01/foo/bar"],
+    }),
   });
 
   render(
     <TrackProvider>
-      <RouterProvider router={router} history={history} />
+      <RouterProvider router={router} />
     </TrackProvider>,
   );
 

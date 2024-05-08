@@ -1,6 +1,6 @@
-import { mockRootRoute } from "@/mocks/router";
 import {
   RouterProvider,
+  createRootRoute,
   createRoute,
   createRouter,
 } from "@tanstack/react-router";
@@ -8,7 +8,7 @@ import { render, screen } from "@testing-library/react";
 import { Header } from ".";
 
 test("", async () => {
-  const rootRoute = mockRootRoute;
+  const rootRoute = createRootRoute();
 
   const route = createRoute({
     getParentRoute: () => rootRoute,

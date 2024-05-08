@@ -1,9 +1,9 @@
 import { TrackProvider } from "@/contexts/track";
 import { useTapeState } from "@/hooks/tape";
 import { useTrackState } from "@/hooks/track";
-import { mockRootRoute } from "@/mocks/router";
 import {
   RouterProvider,
+  createRootRoute,
   createRoute,
   createRouter,
 } from "@tanstack/react-router";
@@ -37,7 +37,7 @@ test("", async () => {
     path: "/1999/01/foo/bar",
   });
 
-  const rootRoute = mockRootRoute;
+  const rootRoute = createRootRoute();
 
   const route = createRoute({
     getParentRoute: () => rootRoute,
