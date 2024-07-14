@@ -13,7 +13,7 @@
     "clean": "node scripts/clean.mjs"
   },
   "dependencies": {
-    "@tanstack/react-router": "1.43.12",
+    "@tanstack/react-router": "1.45.0",
     "@testing-library/jest-dom": "6.4.6",
     "@testing-library/react": "16.0.0",
     "@types/css-modules": "1.0.5",
