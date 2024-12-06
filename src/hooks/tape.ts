@@ -1,13 +1,13 @@
 import { DispatchContext, StateContext } from "@/contexts/tape";
 import type { State } from "@/reducers/tape";
-import { useCallback, useContext } from "react";
+import { use, useCallback } from "react";
 
 export const useTapeState = () => {
-  return useContext(StateContext);
+  return use(StateContext);
 };
 
 export const useTapeAction = () => {
-  const dispatch = useContext(DispatchContext);
+  const dispatch = use(DispatchContext);
 
   const setTape = useCallback(
     (payload: State) => {
