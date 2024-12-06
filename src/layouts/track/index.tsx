@@ -11,7 +11,7 @@ export const Track: React.FC = () => {
 
   if (!track.path) return null;
 
-  let src = "";
+  let src = "about:blank";
   if (track.provider === "Bandcamp") {
     src = `https://bandcamp.com/EmbeddedPlayer/track=${track.provider_key}/size=large/tracklist=false/bgcol=333333/linkcol=${APP_PRIMARY_COLOR}`;
   }
