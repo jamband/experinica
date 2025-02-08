@@ -2,7 +2,6 @@ import js from "@eslint/js";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
-import testingLibrary from "eslint-plugin-testing-library";
 import ts from "typescript-eslint";
 
 export default ts.config(
@@ -27,9 +26,5 @@ export default ts.config(
   {
     files: ["src/**/*.tsx"],
     ...jsxA11y.flatConfigs.recommended,
-  },
-  {
-    files: ["src/**/*.test.{ts,tsx}"],
-    ...testingLibrary.configs["flat/react"],
   },
 );
