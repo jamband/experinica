@@ -65,7 +65,7 @@
   text-decoration-color: rgb(var(--gray-200) / 70%);
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .backToTape:hover {
     color: rgb(var(--yellow-500));
     text-decoration-color: rgb(var(--yellow-500) / 70%);
@@ -82,7 +82,7 @@
   color: rgb(var(--gray-200) / 70%);
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .backToTape:hover .backToTapeSymbol {
     color: rgb(var(--yellow-500) / 70%);
   }

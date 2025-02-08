@@ -22,7 +22,7 @@
   margin: 2.5rem 0 0 0;
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .link:hover {
     color: rgb(var(--yellow-500));
   }
