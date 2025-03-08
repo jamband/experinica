@@ -20,8 +20,7 @@ export default ts.config(
   },
   {
     files: ["src/**/*.{ts,tsx}"],
-    plugins: { "react-hooks": reactHooks },
-    rules: reactHooks.configs.recommended.rules,
+    ...reactHooks.configs["recommended-latest"],
   },
   {
     files: ["src/**/*.tsx"],
