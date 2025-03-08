@@ -12,23 +12,23 @@
     "clean": "node scripts/clean.mjs"
   },
   "dependencies": {
-    "@eslint/js": "9.20.0",
-    "@tanstack/react-router": "1.99.13",
+    "@eslint/js": "9.22.0",
+    "@tanstack/react-router": "1.112.18",
     "@types/css-modules": "1.0.5",
-    "@types/node": "20.17.17",
-    "@types/react": "19.0.8",
-    "@types/react-dom": "19.0.3",
-    "@vitejs/plugin-react-swc": "3.7.2",
-    "eslint": "9.20.0",
+    "@types/node": "22.13.10",
+    "@types/react": "19.0.10",
+    "@types/react-dom": "19.0.4",
+    "@vitejs/plugin-react-swc": "3.8.0",
+    "eslint": "9.22.0",
     "eslint-plugin-jsx-a11y": "6.10.2",
     "eslint-plugin-react": "7.37.4",
-    "eslint-plugin-react-hooks": "5.1.0",
-    "prettier": "3.4.2",
+    "eslint-plugin-react-hooks": "5.2.0",
+    "prettier": "3.5.3",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "the-new-css-reset": "1.11.3",
-    "typescript": "5.7.3",
-    "typescript-eslint": "8.23.0",
-    "vite": "6.1.0"
+    "typescript": "5.8.2",
+    "typescript-eslint": "8.26.0",
+    "vite": "6.2.1"
   }
 }
