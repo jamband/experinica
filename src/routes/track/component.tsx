@@ -18,6 +18,7 @@ export default function Component() {
 
   return (
     <Page title={`${data.tapeTitle} ･ ${data.track.title}`}>
+      {/* biome-ignore lint/complexity/noUselessFragments: <explanation> */}
       <></>
     </Page>
   );

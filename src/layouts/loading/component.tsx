@@ -7,6 +7,7 @@ export const Component: React.FC = () => (
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
+      // biome-ignore lint/a11y/useSemanticElements: <explanation>
       role="status"
     >
       <circle

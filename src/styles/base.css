@@ -28,8 +28,8 @@ h2 {
 }
 
 a {
-  text-decoration-thickness: 0.05em;
   text-decoration: underline;
+  text-decoration-thickness: 0.05em;
   text-underline-offset: 0.25em;
 }
 

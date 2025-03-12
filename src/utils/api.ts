@@ -22,10 +22,12 @@ export const fetchDataNodes = async (path: string) => {
 
 export const extractData = <T>(
   dataNodes: DataNodes,
-  next?: any, // eslint-disable-line
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  next?: any,
 ) => {
   const current = dataNodes.nodes[1].data;
-  const data: any = []; // eslint-disable-line
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  const data: any = [];
 
   for (const [key, index] of Object.entries<number>(next || current[0])) {
     data[key] =

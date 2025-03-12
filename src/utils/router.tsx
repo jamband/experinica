@@ -20,7 +20,7 @@ export const router = createRouter({
     tapesRoute,
   ]),
   defaultPendingMinMs: 300,
-  defaultPendingMs: Infinity,
+  defaultPendingMs: Number.POSITIVE_INFINITY,
   defaultPendingComponent: () => <Loading />,
   defaultErrorComponent: () => <ErrorComponent />,
   defaultNotFoundComponent: () => <NotFound />,
