@@ -16,7 +16,6 @@
     "verbatimModuleSyntax": true,
     "noEmit": true,
     "paths": { "@/*": ["./src/*"] },
-    "types": ["@types/css-modules"],
     "jsx": "react-jsx"
   },
   "include": ["src"]
