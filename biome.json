@@ -3,16 +3,11 @@
   "files": {
     "ignore": ["dist"]
   },
-  "organizeImports": {
-    "enabled": true
-  },
   "formatter": {
     "indentStyle": "space"
   },
   "linter": {
-    "enabled": true,
     "rules": {
-      "recommended": true,
       "correctness": {
         "noUnusedImports": "error",
         "noUnusedVariables": "error"
