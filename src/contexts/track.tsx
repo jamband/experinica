@@ -1,6 +1,6 @@
-import type { Dispatch, State } from "@/reducers/track";
-import { initialState, reducer } from "@/reducers/track";
 import { createContext, useReducer } from "react";
+import type { Dispatch, State } from "../reducers/track";
+import { initialState, reducer } from "../reducers/track";
 import type { Props } from "./types";
 
 export const StateContext = createContext<State>({} as State);

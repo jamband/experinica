@@ -1,5 +1,5 @@
-import { SectionDivider } from "@/components/section-divider";
 import { Link } from "@tanstack/react-router";
+import { SectionDivider } from "../../components/section-divider";
 import styles from "./styles.module.css";
 import type { _Props } from "./types";
 

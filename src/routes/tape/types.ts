@@ -1,4 +1,4 @@
-import type { Tape } from "@/types/tape";
+import type { Tape } from "../../types/tape";
 
 export type LoaderData = {
   title: string;

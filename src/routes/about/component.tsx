@@ -1,8 +1,8 @@
-import { BackToHome } from "@/components/back-to-home";
-import { SectionDivider } from "@/components/section-divider";
-import { APP_NAME } from "@/constants/app";
-import { IconExternalLink } from "@/icons/external-link";
-import { Page } from "@/layouts/page";
+import { BackToHome } from "../../components/back-to-home";
+import { SectionDivider } from "../../components/section-divider";
+import { APP_NAME } from "../../constants/app";
+import { IconExternalLink } from "../../icons/external-link";
+import { Page } from "../../layouts/page";
 import styles from "./styles.module.css";
 
 export default function Component() {

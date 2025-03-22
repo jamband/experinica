@@ -1,4 +1,4 @@
-import type { State } from "@/reducers/track";
+import type { State } from "../../reducers/track";
 
 export type _Props = {
   isTrackRoute: boolean;

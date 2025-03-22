@@ -1,6 +1,6 @@
-import { DispatchContext, StateContext } from "@/contexts/track";
-import type { State } from "@/reducers/track";
 import { use, useCallback } from "react";
+import { DispatchContext, StateContext } from "../contexts/track";
+import type { State } from "../reducers/track";
 
 export const useTrackState = () => {
   return use(StateContext);

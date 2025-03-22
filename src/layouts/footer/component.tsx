@@ -1,6 +1,6 @@
-import { APP_NAME } from "@/constants/app";
-import { IconX } from "@/icons/x";
 import { Link } from "@tanstack/react-router";
+import { APP_NAME } from "../../constants/app";
+import { IconX } from "../../icons/x";
 import styles from "./styles.module.css";
 import type { _Props } from "./types";
 

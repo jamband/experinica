@@ -1,5 +1,5 @@
-import { layoutRoute } from "@/layouts/layout";
 import { createRoute } from "@tanstack/react-router";
+import { layoutRoute } from "../../layouts/layout";
 import Component from "./component";
 
 export const aboutRoute = createRoute({

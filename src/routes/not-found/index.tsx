@@ -1,6 +1,6 @@
-import { BackToHome } from "@/components/back-to-home";
-import { SectionDivider } from "@/components/section-divider";
-import { Page } from "@/layouts/page";
+import { BackToHome } from "../../components/back-to-home";
+import { SectionDivider } from "../../components/section-divider";
+import { Page } from "../../layouts/page";
 import styles from "./styles.module.css";
 
 export default function NotFound() {

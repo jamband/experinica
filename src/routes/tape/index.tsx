@@ -1,6 +1,6 @@
-import { layoutRoute } from "@/layouts/layout";
-import { extractData, fetchDataNodes } from "@/utils/api";
 import { createRoute } from "@tanstack/react-router";
+import { layoutRoute } from "../../layouts/layout";
+import { extractData, fetchDataNodes } from "../../utils/api";
 import Component from "./component";
 import type { LoaderData } from "./types";
 

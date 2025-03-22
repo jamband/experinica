@@ -1,7 +1,7 @@
-import { Footer } from "@/layouts/footer";
-import { Header } from "@/layouts/header";
-import { Track } from "@/layouts/track";
 import { Outlet, ScrollRestoration } from "@tanstack/react-router";
+import { Footer } from "../footer";
+import { Header } from "../header";
+import { Track } from "../track";
 import styles from "./styles.module.css";
 
 export default function Component() {

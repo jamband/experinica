@@ -1,5 +1,5 @@
-import { useTrackAction, useTrackState } from "@/hooks/track";
 import { useRouterState } from "@tanstack/react-router";
+import { useTrackAction, useTrackState } from "../../hooks/track";
 import { Component } from "./component";
 
 export const Footer: React.FC = () => {

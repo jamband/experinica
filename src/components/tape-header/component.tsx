@@ -1,4 +1,4 @@
-import { IconExternalLink } from "@/icons/external-link";
+import { IconExternalLink } from "../../icons/external-link";
 import styles from "./styles.module.css";
 import type { _Props } from "./types";
 

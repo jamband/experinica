@@ -1,6 +1,6 @@
-import { DispatchContext, StateContext } from "@/contexts/tape";
-import type { State } from "@/reducers/tape";
 import { use, useCallback } from "react";
+import { DispatchContext, StateContext } from "../contexts/tape";
+import type { State } from "../reducers/tape";
 
 export const useTapeState = () => {
   return use(StateContext);

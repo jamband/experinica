@@ -1,8 +1,8 @@
-import { useTapeAction } from "@/hooks/tape";
-import { useTrackAction } from "@/hooks/track";
-import { Page } from "@/layouts/page";
 import { useEffect } from "react";
 import { trackRoute } from ".";
+import { useTapeAction } from "../../hooks/tape";
+import { useTrackAction } from "../../hooks/track";
+import { Page } from "../../layouts/page";
 
 export default function Component() {
   const data = trackRoute.useLoaderData();
