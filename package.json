@@ -6,8 +6,8 @@
     "build": "vite build",
     "preview": "vite preview --open",
     "check": "tsc && biome check .",
-    "clear": "node scripts/clear.mjs",
-    "clean": "node scripts/clean.mjs"
+    "clear": "node scripts/clear.js",
+    "clean": "node scripts/clean.js"
   },
   "dependencies": {
     "@biomejs/biome": "1.9.4",
