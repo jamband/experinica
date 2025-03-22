@@ -7,10 +7,7 @@ import { TrackProvider } from "./contexts/track";
 import { router } from "./utils/router";
 
 const container = document.getElementById("app");
-
-if (container === null) {
-  throw new Error("app element does not exists.");
-}
+if (container === null) throw new Error("#app element does not exists");
 
 createRoot(container).render(
   <StrictMode>
