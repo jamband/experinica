@@ -1,4 +1,4 @@
-import { Outlet, ScrollRestoration } from "@tanstack/react-router";
+import { Outlet } from "@tanstack/react-router";
 import { Footer } from "../footer";
 import { Header } from "../header";
 import { Track } from "../track";
@@ -13,7 +13,6 @@ export default function Component() {
         <Outlet />
       </main>
       <Footer />
-      <ScrollRestoration />
     </>
   );
 }

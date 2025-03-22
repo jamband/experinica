@@ -19,6 +19,7 @@ export const router = createRouter({
     tapeRoute,
     tapesRoute,
   ]),
+  scrollRestoration: true,
   defaultPendingMinMs: 300,
   defaultPendingMs: Number.POSITIVE_INFINITY,
   defaultPendingComponent: () => <Loading />,
