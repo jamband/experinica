@@ -11,15 +11,15 @@
   },
   "dependencies": {
     "@biomejs/biome": "1.9.4",
-    "@tanstack/react-router": "1.114.27",
-    "@types/node": "22.13.11",
+    "@tanstack/react-router": "1.114.29",
+    "@types/node": "22.13.14",
     "@types/react": "19.0.12",
     "@types/react-dom": "19.0.4",
     "@vitejs/plugin-react-swc": "3.8.1",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
     "the-new-css-reset": "1.11.3",
     "typescript": "5.8.2",
-    "vite": "6.2.2"
+    "vite": "6.2.3"
   }
 }
