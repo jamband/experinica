@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "@biomejs/biome": "1.9.4",
-    "@tanstack/react-router": "1.116.0",
-    "@types/node": "22.14.1",
+    "@tanstack/react-router": "1.117.1",
+    "@types/node": "22.15.2",
     "@types/react": "19.1.2",
     "@types/react-dom": "19.1.2",
     "@vitejs/plugin-react-swc": "3.9.0",
@@ -20,6 +20,6 @@
     "react-dom": "19.1.0",
     "the-new-css-reset": "1.11.3",
     "typescript": "5.8.3",
-    "vite": "6.3.2"
+    "vite": "6.3.3"
   }
 }
