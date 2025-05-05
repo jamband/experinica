@@ -21,7 +21,7 @@ export const router = createRouter({
   ]),
   scrollRestoration: true,
   defaultPendingMinMs: 300,
-  defaultPendingMs: Number.POSITIVE_INFINITY,
+  defaultPendingMs: 10,
   defaultPendingComponent: () => <Loading />,
   defaultErrorComponent: () => <ErrorComponent />,
   defaultNotFoundComponent: () => <NotFound />,
