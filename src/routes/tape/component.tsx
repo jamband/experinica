@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { tapeRoute } from ".";
 import { SectionDivider } from "../../components/section-divider";
 import { TapeHeader } from "../../components/tape-header";
 import { useTrackState } from "../../hooks/track";
@@ -8,6 +7,7 @@ import { IconPlay } from "../../icons/play";
 import { Page } from "../../layouts/page";
 import { tapesRoute } from "../tapes";
 import { trackRoute } from "../track";
+import { tapeRoute } from ".";
 import styles from "./styles.module.css";
 
 export default function Component() {

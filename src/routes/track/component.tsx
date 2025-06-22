@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { trackRoute } from ".";
 import { useTapeAction } from "../../hooks/tape";
 import { useTrackAction } from "../../hooks/track";
 import { Page } from "../../layouts/page";
+import { trackRoute } from ".";
 
 export default function Component() {
   const data = trackRoute.useLoaderData();
@@ -18,7 +18,7 @@ export default function Component() {
 
   return (
     <Page title={`${data.tapeTitle} ･ ${data.track.title}`}>
-      {/* biome-ignore lint/complexity/noUselessFragments: <explanation> */}
+      {/* biome-ignore lint/complexity/noUselessFragments: reason */}
       <></>
     </Page>
   );

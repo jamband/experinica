@@ -22,11 +22,11 @@ export const fetchDataNodes = async (path: string) => {
 
 export const extractData = <T>(
   dataNodes: DataNodes,
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  // biome-ignore lint/suspicious/noExplicitAny: reason
   next?: any,
 ) => {
   const current = dataNodes.nodes[1].data;
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  // biome-ignore lint/suspicious/noExplicitAny: reason
   const data: any = [];
 
   for (const [key, index] of Object.entries<number>(next || current[0])) {

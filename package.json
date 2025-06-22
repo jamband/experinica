@@ -5,12 +5,12 @@
     "dev": "vite --open",
     "build": "vite build",
     "preview": "vite preview --open",
-    "check": "tsc && biome check .",
+    "check": "tsc && biome check",
     "clear": "node scripts/clear.js",
     "clean": "node scripts/clean.js"
   },
   "dependencies": {
-    "@biomejs/biome": "1.9.4",
+    "@biomejs/biome": "2.0.4",
     "@tanstack/react-router": "1.120.18",
     "@types/node": "22.15.30",
     "@types/react": "19.1.6",

@@ -1,10 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import { tapesRoute } from ".";
 import { BackToHome } from "../../components/back-to-home";
 import { SectionDivider } from "../../components/section-divider";
 import { TapeHeader } from "../../components/tape-header";
 import { Page } from "../../layouts/page";
 import { tapeRoute } from "../tape";
+import { tapesRoute } from ".";
 import styles from "./styles.module.css";
 
 export default function Component() {
