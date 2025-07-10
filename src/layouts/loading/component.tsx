@@ -2,12 +2,12 @@ import styles from "./styles.module.css";
 
 export const Component: React.FC = () => (
   <div className={styles.container}>
+    {/** biome-ignore lint/a11y/useSemanticElements: reason */}
     <svg
       className={styles.svg}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
-      // biome-ignore lint/a11y/useSemanticElements: reason
       role="status"
     >
       <circle
