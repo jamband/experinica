@@ -1,7 +1,7 @@
 import { BackToHome } from "../../components/back-to-home";
 import { SectionDivider } from "../../components/section-divider";
 import { APP_NAME } from "../../constants/app";
-import { IconExternalLink } from "../../icons/external-link";
+import { IconUpRightFromSquare } from "../../icons/up-right-from-square";
 import { Page } from "../../layouts/page";
 import styles from "./styles.module.css";
 
@@ -19,7 +19,7 @@ export default function Component() {
             rel="noreferrer"
           >
             X
-            <IconExternalLink className={styles.linkIcon} />
+            <IconUpRightFromSquare className={styles.linkIcon} />
           </a>{" "}
           or{" "}
           <a
@@ -29,7 +29,7 @@ export default function Component() {
             rel="noreferrer"
           >
             GitHub
-            <IconExternalLink className={styles.linkIcon} />
+            <IconUpRightFromSquare className={styles.linkIcon} />
           </a>{" "}
           issues. Thank you.
         </p>

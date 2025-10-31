@@ -2,8 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { SectionDivider } from "../../components/section-divider";
 import { TapeHeader } from "../../components/tape-header";
 import { useTrackState } from "../../hooks/track";
-import { IconPause } from "../../icons/pause";
-import { IconPlay } from "../../icons/play";
+import { IconCirclePause } from "../../icons/circle-pause";
+import { IconCirclePlay } from "../../icons/circle-play";
 import { Page } from "../../layouts/page";
 import { tapesRoute } from "../tapes";
 import { trackRoute } from "../track";
@@ -44,9 +44,9 @@ export default function Component() {
             />
             <div className={styles.trackIconStatus}>
               {`${data.tape.path}/${item.slug}` === track.path ? (
-                <IconPause className={styles.trackIcon} />
+                <IconCirclePause className={styles.trackIcon} />
               ) : (
-                <IconPlay className={styles.trackIcon} />
+                <IconCirclePlay className={styles.trackIcon} />
               )}
             </div>
             <div className={styles.trackFooter}>

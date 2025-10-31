@@ -85,19 +85,20 @@
 }
 
 .backToTape {
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .backToTapeLink {
+  box-shadow: 0 1px rgb(var(--gray-200) / 70%);
   color: rgb(var(--gray-200));
-  padding: 0.5rem 1rem;
-  text-decoration-color: rgb(var(--gray-200) / 70%);
+  line-height: 1.4;
 }
 
 @media (any-hover: hover) {
   .backToTapeLink:hover {
+    box-shadow: 0 1px rgb(var(--yellow-500) / 70%);
     color: rgb(var(--yellow-500));
-    text-decoration-color: rgb(var(--yellow-500) / 70%);
   }
 }
 

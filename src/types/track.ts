@@ -9,4 +9,5 @@ export type Track = {
   image_aspect_ratio: `${number}/${number}` | "";
   embed_aspect_ratio: `${number}/${number}` | "";
   path: string;
+  tapeTitle: string;
 };

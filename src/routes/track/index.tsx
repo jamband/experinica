@@ -12,10 +12,10 @@ export const trackRoute = createRoute({
       `/${params.year}/${params.month}/${params.tape}/${params.track}/`,
     );
     const data = extractData<LoaderData>(dataNodes);
+    console.log(data);
     data.track = { ...data.track };
 
     return {
-      tapeTitle: data.tapeTitle,
       track: data.track,
     };
   },

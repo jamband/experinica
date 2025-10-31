@@ -2,7 +2,12 @@ import type { Track } from "../types/track";
 
 export type State = Pick<
   Track,
-  "title" | "provider" | "provider_key" | "embed_aspect_ratio" | "path"
+  | "title"
+  | "provider"
+  | "provider_key"
+  | "embed_aspect_ratio"
+  | "path"
+  | "tapeTitle"
 >;
 
 export const initialState: State = {
@@ -11,6 +16,7 @@ export const initialState: State = {
   provider_key: "",
   embed_aspect_ratio: "",
   path: "",
+  tapeTitle: "",
 };
 
 type SetAction = {

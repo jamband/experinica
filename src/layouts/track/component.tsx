@@ -45,7 +45,8 @@ export const Component: React.FC<_Props> = (props) => (
         }}
         className={styles.backToTape}
       >
-        <span className={styles.backToTapeSymbol}>←</span> {props.tapeTitle}
+        <span className={styles.backToTapeSymbol}>←</span>{" "}
+        {props.track.tapeTitle}
       </Link>
     </div>
   </div>

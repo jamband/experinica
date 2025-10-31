@@ -1,7 +1,7 @@
 import { BackToHome } from "../../components/back-to-home";
 import { SectionDivider } from "../../components/section-divider";
 import { APP_NAME } from "../../constants/app";
-import { IconExternalLink } from "../../icons/external-link";
+import { IconUpRightFromSquare } from "../../icons/up-right-from-square";
 import { Page } from "../../layouts/page";
 import styles from "./styles.module.css";
 
@@ -19,7 +19,7 @@ export default function Component() {
             rel="noreferrer"
           >
             TanStack Router
-            <IconExternalLink className={styles.linkIcon} />
+            <IconUpRightFromSquare className={styles.linkIcon} />
           </a>
           . This website is an open source project. See{" "}
           <a
@@ -29,7 +29,7 @@ export default function Component() {
             rel="noreferrer"
           >
             GitHub: jamband/{APP_NAME.toLowerCase()}
-            <IconExternalLink className={styles.linkIcon} />
+            <IconUpRightFromSquare className={styles.linkIcon} />
           </a>{" "}
           for details.
         </p>
