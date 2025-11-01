@@ -22,14 +22,15 @@
 .link {
   box-shadow: 0 1px rgb(var(--yellow-500) / 70%);
   color: rgb(var(--yellow-500));
+  text-decoration: none;
 }
 
 .linkIcon {
   color: rgb(var(--yellow-500) / 70%);
   height: 1.125rem;
-  width: 1.125rem;
   margin: 0 0 0 0.1rem;
   vertical-align: -0.1rem;
+  width: 1.125rem;
 }
 
 .sectionDivider {
@@ -37,5 +38,5 @@
 }
 
 .backToHome {
-  margin: 2.5rem 0 0 0;
+  margin: 1.5rem 0 0 0;
 }

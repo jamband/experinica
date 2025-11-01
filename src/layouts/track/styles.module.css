@@ -55,27 +55,28 @@
 .footer {
   display: flex;
   justify-content: center;
-  text-align: center;
+  margin: 2.5rem 0 0;
 }
 
 .backToTape {
-  box-shadow: 0 1px rgb(var(--gray-200) / 70%);
+  border-radius: var(--rounded);
   color: rgb(var(--gray-200));
-  line-height: 1.4;
-  margin: 2.5rem 0 0 0;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration-color: rgb(var(--gray-200) / 70%);
 }
 
 @media (any-hover: hover) {
   .backToTape:hover {
-    box-shadow: 0 1px rgb(var(--yellow-500) / 70%);
     color: rgb(var(--yellow-500));
+    text-decoration-color: rgb(var(--yellow-500) / 70%);
   }
 }
 
 .backToTape:active,
 .backToTape:focus-visible {
-  box-shadow: 0 1px rgb(var(--yellow-500) / 70%);
   color: rgb(var(--yellow-500));
+  text-decoration-color: rgb(var(--yellow-500) / 70%);
 }
 
 .backToTapeSymbol {

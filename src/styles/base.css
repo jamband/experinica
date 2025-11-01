@@ -27,6 +27,12 @@ h2 {
   line-height: 1.2;
 }
 
+a {
+  text-decoration: underline;
+  text-decoration-thickness: 0.05rem;
+  text-underline-offset: 0.25rem;
+}
+
 button {
   cursor: pointer;
 }

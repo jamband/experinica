@@ -9,6 +9,7 @@
 
 .link {
   box-shadow: 0 1px rgb(var(--gray-400) / 70%);
+  text-decoration: none;
 }
 
 @media (any-hover: hover) {

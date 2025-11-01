@@ -87,19 +87,28 @@
 .backToTape {
   display: flex;
   justify-content: center;
+  margin: -1rem 0 0;
 }
 
 .backToTapeLink {
-  box-shadow: 0 1px rgb(var(--gray-200) / 70%);
+  border-radius: var(--rounded);
   color: rgb(var(--gray-200));
-  line-height: 1.4;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration-color: rgb(var(--gray-400));
 }
 
 @media (any-hover: hover) {
   .backToTapeLink:hover {
-    box-shadow: 0 1px rgb(var(--yellow-500) / 70%);
     color: rgb(var(--yellow-500));
+    text-decoration-color: rgb(var(--yellow-500) / 70%);
   }
+}
+
+.backToTapeLink:active,
+.backToTapeLink:focus-visible {
+  color: rgb(var(--yellow-500));
+  text-decoration-color: rgb(var(--yellow-500) / 70%);
 }
 
 .backToTapeLinkSymbol {
@@ -113,6 +122,7 @@
   }
 }
 
-.backToTapeLink:active .backToTapeLinkSymbol {
+.backToTapeLink:active .backToTapeLinkSymbol,
+.backToTapeLink:focus-visible .backToTapeLinkSymbol {
   color: rgb(var(--yellow-500) / 70%);
 }
