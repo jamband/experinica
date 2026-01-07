@@ -9,7 +9,7 @@
   gap: 1.5rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .main {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -49,7 +49,7 @@
   width: 3rem;
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .trackIcon {
     height: 3.5rem;
     width: 3.5rem;

@@ -4,14 +4,14 @@
   width: 100%;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .main {
-    width: 768px;
+    width: 48rem;
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .main {
-    width: 1024px;
+    width: 64rem;
   }
 }
