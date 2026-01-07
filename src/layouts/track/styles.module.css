@@ -11,6 +11,12 @@
   grid-column: span 12 / span 12;
 }
 
+@media (width >= 40rem) {
+  .embedContainerInnerAspect1x1 {
+    padding: 0 1rem;
+  }
+}
+
 @media (width >= 48rem) {
   .embedContainerInnerAspect1x1 {
     grid-column: 3 / span 8;
