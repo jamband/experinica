@@ -2,14 +2,14 @@
   display: grid;
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .container {
     gap: 1rem;
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .containerInner {
     grid-column: 2 / span 4;
   }
