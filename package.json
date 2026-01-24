@@ -10,10 +10,10 @@
     "clean": "node scripts/clean.js"
   },
   "dependencies": {
-    "@biomejs/biome": "2.3.11",
-    "@tanstack/react-router": "1.147.3",
-    "@types/node": "22.19.5",
-    "@types/react": "19.2.8",
+    "@biomejs/biome": "2.3.12",
+    "@tanstack/react-router": "1.157.1",
+    "@types/node": "22.19.7",
+    "@types/react": "19.2.9",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react-swc": "4.2.2",
     "react": "19.2.3",
