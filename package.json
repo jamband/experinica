@@ -10,16 +10,16 @@
     "clean": "node scripts/clean.js"
   },
   "dependencies": {
-    "@biomejs/biome": "2.4.4",
-    "@tanstack/react-router": "1.162.2",
-    "@types/node": "22.19.11",
+    "@biomejs/biome": "2.4.8",
+    "@tanstack/react-router": "1.167.5",
+    "@types/node": "22.19.15",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
-    "@vitejs/plugin-react-swc": "4.2.3",
+    "@vitejs/plugin-react": "6.0.1",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "the-new-css-reset": "1.11.3",
     "typescript": "5.9.3",
-    "vite": "7.3.1"
+    "vite": "8.0.1"
   }
 }
