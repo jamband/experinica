@@ -32,8 +32,7 @@
     }
   }
 
-  &:active,
-  &:focus-visible {
+  &:is(:active, :focus-visible) {
     background: rgb(var(--yellow-500));
     color: rgb(var(--gray-900));
   }
@@ -49,8 +48,7 @@
     }
   }
 
-  .link:active &,
-  .link:focus-visible & {
+  .link:is(:active, :focus-visible) & {
     color: rgb(var(--gray-600));
   }
 }

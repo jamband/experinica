@@ -18,8 +18,7 @@
     }
   }
 
-  &:active,
-  &:focus-visible {
+  &:is(:active, :focus-visible) {
     box-shadow: 0 1px rgb(var(--yellow-500) / 70%);
     color: rgb(var(--yellow-500));
   }
@@ -38,8 +37,7 @@
     }
   }
 
-  .link:active &,
-  .link:focus-visible & {
+  .link:is(:active, :focus-visible) & {
     color: rgb(var(--yellow-500) / 70%);
   }
 }

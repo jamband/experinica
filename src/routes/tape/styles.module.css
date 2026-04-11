@@ -100,8 +100,7 @@
     }
   }
 
-  &:active,
-  &:focus-visible {
+  &:is(:active, :focus-visible) {
     color: rgb(var(--yellow-500));
     text-decoration-color: rgb(var(--yellow-500) / 70%);
   }
@@ -117,8 +116,7 @@
     }
   }
 
-  .backToTapeLink:active &,
-  .backToTapeLink:focus-visible & {
+  .backToTapeLink:is(:active, :focus-visible) & {
     color: rgb(var(--yellow-500) / 70%);
   }
 }
