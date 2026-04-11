@@ -11,20 +11,18 @@
   grid-column: span 12 / span 12;
 }
 
-@media (width >= 40rem) {
-  .embedContainerInnerAspect1x1 {
+.embedContainerInnerAspect1x1 {
+  @media (width >= 40rem) {
     padding: 0 1rem;
   }
-}
 
-@media (width >= 48rem) {
-  .embedContainerInnerAspect1x1 {
+  @media (width >= 48rem) {
     grid-column: 3 / span 8;
   }
 }
 
-@media (width >= 48rem) {
-  .embedContainerInnerAspect4x3 {
+.embedContainerInnerAspect4x3 {
+  @media (width >= 48rem) {
     grid-column: 2 / span 10;
   }
 }
@@ -70,32 +68,32 @@
   padding: 0.5rem 1rem;
   text-align: center;
   text-decoration-color: rgb(var(--gray-200) / 70%);
-}
 
-@media (any-hover: hover) {
-  .backToTape:hover {
+  @media (any-hover: hover) {
+    &:hover {
+      color: rgb(var(--yellow-500));
+      text-decoration-color: rgb(var(--yellow-500) / 70%);
+    }
+  }
+
+  &:active,
+  &:focus-visible {
     color: rgb(var(--yellow-500));
     text-decoration-color: rgb(var(--yellow-500) / 70%);
   }
 }
 
-.backToTape:active,
-.backToTape:focus-visible {
-  color: rgb(var(--yellow-500));
-  text-decoration-color: rgb(var(--yellow-500) / 70%);
-}
-
 .backToTapeSymbol {
   color: rgb(var(--gray-200) / 70%);
-}
 
-@media (any-hover: hover) {
-  .backToTape:hover .backToTapeSymbol {
+  @media (any-hover: hover) {
+    .backToTape:hover & {
+      color: rgb(var(--yellow-500) / 70%);
+    }
+  }
+
+  .backToTape:active &,
+  .backToTape:focus-visible & {
     color: rgb(var(--yellow-500) / 70%);
   }
-}
-
-.backToTape:active .backToTapeSymbol,
-.backToTape:focus-visible .backToTapeSymbol {
-  color: rgb(var(--yellow-500) / 70%);
 }

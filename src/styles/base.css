@@ -1,6 +1,4 @@
 html {
-  font-size: var(--text-base);
-  line-height: 1.6;
   scrollbar-gutter: stable;
   -webkit-text-size-adjust: 100%;
 }
@@ -10,7 +8,7 @@ body {
   color: rgb(var(--gray-400));
   font-family: system-ui, Arial, sans-serif;
   font-size: var(--text-base);
-  line-height: inherit;
+  line-height: 1.6;
 }
 
 h1 {
@@ -44,4 +42,8 @@ img {
 iframe {
   border: none;
   vertical-align: middle;
+}
+
+:focus {
+  outline: revert;
 }

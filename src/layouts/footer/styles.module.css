@@ -10,10 +10,8 @@
   display: flex;
   justify-content: center;
   padding: 0.75rem 0;
-}
 
-@media (width >= 48rem) {
-  .title {
+  @media (width >= 48rem) {
     margin: 0 auto;
     width: 48rem;
   }
@@ -35,23 +33,23 @@
   border-radius: var(--rounded);
   margin: 0 0.5rem 0 0;
   padding: 0.25rem 0.5rem;
-}
 
-@media (any-hover: hover) {
-  .titleButton:hover {
+  @media (any-hover: hover) {
+    &:hover {
+      background: rgb(var(--gray-600));
+      color: rgb(var(--gray-100));
+    }
+  }
+
+  &:active {
+    background: rgb(var(--gray-600));
+    color: rgb(var(--yellow-500));
+  }
+
+  &:focus-visible {
     background: rgb(var(--gray-600));
     color: rgb(var(--gray-100));
   }
-}
-
-.titleButton:focus-visible {
-  background: rgb(var(--gray-600));
-  color: rgb(var(--gray-100));
-}
-
-.titleButton:active {
-  background: rgb(var(--gray-600));
-  color: rgb(var(--yellow-500));
 }
 
 .titleButtonIcon {
@@ -65,10 +63,8 @@
   font-size: var(--text-sm);
   margin: 0.75rem auto;
   width: 100%;
-}
 
-@media (width >= 48rem) {
-  .nav {
+  @media (width >= 48rem) {
     width: 48rem;
   }
 }
@@ -77,10 +73,8 @@
   display: flex;
   gap: 0.5rem;
   justify-content: center;
-}
 
-@media (width >= 48rem) {
-  .links {
+  @media (width >= 48rem) {
     gap: 2.5rem;
   }
 }
@@ -90,17 +84,17 @@
   color: rgb(var(--gray-400));
   padding: 0.25rem 1rem;
   text-decoration: none;
-}
 
-@media (any-hover: hover) {
-  .link:hover {
+  @media (any-hover: hover) {
+    &:hover {
+      background: rgb(var(--gray-600));
+      color: rgb(var(--gray-100));
+    }
+  }
+
+  &:active,
+  &:focus-visible {
     background: rgb(var(--gray-600));
     color: rgb(var(--gray-100));
   }
-}
-
-.link:active,
-.link:focus-visible {
-  background: rgb(var(--gray-600));
-  color: rgb(var(--gray-100));
 }

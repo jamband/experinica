@@ -31,36 +31,36 @@
   font-size: var(--text-2xl);
   font-weight: 700;
   line-height: 1.3;
-}
 
-@media (any-hover: hover) {
-  .title:hover {
+  @media (any-hover: hover) {
+    &:hover {
+      border-bottom: 2px solid rgb(var(--yellow-500) / 70%);
+      color: rgb(var(--yellow-500));
+    }
+  }
+
+  &:active,
+  &:focus-visible {
     border-bottom: 2px solid rgb(var(--yellow-500) / 70%);
     color: rgb(var(--yellow-500));
   }
-}
-
-.title:active,
-.title:focus-visible {
-  border-bottom: 2px solid rgb(var(--yellow-500) / 70%);
-  color: rgb(var(--yellow-500));
 }
 
 .titleSymbol {
   color: rgb(var(--gray-100) / 70%);
   font-size: var(--text-base);
   margin: 0 0 0 0.5rem;
-}
 
-@media (any-hover: hover) {
-  .title:hover .titleSymbol {
+  @media (any-hover: hover) {
+    .title:hover & {
+      color: rgb(var(--yellow-500) / 70%);
+    }
+  }
+
+  .title:active &,
+  .title:focus-visible & {
     color: rgb(var(--yellow-500) / 70%);
   }
-}
-
-.title:active .titleSymbol,
-.title:focus-visible .titleSymbol {
-  color: rgb(var(--yellow-500) / 70%);
 }
 
 .date {

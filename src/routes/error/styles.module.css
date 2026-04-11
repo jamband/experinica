@@ -20,14 +20,14 @@
 .link {
   display: inline-block;
   margin: 2.5rem 0 0 0;
-}
 
-@media (any-hover: hover) {
-  .link:hover {
+  @media (any-hover: hover) {
+    &:hover {
+      color: rgb(var(--yellow-500));
+    }
+  }
+
+  &:active {
     color: rgb(var(--yellow-500));
   }
-}
-
-.link:active {
-  color: rgb(var(--yellow-500));
 }

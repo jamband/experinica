@@ -2,16 +2,12 @@
   margin: 0 auto;
   padding: 7rem 1rem 8rem;
   width: 100%;
-}
 
-@media (width >= 48rem) {
-  .main {
+  @media (width >= 48rem) {
     width: 48rem;
   }
-}
 
-@media (width >= 64rem) {
-  .main {
+  @media (width >= 64rem) {
     width: 64rem;
   }
 }
